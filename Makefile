@@ -30,8 +30,11 @@ $(MLX):
 	$(CC) $(CFLAGS) -I$(MLX_DIR) -c $< -o $@
 
 clean:
-	rm -f $(OBJ) $(EXEC)
+	rm -f $(OBJ)
 
-re: clean all
+fclean: clean
+	rm -f $(EXEC)
 
-.PHONY: all clean re
+re: fclean all
+
+.PHONY: all clean fclean re
