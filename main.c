@@ -11,6 +11,8 @@ int main (void)
 	void *mlx = mlx_init();
 	void *window = mlx_new_window(mlx, 500, 500, "test");
 
+	printf("floating point: %.40lf\n", 4 / 3.0);
+
 	mlx_pixel_put(mlx, window, 500/2, 500/2, 0xFFFFFF);
 
 	drawGrid(mlx, window, 500, 500, 0xFFFFFF);
