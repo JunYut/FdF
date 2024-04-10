@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "mlx.h"
 
-void drawLine(void *mlx, void *win, int start_x, int start_y, int end_x, int end_y, int color);
+void drawGrid(void *mlx, void *win, int x, int y, int color);
 int	key_hook(int keycode);
 int quit();
 
@@ -13,6 +13,8 @@ int main (void)
 
 	mlx_pixel_put(mlx, window, 500/2, 500/2, 0xFFFFFF);
 
+	drawGrid(mlx, window, 500, 500, 0xFFFFFF);
+
 	mlx_key_hook(window, key_hook, &mlx);
 	mlx_hook(window, 17, 0, quit, mlx);
 	mlx_loop(mlx);
@@ -20,10 +22,14 @@ int main (void)
 	return (0);
 }
 
-void drawLine(void *mlx, void *win, int start_x, int start_y, int end_x, int end_y, int color)
+void drawGrid(void *mlx, void *win, int x, int y, int color)
 {
-	
+	for (int i = 0; i <= x; i += 1)
+		for (int j = 0; j <= y; j += 1)
+			if (i % 25 == 0 || j % 25 == 0)
+				mlx_pixel_put(mlx, win, i, j, color);
 }
+
 
 int key_hook(int keycode)
 {
