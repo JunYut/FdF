@@ -1,38 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FdF.h                                              :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 09:19:41 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/15 15:35:24 by tjun-yu          ###   ########.fr       */
+/*   Created: 2024/04/15 13:20:08 by tjun-yu           #+#    #+#             */
+/*   Updated: 2024/04/15 13:20:16 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
-
-# include <unistd.h>
-# include <fcntl.h>
-# include <stdlib.h>
-# include <math.h>
-# include "c_libft.h"
-# include "mlx.h"
-# include "line.h"
-
-typedef struct s_line	t_line;
-
-typedef struct s_map
-{
-    int		**map;
-    int		width;
-    int		height;
-    int		z_min;
-    int		z_max;
-    int		z_range;
-}	t_map;
-
-int	validation(int argc, char *argv[]);
-
-#endif
+#include "FdF.h"
