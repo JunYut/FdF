@@ -12,9 +12,9 @@ int main (void)
 	void *mlx = mlx_init();
 	void *window = mlx_new_window(mlx, 500, 500, "test");
 
-	drawGrid(mlx, window, 500, 500, 0xFFFFFF);
+	// drawGrid(mlx, window, 500, 500, 0xFFFFFF);
 
-	drawLine(mlx, window, 0, 0, 100, 200, 0xFF0000);
+	drawLine(mlx, window, 200, 100, 300, 200, 0xFF0000);
 
 	mlx_key_hook(window, key_hook, &mlx);
 	mlx_hook(window, 17, 0, quit, mlx);
