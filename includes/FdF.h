@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:19:41 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/16 08:25:01 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/04/16 08:51:16 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,15 @@ typedef struct s_line	t_line;
 
 typedef struct s_map
 {
-    int		**map;
-    int		width;
-    int		height;
-    int		z_min;
-    int		z_max;
-    int		z_range;
+	int		**map;
+	int		width;
+	int		height;
+	int		z_min;
+	int		z_max;
+	int		z_range;
 }	t_map;
 
-int	validation(int argc, char *file);
+int		validation(int argc, char *file);
+t_map	*parse_map(int fd);
 
 #endif
