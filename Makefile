@@ -32,7 +32,7 @@ $(LIBFT):
 	make -C $(LIBFT_DIR)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -I$(MLX_DIR) -c $< -o $@
+	$(CC) $(CFLAGS) -I$(MLX_DIR) -I$(LIBFT_DIR) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
