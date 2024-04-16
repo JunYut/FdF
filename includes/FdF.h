@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:19:41 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/16 08:51:16 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/04/16 08:56:09 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include "mlx.h"
 # include "line.h"
 
+typedef struct s_parser	t_parser;
 typedef struct s_line	t_line;
 
 typedef struct s_map

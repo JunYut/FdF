@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 13:20:08 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/16 09:00:09 by tjun-yu          ###   ########.fr       */
+/*   Created: 2024/04/16 08:55:17 by tjun-yu           #+#    #+#             */
+/*   Updated: 2024/04/16 09:00:00 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FdF.h"
+#ifndef PARSER_H
+# define PARSER_H
 
-t_map	*parse_map(int fd)
+# include "FdF.h"
+
+typedef struct s_parser
 {
-	char 	*str;
+	char	*str;
 	char	**points;
-	t_map	*map;
+}	t_parser;
 
-	map = (t_map *)malloc(sizeof(t_map));
-	get_next_line
-}
+#endif
