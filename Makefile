@@ -22,7 +22,7 @@ EXEC = main
 # Rules and Recipes
 all: $(EXEC)
 
-$(EXEC): $(MLX) $(OBJ)
+$(EXEC): $(MLX) $(LIBFT) $(OBJ)
 	$(CC) $(OBJ) -L$(MLX_DIR) -L$(LIBFT_DIR) -lmlx -lft -framework OpenGL -framework AppKit -o $(EXEC)
 
 $(MLX):
