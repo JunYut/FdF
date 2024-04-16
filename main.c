@@ -17,5 +17,6 @@ int main (void)
 	}
 
 	ft_lstclear(&list, NULL);
+
 	return (0);
 }
