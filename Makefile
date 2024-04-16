@@ -4,6 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -pedantic -g
 
 # Directories
 MLX_DIR = minilibx_macos
+LIBFT_DIR = libft
 
 # Source files
 SRC = $(wildcard *.c)
@@ -11,8 +12,9 @@ SRC = $(wildcard *.c)
 # Object files
 OBJ = $(SRC:.c=.o)
 
-# MinilibX
+# Libraries
 MLX = libmlx.a
+LIBFT = libft.a
 
 # Executable
 EXEC = main
@@ -21,10 +23,13 @@ EXEC = main
 all: $(EXEC)
 
 $(EXEC): $(MLX) $(OBJ)
-	$(CC) $(OBJ) -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit -o $(EXEC)
+	$(CC) $(OBJ) -L$(MLX_DIR) -L$(LIBFT_DIR) -lmlx -lft -framework OpenGL -framework AppKit -o $(EXEC)
 
 $(MLX):
 	make -C $(MLX_DIR)
+
+$(LIBFT):
+	make -C $(LIBFT_DIR)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -I$(MLX_DIR) -c $< -o $@
