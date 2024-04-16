@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:19:41 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/16 10:54:52 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/04/16 14:12:34 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <math.h>
+
 # include "c_libft.h"
 # include "mlx.h"
+# include "utils.h"
 # include "memory.h"
 # include "parser.h"
 # include "line.h"

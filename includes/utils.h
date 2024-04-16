@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 08:55:17 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/16 12:48:34 by tjun-yu          ###   ########.fr       */
+/*   Created: 2024/04/16 14:11:12 by tjun-yu           #+#    #+#             */
+/*   Updated: 2024/04/16 14:13:20 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_H
-# define PARSER_H
+#ifndef UTILS_H
+# define UTILS_H
 
 # include "FdF.h"
 
-typedef struct s_parser
-{
-	char	*str;
-	char	**split;
-	int		columns;
-	t_list	*list;
-}	t_parser;
+int	count_words(char **words);
 
 #endif
