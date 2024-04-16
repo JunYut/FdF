@@ -9,4 +9,4 @@
 ## 2. Parsing
 ### 2.1 Use `get_next_line()` to read from the `fd` returned from `validation()`
 ### 2.2 Use `ft_split()` to seperate each point's values
-### 2.3 Convert and store the values in a 2D int array
+### 2.3 Convert and store the values in a `linked list`
