@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 13:20:08 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/16 09:47:37 by tjun-yu          ###   ########.fr       */
+/*   Created: 2024/04/16 09:45:26 by tjun-yu           #+#    #+#             */
+/*   Updated: 2024/04/16 09:50:03 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FdF.h"
 
-t_map	*parse_map(int fd)
+void	free_split(char **split)
 {
-	char 	*str;
-	char	**split;
-	t_map	*map;
+	int	i;
 
-	map = (t_map *)malloc(sizeof(t_map));
-	str = get_next_line(fd);
-	while (str)
+	i = -1;
+	while (split[++i])
+		c_free(split[i]);
+	c_free(split);
+}
+
+void	c_free(void *ptr)
+{
+	if (ptr)
 	{
-		split = ft_split(str, ' ');
-		c_free(str);
-		str = get_next_line(fd);
+		free(ptr);
+		ptr = NULL;
 	}
 }

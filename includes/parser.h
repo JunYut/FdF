@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 08:55:17 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/16 09:00:00 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/04/16 09:47:37 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 typedef struct s_parser
 {
 	char	*str;
-	char	**points;
+	char	**split;
 }	t_parser;
 
 #endif
