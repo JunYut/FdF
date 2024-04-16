@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:19:41 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/15 15:35:24 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/04/16 08:25:01 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ typedef struct s_map
     int		z_range;
 }	t_map;
 
-int	validation(int argc, char *argv[]);
+int	validation(int argc, char *file);
 
 #endif

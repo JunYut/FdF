@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:19:49 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/15 11:11:03 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/04/16 08:26:55 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ static int	valid_file(char *filename);
 /**
  * @brief Check if the argument count is correct and if file is valid
  * @param argc argument count
- * @param argv argument vector
+ * @param file argv[1]
  * @return a valid file's file descriptor
 */
-int	validation(int argc, char *argv[])
+int	validation(int argc, char *file)
 {
 	int	fd;
 
@@ -29,7 +29,7 @@ int	validation(int argc, char *argv[])
 		ft_putstr_fd("Error: wrong argument count\n", 2);
 		exit(1);
 	}
-	fd = valid_file(argv[1]);
+	fd = valid_file(file);
 	if (fd == -1)
 	{
 		exit(1);
