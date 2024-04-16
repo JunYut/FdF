@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:19:41 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/16 09:46:58 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/04/16 10:54:52 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <math.h>
 # include "c_libft.h"
 # include "mlx.h"
+# include "memory.h"
+# include "parser.h"
 # include "line.h"
 
 typedef struct s_parser	t_parser;
@@ -36,8 +38,5 @@ typedef struct s_map
 
 int		validation(int argc, char *file);
 t_map	*parse_map(int fd);
-
-void	free_split(char **split);
-void	c_free(void *ptr);
 
 #endif
