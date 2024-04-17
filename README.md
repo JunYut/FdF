@@ -14,6 +14,7 @@
 ## **3. Map validation**
 ### 3.1 Check the if the `columns` of each line is the same
 ### 3.2 Validate the `value`'s formatting
-3.2.1 *Check if the `first character` of each `value` is a `numeric` or a `-`*\
-3.2.2 *Check if there are more than `1` commas in each `value`*\
-3.2.3 *If there is only `1` comma, check if the next consecutive `2` characters are `0x`*
+3.2.1 *Check if there are other characters other than `alphanumeric`, `-` & `,`*\
+3.2.2 *Check if the `first character` of each `value` is a `numeric` or a `-`*\
+3.2.3 *Check if there are more than `1` commas in each `value`*\
+3.2.4 *If there is only `1` comma, check if the next consecutive `2` characters are `0x`: `,0x`*

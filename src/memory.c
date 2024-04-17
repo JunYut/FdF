@@ -6,11 +6,25 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:45:26 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/16 11:03:07 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/04/17 14:29:32 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FdF.h"
+
+void	free_line(void *line_void)
+{
+	t_line	*line;
+
+	line = (t_line *)line_void;
+	if (line->str)
+		c_free(line->str);
+	if (line->split_nl)
+		free_split(line->split_nl);
+	if (line->split_space)
+		free_split(line->split_space);
+	c_free(line);
+}
 
 void	free_split(char **split)
 {

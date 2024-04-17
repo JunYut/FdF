@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:19:49 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/17 12:35:12 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/04/17 14:15:11 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	valid_map(t_list *map)
 	{
 		if (tmp->columns != columns)
 		{
-			ft_putstr_fd("Error: wrong map\n", 2);
-			// free map
+			ft_putstr_fd("Error: wrong columns\n", 2);
+			ft_lstclear(&map, free_line);
 			exit(1);
 		}
 		current = current->next;
