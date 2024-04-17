@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 10:06:00 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/17 10:08:01 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/04/17 12:29:04 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 # include "FdF.h"
 
-void	valid_file(char *file);
+int	valid_file(char *file);
 
 #endif

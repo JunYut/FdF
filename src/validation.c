@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:19:49 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/17 10:12:09 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/04/17 12:35:12 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,25 @@
 
 void	valid_map(t_list *map)
 {
-	
+	t_list	*current;
+	t_line	*tmp;
+	int		columns;
+
+	current = map;
+	tmp = (t_line *)(map->content);
+	columns = tmp->columns;
+	while (current)
+	{
+		if (tmp->columns != columns)
+		{
+			ft_putstr_fd("Error: wrong map\n", 2);
+			// free map
+			exit(1);
+		}
+		current = current->next;
+		if (current)
+			tmp = (t_line *)(current->content);
+	}
 }
 
 /**
@@ -48,13 +66,13 @@ int	valid_file(char *filename)
 	len = ft_strlen(filename);
 	if (len < 5 || ft_strncmp(&filename[len - 4], ".fdf", 4))
 	{
-		ft_putstr_fd("Error: wrong file extension\n", 2);
+		ft_putstr_fd("Usage: ./FdF <file.fdf>\n", 2);
 		return (-1);
 	}
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 	{
-		ft_putstr_fd("Error: failed to open file\n", 2);
+		perror("Error");
 		return (-1);
 	}
 	return (fd);
