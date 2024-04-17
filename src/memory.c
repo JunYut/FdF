@@ -6,12 +6,13 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:45:26 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/17 14:29:32 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/04/17 15:30:48 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FdF.h"
 
+// Used with ft_lstclear
 void	free_line(void *line_void)
 {
 	t_line	*line;
