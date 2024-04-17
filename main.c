@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:12:52 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/17 13:15:18 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/04/17 13:49:30 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ int	main(int argc, char *argv[])
 
 	fd = valid_arg(argc, argv[1]);
 	map = parse_map(fd);
-	// valid_map(map);
-	
-	// Debug
+	valid_map(map);
 
+	// Debug
 	int i = 1;
 	t_list	*current = map;
 	while (current)
@@ -31,10 +30,10 @@ int	main(int argc, char *argv[])
 		ft_printf("words[%d]: %d\n", i++, line->columns);
 		for (int i = 0; i < line->columns; i++)
 		{
-			ft_printf("[%s]", line->split[i]);
+			ft_printf("[%s]", line->split_space[i]);
 			ft_putstr_fd(" ", 1);
 		}
-		ft_putstr_fd("\n", 1);
+		ft_putstr_fd("\n\n", 1);
 		current = current->next;
 	}
 
