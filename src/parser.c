@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:20:08 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/17 10:01:32 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/04/17 10:22:39 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_list	*parse_map(int fd)
 	lines = ft_lstnew(parse_line(line));
 	while (line)
 	{
+		free(line);
 		line = get_next_line(fd);
 		if (!line)
 			break ;
