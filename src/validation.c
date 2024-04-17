@@ -6,21 +6,24 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:19:49 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/16 08:26:55 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/04/17 10:12:09 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FdF.h"
 
-static int	valid_file(char *filename);
+void	valid_map(t_list *map)
+{
+	
+}
 
 /**
  * @brief Check if the argument count is correct and if file is valid
  * @param argc argument count
  * @param file argv[1]
- * @return a valid file's file descriptor
+ * @return The valid file's file descriptor
 */
-int	validation(int argc, char *file)
+int	valid_arg(int argc, char *file)
 {
 	int	fd;
 
@@ -37,7 +40,7 @@ int	validation(int argc, char *file)
 	return (fd);
 }
 
-static int	valid_file(char *filename)
+int	valid_file(char *filename)
 {
 	int	len;
 	int	fd;

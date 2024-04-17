@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   point.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 09:12:52 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/17 10:08:18 by tjun-yu          ###   ########.fr       */
+/*   Created: 2024/04/17 09:09:15 by tjun-yu           #+#    #+#             */
+/*   Updated: 2024/04/17 09:09:29 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FdF.h"
+#ifndef POINT_H
+# define POINT_H
 
-int	main(int argc, char *argv[])
+# include "FdF.h"
+
+typedef struct s_point
 {
-	t_map	*map;
-	int		fd;
+	int		x;
+	int		y;
+	int		z;
+	int		color;
+}	t_point;
 
-	fd = valid_arg(argc, argv[1]);
-	map = parse_map(fd);
-}
+#endif

@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   line.h                                             :+:      :+:    :+:   */
+/*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 09:22:30 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/15 10:44:15 by tjun-yu          ###   ########.fr       */
+/*   Created: 2024/04/17 09:07:38 by tjun-yu           #+#    #+#             */
+/*   Updated: 2024/04/17 09:07:58 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LINE_H
-# define LINE_H
+#ifndef MAP_H
+# define MAP_H
 
 # include "FdF.h"
 
-typedef struct s_line
+typedef struct s_map
 {
-	int	x0;
-	int	y0;
-	int	x1;
-	int	y1;
-	int	dx;
-	int	dy;
-
-}	t_line;
+	int		***map;
+	int		width;
+	int		height;
+	int		z_min;
+	int		z_max;
+}	t_map;
 
 #endif

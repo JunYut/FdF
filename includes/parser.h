@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 08:55:17 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/16 15:12:31 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/04/17 09:38:24 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 
 # include "FdF.h"
 
-typedef struct s_parser
+typedef struct s_line
 {
 	char	*str;
 	char	**split;
 	int		columns;
-	t_list	*list;
-}	t_parser;
+}	t_line;
+
+t_line	*parse_line(char *line);
 
 #endif

@@ -6,38 +6,42 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:20:08 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/16 15:24:49 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/04/17 10:01:32 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FdF.h"
 
-t_map	*parse_map(int fd)
+t_list	*parse_map(int fd)
 {
-	t_map		*map;
-	t_parser	parser;
-	t_list		*current;
-	int			i;
+	t_list	*lines;
+	char	*line;
 
-	map = (t_map *)c_malloc(sizeof(t_map));
-	parser.list = ft_lstnew(0);
-	current = parser.list;
-	parser.str = get_next_line(fd);
-	while (parser.str)
+	line = get_next_line(fd);
+	if (!line)
+		return (NULL);
+	lines = ft_lstnew(parse_line(line));
+	while (line)
 	{
-		parser.split = ft_split(parser.str, ' ');
-		parser.columns = count_words(parser.split);
-		current = (int *)c_malloc(sizeof(int) * parser.columns);
-
-		i = -1;
-		while (parser.split[++i])
-			((int *)current)[i] = ft_atoi(parser.split[i]);
-		ft_lstadd_back(&parser.list, ft_lstnew(0));
-		current = current->next;
-
-		free_split(parser.split);
-		c_free(parser.str);
-		parser.str = get_next_line(fd);
+		line = get_next_line(fd);
+		if (!line)
+			break ;
+		ft_lstadd_back(&lines, ft_lstnew(parse_line(line)));
 	}
-	return (map);
+	return (lines);
+}
+
+t_line	*parse_line(char *line)
+{
+	t_line		*row;
+
+	if (!line)
+		return (NULL);
+	row = (t_line *)c_malloc(sizeof(t_line));
+	row->str = ft_strdup(line);
+	row->split = ft_split(row->str, ' ');
+	row->columns = 0;
+	while (row->split[row->columns])
+		row->columns++;
+	return (row);
 }
