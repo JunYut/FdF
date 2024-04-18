@@ -1,3 +1,9 @@
+# **Pseudocode**
+1. Parse `.fdf` file
+2. Initialize datas
+3. \*MinilibX magic\*
+4. Profit ???
+
 # **Prototype**
 
 ## **1. Input validation**
@@ -19,3 +25,5 @@
 3.2.3 *Check if there are more than `1` commas in each `value`*\
 3.2.4 *If there is only `1` comma, check if there is only `numeric` before it*\
 3.2.5 *Then, check if the next consecutive `2` characters are `0x`: `,0x`*
+
+## **4. **
