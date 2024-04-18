@@ -23,7 +23,7 @@ EXEC = main
 all: $(EXEC)
 
 $(EXEC): $(MLX) $(LIBFT) $(OBJ)
-	$(CC) $(OBJ) -L$(MLX_DIR) -L$(LIBFT_DIR) -lmlx -lft -o $(EXEC)
+	$(CC) $(OBJ) -L$(MLX_DIR) -L$(LIBFT_DIR) -lmlx -lft -lX11 -o $(EXEC)
 
 $(MLX):
 	make -C $(MLX_DIR)
