@@ -5,12 +5,14 @@ CFLAGS = -Wall -Wextra -Werror -pedantic -g
 # Directories
 MLX_DIR = minilibx-linux
 LIBFT_DIR = libft
+INCL_DIR = includes
+OBJ_DIR = obj
 
 # Source files
 SRC = $(wildcard *.c)
 
 # Object files
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 # Libraries
 MLX = libmlx.a
@@ -31,8 +33,9 @@ $(MLX):
 $(LIBFT):
 	make -C $(LIBFT_DIR)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -I$(MLX_DIR) -I$(LIBFT_DIR) -c $< -o $@
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS) -I$(INCL_DIR) -I$(MLX_DIR) -I$(LIBFT_DIR) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
