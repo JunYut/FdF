@@ -1,6 +1,7 @@
 # Compiler and Flags
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -pedantic -g
+# CFLAGS = -Wall -Wextra -Werror -pedantic -g
+CFLAGS = -g
 
 # Directories
 MLX_DIR = minilibx-linux
@@ -25,7 +26,7 @@ EXEC = main
 all: $(EXEC)
 
 $(EXEC): $(MLX) $(LIBFT) $(OBJ)
-	$(CC) $(OBJ) -L$(MLX_DIR) -L$(LIBFT_DIR) -lmlx -lft -lX11 -o $(EXEC)
+	$(CC) $(OBJ) -L$(MLX_DIR) -L$(LIBFT_DIR) -lmlx -lft -lX11 -lXext -o $(EXEC)
 
 $(MLX):
 	make -C $(MLX_DIR)
