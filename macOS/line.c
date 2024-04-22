@@ -1,4 +1,4 @@
-#include "line.h"
+#include "struct.h"
 
 void drawLine(void *mlx, void * win, int x1, int y1, int x2, int y2, int color)
 {
@@ -25,19 +25,4 @@ void drawGrid(void *mlx, void *win, int x, int y, int color)
 		for (int j = 0; j <= y; j += 1)
 			if (i % 10 == 0 || j % 10 == 0)
 				mlx_pixel_put(mlx, win, i, j, color);
-}
-
-
-int key_hook(int keycode)
-{
-	printf("keycode: %d\n", keycode);
-	if (keycode == 53)
-		exit(0);
-	return 0;
-}
-
-int quit()
-{
-	exit(EXIT_SUCCESS);
-	return (0);
 }

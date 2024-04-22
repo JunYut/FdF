@@ -16,6 +16,7 @@ typedef struct	s_image
 	int bits_per_pixel;
 	int line_length;
 	int endian;
+	int	offset;
 }				t_image;
 
 typedef struct	s_point
@@ -32,6 +33,7 @@ typedef struct	s_line
 	double gradient;
 }				t_line;
 
+void drawPixel(t_image *img, int x, int y, int color);
 void drawLine(void *mlx, void *win, int x1, int y1, int x2, int y2, int color);
 void drawGrid(void *mlx, void *win, int x, int y, int color);
 int	key_hook(int keycode);
