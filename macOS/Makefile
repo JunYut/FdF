@@ -5,6 +5,7 @@ CFLAGS = -Wall -Wextra -Werror -pedantic -g
 # Directories
 MLX_DIR = minilibx_macos
 LIBFT_DIR = libft
+INCL_DIR = includes
 OBJ_DIR = obj
 
 # Source files
@@ -34,7 +35,7 @@ $(LIBFT):
 
 $(OBJ_DIR)/%.o: %.c
 	mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -I$(MLX_DIR) -I$(LIBFT_DIR) -c $< -o $@
+	$(CC) $(CFLAGS) -I$(INCL_DIR) -I$(MLX_DIR) -I$(LIBFT_DIR) -c $< -o $@
 
 clean:
 	make -C $(LIBFT_DIR) clean

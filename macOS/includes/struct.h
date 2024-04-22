@@ -6,6 +6,18 @@
 # include "math.h"
 # include "mlx.h"
 
+# define WIN_WIDTH 800
+# define WIN_HEIGHT 600
+
+typedef struct	s_image
+{
+	void *img;
+	char *addr;
+	int bits_per_pixel;
+	int line_length;
+	int endian;
+}				t_image;
+
 typedef struct	s_point
 {
 	int x;

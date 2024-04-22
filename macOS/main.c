@@ -2,17 +2,19 @@
 # include <OpenGL/gl.h>
 # include "c_libft.h"
 # include "mlx.h"
+# include "struct.h"
 
 int main (void)
 {
 
 	void *mlx;
 	void *win;
-	void *img;
+	t_image img;
 
 	mlx = mlx_init();
-	win = mlx_new_window(mlx, 800, 600, "mlx 42");
-	img = mlx_new_image(mlx, 800, 600);
+	win = mlx_new_window(mlx, WIN_WIDTH, WIN_HEIGHT, "mlx 42");
+	img.img = mlx_new_image(mlx, WIN_WIDTH, WIN_HEIGHT);
+	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
 	mlx_loop(mlx);
 
 	return (0);
