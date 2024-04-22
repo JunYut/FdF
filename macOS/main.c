@@ -12,6 +12,7 @@ int main (void)
 	mlx.mlx = mlx_init();
 	mlx.win = mlx_new_window(mlx.mlx, WIN_WIDTH, WIN_HEIGHT, "mlx 42");
 
+	mlx_loop_hook(mlx.mlx, render_new_frame, &mlx);
 	mlx_hook(mlx.win, 17, 0, quit, &mlx);
 	mlx_key_hook(mlx.win, key_hook, &mlx);
 	mlx_mouse_hook(mlx.win, mouse_hook, &mlx);

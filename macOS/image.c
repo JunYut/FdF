@@ -1,5 +1,11 @@
 # include "struct.h"
 
+int render_new_frame(void)
+{
+
+	return (0);
+}
+
 void drawPixel(t_image *img, int x, int y, int color)
 {
 	char *dst;

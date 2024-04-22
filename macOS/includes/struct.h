@@ -76,6 +76,7 @@ typedef struct	s_line
 	double gradient;
 }				t_line;
 
+int render_new_frame(void);
 void drawPixel(t_image *img, int x, int y, int color);
 void drawLine(void *mlx, void *win, int x1, int y1, int x2, int y2, int color);
 void drawGrid(void *mlx, void *win, int x, int y, int color);
