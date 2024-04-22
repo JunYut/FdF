@@ -5,12 +5,13 @@ CFLAGS = -Wall -Wextra -Werror -pedantic -g
 # Directories
 MLX_DIR = minilibx_macos
 LIBFT_DIR = libft
+OBJ_DIR = obj
 
 # Source files
 SRC = $(wildcard *.c)
 
 # Object files
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 # Libraries
 MLX = libmlx.a
@@ -31,7 +32,8 @@ $(MLX):
 $(LIBFT):
 	make -C $(LIBFT_DIR)
 
-%.o: %.c
+$(OBJ_DIR)/%.o: %.c
+	mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -I$(MLX_DIR) -I$(LIBFT_DIR) -c $< -o $@
 
 clean:
