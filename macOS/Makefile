@@ -35,9 +35,13 @@ $(LIBFT):
 	$(CC) $(CFLAGS) -I$(MLX_DIR) -I$(LIBFT_DIR) -c $< -o $@
 
 clean:
+	make -C $(LIBFT_DIR) clean
+	make -C $(MLX_DIR) clean
 	rm -f $(OBJ)
 
 fclean: clean
+	rm -f $(LIBFT_DIR)/$(LIBFT)
+	rm -f $(MLX_DIR)/$(MLX)
 	rm -f $(EXEC)
 
 re: fclean all
