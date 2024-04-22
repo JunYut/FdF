@@ -34,6 +34,17 @@ enum keys
 	S = 1,
 	D = 2
 };
+
+enum mouse
+{
+	LEFT_CLICK = 1,
+	RIGHT_CLICK = 2,
+	MIDDLE_CLICK = 3,
+	SCROLL_UP = 4,
+	SCROLL_DOWN = 5
+
+};
+
 typedef struct	s_image
 {
 	void *img;
@@ -74,3 +85,4 @@ int up(void);
 int down(void);
 int left(void);
 int right(void);
+int mouse_hook(int button, int x, int y, t_mlx *mlx);
