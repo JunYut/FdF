@@ -16,6 +16,8 @@ int main (void)
 	img.img = mlx_new_image(mlx, WIN_WIDTH, WIN_HEIGHT);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
 	img.offset = (WIN_HEIGHT * img.line_length + WIN_WIDTH * (img.bits_per_pixel / 8));
+	drawPixel(&img, 100, 100, 0xFFFFFF);
+	mlx_put_image_to_window(mlx, win, img.img, 0, 0);
 
 	printf("bits_per_pixel: %d\n", img.bits_per_pixel);
 	printf("line_length: %d\n", img.line_length);
