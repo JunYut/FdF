@@ -6,7 +6,7 @@ int main (void)
 	t_mlx mlx;
 
 	mlx.mlx = mlx_init();
-	mlx.win = mlx_new_window(mlx.mlx, WIN_WIDTH, WIN_HEIGHT, "mlx 42");
+	mlx.win = mlx_new_window(mlx.mlx, WIN_WIDTH, WIN_HEIGHT, "FdF");
 
 	mlx_hook(mlx.win, 17, 0, quit, &mlx);
 	mlx_key_hook(mlx.win, key_hook, &mlx);
@@ -17,6 +17,7 @@ int main (void)
 	mlx.img.offset = (WIN_HEIGHT * mlx.img.line_length + WIN_WIDTH * (mlx.img.bits_per_pixel / 8));
 
 	drawPixel(&mlx.img, 100, 100, 0xFFFFFF);
+	drawLine(&mlx.img, 200, 200, 300, 300, 0xFFFFFF);
 	mlx_put_image_to_window(mlx.mlx, mlx.win, mlx.img.img, 0, 0);
 	mlx_string_put(mlx.mlx, mlx.win, 100, 100, 0xFFFFFF, "Hello, World!");
 

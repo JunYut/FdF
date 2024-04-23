@@ -78,8 +78,8 @@ typedef struct	s_line
 }				t_line;
 
 int render_new_frame(void);
+void drawLine(t_image *img, int x1, int y1, int x2, int y2, int color);
 void drawPixel(t_image *img, int x, int y, int color);
-void drawLine(void *mlx, void *win, int x1, int y1, int x2, int y2, int color);
 void drawGrid(void *mlx, void *win, int x, int y, int color);
 int	key_hook(int keycode, t_mlx *mlx);
 int quit(t_mlx *mlx);

@@ -1,6 +1,6 @@
 #include "struct.h"
 
-void drawLine(void *mlx, void * win, int x1, int y1, int x2, int y2, int color)
+void drawLine(t_image *img, int x1, int y1, int x2, int y2, int color)
 {
 	int dx = x2 - x1;
 	int dy = y2 - y1;
@@ -13,7 +13,7 @@ void drawLine(void *mlx, void * win, int x1, int y1, int x2, int y2, int color)
 	printf("dx: %d, dy: %d, steps: %d, Xinc: %f, Yinc: %f\n", dx, dy, steps, Xinc, Yinc);
 	for (int i = 0; i <= steps; i += 1)
 	{
-		mlx_pixel_put(mlx, win, X, Y, color);
+		drawPixel(img, X, Y, color);
 		X += Xinc;
 		Y += Yinc;
 	}
