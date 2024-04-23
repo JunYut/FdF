@@ -7,15 +7,17 @@ CFLAGS = -g
 MLX_DIR = minilibx-linux
 LIBFT_DIR = libft
 INCL_DIR = includes
+SRC_DIR = src
 OBJ_DIR = obj
 
 # Source files
-SRC = $(wildcard *.c)
+SRC = $(wildcard $(SRC_DIR)/*.c)
 
 # Object files
-OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
+OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # Libraries
+FDF = libfdf.a
 MLX = libmlx.a
 LIBFT = libft.a
 
@@ -25,18 +27,22 @@ EXEC = main
 # Rules and Recipes
 all: $(EXEC)
 
-$(EXEC): $(MLX) $(LIBFT) $(OBJ)
-	$(CC) $(OBJ) -L$(MLX_DIR) -L$(LIBFT_DIR) -lmlx -lft -lX11 -lXext -o $(EXEC)
+$(EXEC): $(FDF) main.c
+	$(CC) main.c -I$(INCL_DIR) -I$(LIBFT_DIR) -I$(MLX_DIR) -L. -L$(MLX_DIR) -L$(LIBFT_DIR) -lfdf -lmlx -lft -lX11 -lXext -o $(EXEC)
+
+$(FDF): $(MLX) $(LIBFT) $(OBJ)
+	ar rc $(FDF) $(OBJ)
+	ranlib $(FDF)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS) -I$(INCL_DIR) -I$(MLX_DIR) -I$(LIBFT_DIR) -c $< -o $@
 
 $(MLX):
 	make -C $(MLX_DIR)
 
 $(LIBFT):
 	make -C $(LIBFT_DIR)
-
-$(OBJ_DIR)/%.o: %.c
-	@mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -I$(INCL_DIR) -I$(MLX_DIR) -I$(LIBFT_DIR) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)

@@ -1,26 +1,26 @@
-# include <stdio.h>
-# include "c_libft.h"
-# include "mlx_int.h"
-# include "mlx.h"
 # include "struct.h"
 
 int main (void)
 {
 
-	void *mlx;
-	void *win;
-	t_data img;
+	t_mlx mlx;
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 800, 600, "mlx 42");
-	img.img = mlx_new_image(mlx, 800, 600);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel,
-								&img.size_line, &img.endian);
+	mlx.mlx = mlx_init();
+	mlx.win = mlx_new_window(mlx.mlx, WIN_WIDTH, WIN_HEIGHT, "mlx 42");
 
-	printf("bits_per_pixel: %d\n", img.bits_per_pixel);	// debug
-	printf("size_line: %d\n", img.size_line);	// debug
+	mlx_hook(mlx.win, 17, 0, quit, &mlx);
+	mlx_key_hook(mlx.win, key_hook, &mlx);
+	mlx_mouse_hook(mlx.win, mouse_hook, &mlx);
 
-	mlx_loop(mlx);
+	mlx.img.img = mlx_new_image(mlx.mlx, WIN_WIDTH, WIN_HEIGHT);
+	mlx.img.addr = mlx_get_data_addr(mlx.img.img, &mlx.img.bits_per_pixel, &mlx.img.line_length, &mlx.img.endian);
+	mlx.img.offset = (WIN_HEIGHT * mlx.img.line_length + WIN_WIDTH * (mlx.img.bits_per_pixel / 8));
+
+	drawPixel(&mlx.img, 100, 100, 0xFFFFFF);
+	mlx_put_image_to_window(mlx.mlx, mlx.win, mlx.img.img, 0, 0);
+	mlx_string_put(mlx.mlx, mlx.win, 100, 100, 0xFFFFFF, "Hello, World!");
+
+	mlx_loop(mlx.mlx);
 
 	return (0);
 }
