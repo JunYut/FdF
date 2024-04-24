@@ -1,7 +1,5 @@
 # include <stdio.h>
 # include <OpenGL/gl.h>
-# include "c_libft.h"
-# include "mlx.h"
 # include "struct.h"
 
 int main (void)
@@ -22,6 +20,7 @@ int main (void)
 	mlx.img.offset = (WIN_HEIGHT * mlx.img.line_length + WIN_WIDTH * (mlx.img.bits_per_pixel / 8));
 
 	drawPixel(&mlx.img, 100, 100, 0xFFFFFF);
+	drawLine(&mlx.img, 0, 0, 100, 100, 0xFFFFFF);
 	mlx_put_image_to_window(mlx.mlx, mlx.win, mlx.img.img, 0, 0);
 	mlx_string_put(mlx.mlx, mlx.win, 100, 100, 0xFFFFFF, "Hello, World!");
 

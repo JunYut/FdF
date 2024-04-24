@@ -6,15 +6,17 @@ CFLAGS = -Wall -Wextra -Werror -pedantic -g
 MLX_DIR = minilibx_macos
 LIBFT_DIR = libft
 INCL_DIR = includes
+SRC_DIR = src
 OBJ_DIR = obj
 
 # Source files
-SRC = $(wildcard *.c)
+SRC = $(wildcard $(SRC_DIR)/*.c)
 
 # Object files
-OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
+OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # Libraries
+FDF = libfdf.a
 MLX = libmlx.a
 LIBFT = libft.a
 
@@ -24,8 +26,12 @@ EXEC = main
 # Rules and Recipes
 all: $(EXEC)
 
-$(EXEC): $(MLX) $(LIBFT) $(OBJ)
-	$(CC) $(OBJ) -L$(MLX_DIR) -L$(LIBFT_DIR) -lmlx -lft -framework OpenGL -framework AppKit -o $(EXEC)
+$(EXEC): $(FDF) $(MLX) $(LIBFT) main.c
+	$(CC) main.c -I$(INCL_DIR) -I$(LIBFT_DIR) -I$(MLX_DIR) -L. -L$(MLX_DIR) -L$(LIBFT_DIR) -lfdf -lmlx -lft -framework OpenGL -framework AppKit -o $(EXEC)
+
+$(FDF): $(OBJ)
+	ar rc $(FDF) $(OBJ)
+	ranlib $(FDF)
 
 $(MLX):
 	make -C $(MLX_DIR)
@@ -33,7 +39,7 @@ $(MLX):
 $(LIBFT):
 	make -C $(LIBFT_DIR)
 
-$(OBJ_DIR)/%.o: %.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -I$(INCL_DIR) -I$(MLX_DIR) -I$(LIBFT_DIR) -c $< -o $@
 
@@ -45,6 +51,7 @@ clean:
 fclean: clean
 	rm -f $(LIBFT_DIR)/$(LIBFT)
 	rm -f $(MLX_DIR)/$(MLX)
+	rm -f $(FDF)
 	rm -f $(EXEC)
 
 re: fclean all
