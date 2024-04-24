@@ -77,7 +77,7 @@ typedef struct	s_line
 	double gradient;
 }				t_line;
 
-int render_new_frame(void);
+int render_new_frame(t_mlx *mlx);
 
 void rotateLine(t_line *line, double angle);
 void drawLine(t_image *img, int x1, int y1, int x2, int y2, int color);
