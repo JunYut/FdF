@@ -1,5 +1,15 @@
 #include "struct.h"
 
+void rotateLine(t_line *line, double angle)
+{
+	double x = line->end.x - line->start.x;
+	double y = line->end.y - line->start.y;
+	double x1 = x * cos(angle) - y * sin(angle);
+	double y1 = x * sin(angle) + y * cos(angle);
+	line->end.x = line->start.x + x1;
+	line->end.y = line->start.y + y1;
+}
+
 void drawLine(t_image *img, int x1, int y1, int x2, int y2, int color)
 {
 	int dx = x2 - x1;

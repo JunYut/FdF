@@ -27,7 +27,7 @@ EXEC = main
 all: $(EXEC)
 
 $(EXEC): $(FDF) $(MLX) $(LIBFT) main.c
-	$(CC) main.c -I$(INCL_DIR) -I$(LIBFT_DIR) -I$(MLX_DIR) -L. -L$(MLX_DIR) -L$(LIBFT_DIR) -lfdf -lmlx -lft -framework OpenGL -framework AppKit -o $(EXEC)
+	$(CC) main.c -I$(INCL_DIR) -I$(LIBFT_DIR) -I$(MLX_DIR) -L. -L$(MLX_DIR) -L$(LIBFT_DIR) -lfdf -lmlx -lft -lm -framework OpenGL -framework AppKit -o $(EXEC)
 
 $(FDF): $(OBJ)
 	ar rc $(FDF) $(OBJ)
