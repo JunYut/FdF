@@ -2,7 +2,9 @@
 
 void rotateLine(t_line *line, double angle)
 {
-	rotatePoint(&line->end, angle);
+	double rad = angle * M_PI / 180;
+
+	rotatePoint(&line->end, rad);
 }
 
 void drawLine(t_image *img, int x1, int y1, int x2, int y2, int color)
