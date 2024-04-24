@@ -1,5 +1,12 @@
 #include "struct.h"
 
+void rotateLine(t_line *line, double angle)
+{
+	double rad = angle * M_PI / 180;
+
+	rotatePoint(&line->end, line->start, rad);
+}
+
 void drawLine(t_image *img, int x1, int y1, int x2, int y2, int color)
 {
 	int dx = x2 - x1;
@@ -10,7 +17,6 @@ void drawLine(t_image *img, int x1, int y1, int x2, int y2, int color)
 	float X = x1;
 	float Y = y1;
 
-	printf("dx: %d, dy: %d, steps: %d, Xinc: %f, Yinc: %f\n", dx, dy, steps, Xinc, Yinc);
 	for (int i = 0; i <= steps; i += 1)
 	{
 		drawPixel(img, X, Y, color);

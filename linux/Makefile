@@ -28,7 +28,7 @@ EXEC = main
 all: $(EXEC)
 
 $(EXEC): $(FDF) main.c
-	$(CC) main.c -I$(INCL_DIR) -I$(LIBFT_DIR) -I$(MLX_DIR) -L. -L$(MLX_DIR) -L$(LIBFT_DIR) -lfdf -lmlx -lft -lX11 -lXext -o $(EXEC)
+	$(CC) main.c -I$(INCL_DIR) -I$(LIBFT_DIR) -I$(MLX_DIR) -L. -L$(MLX_DIR) -L$(LIBFT_DIR) -lfdf -lmlx -lft -lm -lX11 -lXext -o $(EXEC)
 
 $(FDF): $(MLX) $(LIBFT) $(OBJ)
 	ar rc $(FDF) $(OBJ)

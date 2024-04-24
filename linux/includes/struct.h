@@ -4,8 +4,8 @@
 # include <stdlib.h>
 # include <math.h>
 
-# include "c_libft.h"
 # include "mlx.h"
+# include "c_libft.h"
 
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
@@ -77,10 +77,15 @@ typedef struct	s_line
 	double gradient;
 }				t_line;
 
-int render_new_frame(void);
+int render_new_frame(t_mlx *mlx);
+
+void rotateLine(t_line *line, double angle);
 void drawLine(t_image *img, int x1, int y1, int x2, int y2, int color);
 void drawPixel(t_image *img, int x, int y, int color);
 void drawGrid(void *mlx, void *win, int x, int y, int color);
+
+void rotatePoint(t_point *point, t_point center, double angle);
+
 int	key_hook(int keycode, t_mlx *mlx);
 int quit(t_mlx *mlx);
 int up(void);
