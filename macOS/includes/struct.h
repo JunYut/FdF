@@ -84,6 +84,8 @@ void drawLine(t_image *img, int x1, int y1, int x2, int y2, int color);
 void drawPixel(t_image *img, int x, int y, int color);
 void drawGrid(void *mlx, void *win, int x, int y, int color);
 
+void rotatePoint(t_point *point, double angle);
+
 int	key_hook(int keycode, t_mlx *mlx);
 int quit(t_mlx *mlx);
 int up(void);

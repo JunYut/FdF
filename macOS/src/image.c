@@ -9,7 +9,7 @@ int render_new_frame(t_mlx *mlx)
 	ft_memset(mlx->img.addr, 0, mlx->img.offset);
 
 	// Draw and rotate the line
-	t_line line = {0, {300, 300}, {300, 200}, 0};
+	t_line line = {0, {WIN_WIDTH/2, WIN_HEIGHT/2}, {WIN_WIDTH/2, WIN_HEIGHT/2 - 100}, 0};
 	rotateLine(&line, angle);
 	drawLine(&mlx->img, line.start.x, line.start.y, line.end.x, line.end.y, 0xFFFFFF);
 
