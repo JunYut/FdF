@@ -24,7 +24,7 @@ This will draw a line from (x0, y0) to (x1, y1). Note that this is a very basic 
 # 0. Rotate a line
 The line should start like this `|`, with a length of `100 pixels`
 
-## 0.1 Rotate along the `X-axis`
+## 0.1 Rotate along the `X-axis` **[DONE]**
 Gradually increase 10 degrees until 360 degrees.\
 The output should look like its a clock.
 
