@@ -10,7 +10,7 @@ int render_new_frame(t_mlx *mlx)
 
 	// Draw and rotate the line
 	t_line line = {0, {WIN_WIDTH/2, WIN_HEIGHT/2}, {WIN_WIDTH/2, WIN_HEIGHT/2 - 100}, 0};
-	rotateLine(&line, angle);
+	rotateLine(&line, angle, angle, angle);
 	drawLine(&mlx->img, line.start.x, line.start.y, line.end.x, line.end.y, 0xFFFFFF);
 
 	// Display the image in the window

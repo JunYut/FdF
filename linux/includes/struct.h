@@ -67,6 +67,7 @@ typedef struct	s_point
 {
 	int x;
 	int y;
+	int z;
 }				t_point;
 
 typedef struct	s_line
@@ -79,12 +80,14 @@ typedef struct	s_line
 
 int render_new_frame(t_mlx *mlx);
 
-void rotateLine(t_line *line, double angle);
+void rotateLine(t_line *line, double angleX, double angleY, double angleZ);
 void drawLine(t_image *img, int x1, int y1, int x2, int y2, int color);
 void drawPixel(t_image *img, int x, int y, int color);
 void drawGrid(void *mlx, void *win, int x, int y, int color);
 
-void rotatePoint(t_point *point, t_point center, double angle);
+void rotateX(t_point *point, t_point center, double angle);
+void rotateY(t_point *point, t_point center, double angle);
+void rotateZ(t_point *point, t_point center, double angle);
 
 int	key_hook(int keycode, t_mlx *mlx);
 int quit(t_mlx *mlx);

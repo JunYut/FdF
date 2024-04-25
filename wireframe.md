@@ -4,12 +4,9 @@ A wireframe in the context of computer graphics is a visual representation of a 
 Wireframes are often used in the early stages of design and development to establish the basic structure of a 3D object before more details (like textures and lighting) are added. They are also used in 3D modeling software, and can be used to create 3D diagrams in a variety of fields, including architecture, engineering, and video game design.
 
 ## Components
-`X-axis`\
-`Y-axis`\
-`Z-axis`\
-Assume `X-axis` is pointing towards us
+![3D Cartesian Coordinate System](3D_Cartesian.png)
 
-# Lines. What defines a line ?
+# Lines. Whats a line ?
 In the context of computer graphics, a line is defined by two points: a start point and an end point. Each point has coordinates that determine its position in the space. In a 2D space, a point is defined by its x and y coordinates. In a 3D space, a point is defined by its x, y, and z coordinates.
 
 The simplest way to draw a line between two points is to use a method called linear interpolation. This involves calculating the points along the line between the start and end points and then drawing a pixel at each of these points. The basic formula for linear interpolation between two points (x0, y0) and (x1, y1) is:
