@@ -10,6 +10,7 @@ INC_DIR = inc
 # Files
 SRC = $(wildcard $(SRC_DIR)/*.c)
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+INCL = /usr/include/GL
 
 # Libraries
 LIBCART = libcartesian.a
@@ -20,8 +21,8 @@ EXEC = main
 # Rules & Recipes
 all: $(EXEC)
 
-$(EXEC): $(LIBCART)
-	$(CC) $(CFLAGS) main.c -o $@ -L. -lcartesian -lm
+$(EXEC): $(LIBCART) main.c
+	$(CC) $(CFLAGS) main.c -o $@ -I$(INCL) -L. -L/usr/local/lib -lcartesian -lGL -lGLU -lglut -lm
 
 $(LIBCART): $(OBJ)
 	ar rcs $@ $^
