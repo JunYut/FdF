@@ -9,3 +9,7 @@ void translate();
 void rotate();
 void scale();
 void reflect();
+
+void init(int *argc, char **argv);
+void display();
+void on_close();

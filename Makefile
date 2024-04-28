@@ -5,12 +5,12 @@ CFLAGS = -Wall -Wextra -Werror -pedantic
 # Directories
 SRC_DIR = src
 OBJ_DIR = obj
-INC_DIR = inc
+INC_DIR = includes
 
 # Files
 SRC = $(wildcard $(SRC_DIR)/*.c)
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
-INCL = /usr/include/GL
+INCL = -I/usr/include/GL -I$(INC_DIR)
 
 # Libraries
 LIBCART = libcartesian.a
@@ -22,7 +22,7 @@ EXEC = main
 all: $(EXEC)
 
 $(EXEC): $(LIBCART) main.c
-	$(CC) $(CFLAGS) main.c -o $@ -I$(INCL) -L. -L/usr/local/lib -lcartesian -lGL -lGLU -lglut -lm
+	$(CC) $(CFLAGS) main.c -o $@ $(INCL) -L. -L/usr/local/lib -lcartesian -lGL -lGLU -lglut -lm
 
 $(LIBCART): $(OBJ)
 	ar rcs $@ $^
