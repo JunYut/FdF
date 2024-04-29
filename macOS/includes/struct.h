@@ -63,17 +63,26 @@ typedef struct	s_mlx
 	t_image img;
 }				t_mlx;
 
-typedef struct	s_point
+typedef struct	s_point3D
 {
 	int x;
 	int y;
-}				t_point;
+	int z;
+}				t_point3D;
+
+typedef struct	s_point2D
+{
+	int x;
+	int y;
+}				t_point2D;
 
 typedef struct	s_line
 {
 	int pixels;
-	t_point start;
-	t_point end;
+	t_point3D start3D;
+	t_point3D end3D;
+	t_point2D start;
+	t_point2D end;
 	double gradient;
 }				t_line;
 
@@ -84,7 +93,9 @@ void drawLine(t_image *img, int x1, int y1, int x2, int y2, int color);
 void drawPixel(t_image *img, int x, int y, int color);
 void drawGrid(void *mlx, void *win, int x, int y, int color);
 
-void rotateX(t_point *point, t_point center, double angle);
+t_point2D perspectiveProjection(t_point3D point, double focalLength);
+void rotatePoint3D(t_point3D *point, t_point3D center, t_point3D vector, double angle);
+void rotatePoint2D(t_point2D *point, t_point2D center, double angle);
 
 int	key_hook(int keycode, t_mlx *mlx);
 int quit(t_mlx *mlx);

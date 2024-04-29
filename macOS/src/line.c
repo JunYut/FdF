@@ -3,8 +3,10 @@
 void rotateLine(t_line *line, double angle)
 {
 	double rad = angle * M_PI / 180;
+	t_point3D vector = {1, 1, 1};
 
-	rotatePoint(&line->end, line->start, rad);
+	rotatePoint3D(&line->end3D, line->start3D, vector, rad);
+	perspectiveProjection(line->start3D, 1);
 }
 
 void drawLine(t_image *img, int x1, int y1, int x2, int y2, int color)

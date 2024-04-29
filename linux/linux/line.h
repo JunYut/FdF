@@ -10,13 +10,13 @@ typedef struct	s_point
 {
 	int x;
 	int y;
-}				t_point;
+}				t_point2D;
 
 typedef struct	s_line
 {
 	int pixels;
-	t_point start;
-	t_point end;
+	t_point2D start;
+	t_point2D end;
 	double gradient;
 }				t_line;
 

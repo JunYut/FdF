@@ -68,13 +68,13 @@ typedef struct	s_point
 	int x;
 	int y;
 	int z;
-}				t_point;
+}				t_point2D;
 
 typedef struct	s_line
 {
 	int pixels;
-	t_point start;
-	t_point end;
+	t_point2D start;
+	t_point2D end;
 	double gradient;
 }				t_line;
 
@@ -85,9 +85,9 @@ void drawLine(t_image *img, int x1, int y1, int x2, int y2, int color);
 void drawPixel(t_image *img, int x, int y, int color);
 void drawGrid(void *mlx, void *win, int x, int y, int color);
 
-void rotateX(t_point *point, t_point center, double angle);
-void rotateY(t_point *point, t_point center, double angle);
-void rotateZ(t_point *point, t_point center, double angle);
+void rotateX(t_point2D *point, t_point2D center, double angle);
+void rotateY(t_point2D *point, t_point2D center, double angle);
+void rotateZ(t_point2D *point, t_point2D center, double angle);
 
 int	key_hook(int keycode, t_mlx *mlx);
 int quit(t_mlx *mlx);

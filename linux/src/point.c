@@ -2,7 +2,7 @@
 
 // Rotate around the x-axis
 // `angle` is in radians
-void rotateX(t_point *point, t_point center, double angle)
+void rotateX(t_point2D *point, t_point2D center, double angle)
 {
 	double y = point->y;
 	double z = point->z;
@@ -19,7 +19,7 @@ void rotateX(t_point *point, t_point center, double angle)
 }
 
 // Rotate around y-axis
-void rotateY(t_point *point, t_point center, double angle) {
+void rotateY(t_point2D *point, t_point2D center, double angle) {
     double x = point->x;
     double z = point->z;
 	x -= center.x;
@@ -33,7 +33,7 @@ void rotateY(t_point *point, t_point center, double angle) {
 }
 
 // Rotate around z-axis
-void rotateZ(t_point *point, t_point center, double angle) {
+void rotateZ(t_point2D *point, t_point2D center, double angle) {
     double x = point->x;
     double y = point->y;
 	x -= center.x;
