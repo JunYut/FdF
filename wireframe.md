@@ -1,37 +1,43 @@
-# What is a wireframe ?
-A wireframe in the context of computer graphics is a visual representation of a three-dimensional (3D) object. The object is represented by lines drawn along the edges of the object. These lines represent the "wires" that, when connected, form the structure of the object.
+# Wireframe
+![wireframe.png](wireframe.png)\
+A wireframe in the context of 3D modeling and graphics is a visual representation of a three-dimensional (3D) physical object used in 3D computer graphics. It is created by specifying each edge of the physical object where two mathematically continuous smooth surfaces meet, or by connecting an object's constituent vertices using straight lines or curves.
 
-Wireframes are often used in the early stages of design and development to establish the basic structure of a 3D object before more details (like textures and lighting) are added. They are also used in 3D modeling software, and can be used to create 3D diagrams in a variety of fields, including architecture, engineering, and video game design.
+In the context of web design and software development, a wireframe is a schematic, a blueprint, useful to help designers and clients visually understand a site's or application's functional requirements. It's a low-fidelity design layout that serves as the backbone of your design.
 
-## Components
-![3D Cartesian Coordinate System](3D_Cartesian.png)
+The term "wireframe" in your markdown file could refer to either of these concepts, depending on the context.
 
-# Lines. Whats a line ?
-In the context of computer graphics, a line is defined by two points: a start point and an end point. Each point has coordinates that determine its position in the space. In a 2D space, a point is defined by its x and y coordinates. In a 3D space, a point is defined by its x, y, and z coordinates.
+# Cartesian System
+![3D_Cartesian.png](3D_Cartesian.png)\
+The Cartesian system, also known as the Cartesian coordinate system, is a coordinate system that specifies each point uniquely in a plane by a set of numerical coordinates, which are the signed distances to the point from two fixed perpendicular directed lines, measured in the same unit of length.
 
-The simplest way to draw a line between two points is to use a method called linear interpolation. This involves calculating the points along the line between the start and end points and then drawing a pixel at each of these points. The basic formula for linear interpolation between two points (x0, y0) and (x1, y1) is:
+In 3D space, the Cartesian system is extended to include a third axis, typically labeled z, perpendicular to the other two. This results in a three-dimensional coordinate system where each point in space is specified by three coordinates (x, y, z).
 
-	for t from 0 to 1:
-		x = x0 + t * (x1 -x0)
-		y = y0 + t * (y1 -y0)
-		drawPixel(x,y)
+The Cartesian system is named after René Descartes, who introduced it in the 17th century. It's fundamental in mathematics, physics, engineering, computer graphics, and many other fields.
 
-This will draw a line from (x0, y0) to (x1, y1). Note that this is a very basic method and doesn't take into account things like line thickness or anti-aliasing. For more advanced line drawing, you might want to look into algorithms like Bresenham's line algorithm or Wu's line algorithm.
+# Lines
+In mathematics, a line is a straight one-dimensional figure that extends infinitely in both directions. It is often described as the shortest distance between any two points.
 
-# 0. Rotate a line
-The line should start like this `|`, with a length of `100 pixels`
+In the context of a Cartesian system, a line can be represented by an equation in two dimensions (2D) or three dimensions (3D).
 
-## 0.1 Rotate along the `X-axis` **[DONE]**
-Gradually increase 10 degrees until 360 degrees.\
-The output should look like its a clock.
+In 2D, a line is often represented by the equation `y = mx + b`, where `m` is the slope of the line and `b` is the y-intercept.
 
-## 0.2 Rotate along the `Y-axis`
-Gradually increase 10 degrees until 360 degrees.\
-The line should look like its getting shorter and shorter until `180 degrees`, then it will start getting longer until it returns to its original length.
+In 3D, a line can be represented in parametric form as `x = x0 + at`, `y = y0 + bt`, and `z = z0 + ct`, where `(x0, y0, z0)` is a point on the line and `(a, b, c)` is the direction vector of the line. The parameter `t` varies over all real numbers.
 
-# 1. How to show a plane in different angles ?
-a. implement a function that can draw lines\
-b. draw a plane, 300 * 100\
-c. rotate this mfcker
+In the context of computer graphics and 3D modeling, a line is often represented as a sequence of points or vertices. This is particularly relevant when discussing wireframe models, where the edges of the model are represented as lines.
 
-# 1.1 Rotation
+# Points
+In mathematics, a point is a primitive notion upon which the geometry is built. Being a primitive notion means that a point cannot be defined in terms of previously defined concepts. It is only described to a certain extent, using the mental imagery that each of us has about the idea of a point.
+
+In the context of a Cartesian system, a point is a location in space which is described by coordinates. In two dimensions (2D), a point is represented as `(x, y)`, and in three dimensions (3D), a point is represented as `(x, y, z)`, where `x`, `y`, and `z` are the distances from the point to the respective axes.
+
+In computer graphics and 3D modeling, a point often refers to a vertex, which is a data structure that contains information about a single point in space, such as its position and possibly other attributes such as color, normal vector, and texture coordinates.
+
+# Isometric Projection
+![isometric.png](isometric.png)\
+Isometric projection is a method for visually representing three-dimensional objects in two dimensions. It is a form of orthographic projection, or parallel projection, where all the projection lines are parallel to each other.
+
+In an isometric projection, the three coordinate axes appear equally foreshortened, and the angle between any two of them is 120 degrees. This gives the viewer a way to see three dimensions without the distortion of perspective.
+
+In 2D graphics, isometric projection is used to create an illusion of 3D, and is commonly used in video games, technical drawings, and architectural plans.
+
+In terms of 3D graphics programming, an isometric projection can be achieved by using an orthographic projection instead of a perspective projection, and then rotating the camera to the desired angle. The orthographic projection maintains the size of objects regardless of their distance from the camera, which is a key characteristic of isometric views.
