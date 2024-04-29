@@ -1,6 +1,5 @@
 # include <stdio.h>
-# include <OpenGL/gl.h>
-# include "struct.h"
+# include "wireframe.h"
 
 // Draw a plane that has a width of 300, a height of 100 and a depth of 30
 
@@ -16,8 +15,6 @@ int main (void)
 	// Set the loop hook and the key hook
 	mlx_loop_hook(mlx.mlx, render_new_frame, &mlx);
 	mlx_hook(mlx.win, 17, 0, quit, &mlx);
-	mlx_key_hook(mlx.win, key_hook, &mlx);
-	mlx_mouse_hook(mlx.win, mouse_hook, &mlx);
 
 	// Create an image
 	mlx.img.img = mlx_new_image(mlx.mlx, WIN_WIDTH, WIN_HEIGHT);
