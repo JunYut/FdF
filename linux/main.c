@@ -1,24 +1,33 @@
-# include "struct.h"
+# include <stdio.h>
+# include "wireframe.h"
+
+// Draw a plane that has a width of 300, a height of 100 and a depth of 30
 
 int main (void)
 {
 
-	t_mlx mlx;
+	t_frame frame;
 
-	mlx.mlx = mlx_init();
-	mlx.win = mlx_new_window(mlx.mlx, WIN_WIDTH, WIN_HEIGHT, "FdF");
+	// Initialize the mlx and create a window
+	frame.mlx.mlx = mlx_init();
+	frame.mlx.win = mlx_new_window(frame.mlx.mlx, WIN_WIDTH, WIN_HEIGHT, "mlx 42");
+	frame.wireframe = init_wireframe();
 
-	mlx_loop_hook(mlx.mlx, render_new_frame, &mlx);
-	mlx_hook(mlx.win, 17, 0, quit, &mlx);
-	mlx_key_hook(mlx.win, key_hook, &mlx);
-	mlx_mouse_hook(mlx.win, mouse_hook, &mlx);
+	// Set the loop hook and the key hook
+	mlx_loop_hook(frame.mlx.mlx, render_new_frame, &frame);
+	mlx_hook(frame.mlx.win, 17, 0, quit, &frame.mlx);
 
-	mlx.img.img = mlx_new_image(mlx.mlx, WIN_WIDTH, WIN_HEIGHT);
-	mlx.img.addr = mlx_get_data_addr(mlx.img.img, &mlx.img.bits_per_pixel, &mlx.img.line_length, &mlx.img.endian);
-	mlx.img.offset = (WIN_HEIGHT * mlx.img.line_length + WIN_WIDTH * (mlx.img.bits_per_pixel / 8));
+	// Create an image
+	frame.mlx.img.img = mlx_new_image(frame.mlx.mlx, WIN_WIDTH, WIN_HEIGHT);
+	frame.mlx.img.addr = mlx_get_data_addr(frame.mlx.img.img, &frame.mlx.img.bits_per_pixel, &frame.mlx.img.line_length, &frame.mlx.img.endian);
+	frame.mlx.img.offset = (WIN_HEIGHT * frame.mlx.img.line_length + WIN_WIDTH * (frame.mlx.img.bits_per_pixel / 8));
 
-
-	mlx_loop(mlx.mlx);
+	// Loop
+	mlx_loop(frame.mlx.mlx);
 
 	return (0);
 }
+
+
+
+
