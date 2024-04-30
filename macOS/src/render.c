@@ -15,7 +15,7 @@ int render_new_frame(t_frame *frame)
 if (i == 0)								// Debug
 {
 	printf("After projection\n____________________________\n");		// Debug
-	print_wireframe(frame->wireframe);	// Debug
+	print_projection(frame->wireframe);	// Debug
 }
 
 		// Draw the wireframe
