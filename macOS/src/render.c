@@ -12,17 +12,9 @@ int render_new_frame(t_frame *frame)
 		// Project the wireframe
 		projector(frame->wireframe);
 
-if (i == 0)								// Debug
-{
-	printf("After projection\n____________________________\n");		// Debug
-	print_projection(frame->wireframe);	// Debug
-}
-
 		// Draw the wireframe
 		for (int i = 0; i < frame->wireframe->edges_count; i++)
 			draw_line(&frame->mlx, frame->wireframe->projection[i], 0xFFFFFF);
-
-printf("debug\n");		// Debug
 
 		// Draw the image
 		mlx_put_image_to_window(frame->mlx.mlx, frame->mlx.win, frame->mlx.img.img, 0, 0);
@@ -38,10 +30,6 @@ void renderPixel(t_img *img, int x, int y, int color)
 {
 	char *dst;
 
-printf("debug 1\n");		// Debug
-
 	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
-
-printf("debug 2\n");		// Debug
 }
