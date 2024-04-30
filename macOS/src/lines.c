@@ -23,11 +23,8 @@ void draw_line(t_mlx *mlx, t_line line, int color)
 	line.dx = line.end.x - line.start.x;
 	line.dy = line.end.y - line.start.y;
 	steps = abs(line.dx) > abs(line.dy) ? abs(line.dx) : abs(line.dy);
-printf("steps: %d\n", steps);	// Debug
 	incX = line.dx / (float)steps;
 	incY = line.dy / (float)steps;
-printf("line.dx: %d, line.dy: %d\n", line.dx, line.dy);	// Debug
-printf("incX: %f, incY: %f\n\n", incX, incY);	// Debug
 	while (steps)
 	{
 		renderPixel(&mlx->img, x, y, color);

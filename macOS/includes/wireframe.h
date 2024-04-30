@@ -42,18 +42,37 @@ typedef struct	s_line
 
 typedef struct	s_wireframe
 {
+	t_line		*projection;
 	t_line		*edges;
+	int			edges_count;
 }				t_wireframe;
 
+// Initialization functions
+t_wireframe	*init_wireframe(void);
+
+// Projection functions
+
+void	projector(t_wireframe *wireframe);
+t_point isometric_projection(t_point p);
+
+
 // Drawing functions
+
 void	draw_plane(t_mlx *mlx, int color);
 void	draw_line(t_mlx *mlx, t_line line, int color);
+
 
 // Render functions
 
 int	render_new_frame(t_mlx *mlx);
 void	renderPixel(t_img *img, int x, int y, int color);
 
+
 // Event functions
 
 int		quit(t_mlx *mlx);
+
+
+// Utility functions
+
+void	clean_up(t_wireframe *wireframe);
