@@ -1,38 +1,39 @@
 # include "wireframe.h"
 
+void draw_plane(t_mlx *mlx, int color)
+{
+	draw_line(mlx, (t_line){(t_point){100, 100, 0,}, (t_point){700, 100, 0}, 0, 0}, color);
+	draw_line(mlx, (t_line){(t_point){100, 100, 0,}, (t_point){100, 500, 0}, 0, 0}, color);
+	draw_line(mlx, (t_line){(t_point){700, 100, 0,}, (t_point){700, 500, 0}, 0, 0}, color);
+	draw_line(mlx, (t_line){(t_point){100, 500, 0,}, (t_point){700, 500, 0}, 0, 0}, color);
+
+	draw_line(mlx, (t_line){(t_point){100, 100, 0}, (t_point){700, 500, 0}, 0, 0}, color);
+}
+
 void draw_line(t_mlx *mlx, t_line line, int color)
 {
-	int dx;
-	int dy;
-	int x;
-	int y;
-	int d;
-	int d1;
-	int d2;
-	int ix;
-	int iy;
+	int steps;
+	float incX;
+	float incY;
+	float x;
+	float y;
 
-	dx = line.end.x - line.start.x;
-	dy = line.end.y - line.start.y;
-	ix = (dx > 0) ? 1 : -1;
-	iy = (dy > 0) ? 1 : -1;
-	dx = abs(dx);
-	dy = abs(dy);
-	d = (dx > dy) ? dx : -dy;
-	d1 = (dx > dy) ? dx : dy;
-	d2 = (dx > dy) ? dy : dx;
 	x = line.start.x;
 	y = line.start.y;
-	while (d1--)
+	line.dx = line.end.x - line.start.x;
+	line.dy = line.end.y - line.start.y;
+	steps = abs(line.dx) > abs(line.dy) ? abs(line.dx) : abs(line.dy);
+printf("steps: %d\n", steps);	// Debug
+	incX = line.dx / (float)steps;
+	incY = line.dy / (float)steps;
+printf("line.dx: %d, line.dy: %d\n", line.dx, line.dy);	// Debug
+printf("incX: %f, incY: %f\n\n", incX, incY);	// Debug
+	while (steps)
 	{
 		renderPixel(&mlx->img, x, y, color);
-		if (d > 0)
-		{
-			d += 2 * d2;
-			x += ix;
-		}
-		else
-			d += 2 * d1;
-		y += iy;
+		x += incX;
+		y += incY;
+		steps--;
 	}
+
 }

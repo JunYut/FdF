@@ -2,7 +2,8 @@
 
 # include <math.h>
 # include <OpenGL/gl.h>
-# include <mlx.h>
+# include "c_libft.h"
+# include "mlx.h"
 
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
@@ -35,20 +36,22 @@ typedef struct	s_line
 {
 	t_point		start;
 	t_point		end;
+	int			dx;
+	int			dy;
 }				t_line;
 
 typedef struct	s_wireframe
 {
-	t_point		*vertices;
 	t_line		*edges;
 }				t_wireframe;
 
 // Drawing functions
+void	draw_plane(t_mlx *mlx, int color);
 void	draw_line(t_mlx *mlx, t_line line, int color);
 
 // Render functions
 
-void	render_new_frame(t_mlx *mlx);
+int	render_new_frame(t_mlx *mlx);
 void	renderPixel(t_img *img, int x, int y, int color);
 
 // Event functions
