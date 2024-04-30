@@ -12,6 +12,8 @@ int main (void)
 	frame.mlx.mlx = mlx_init();
 	frame.mlx.win = mlx_new_window(frame.mlx.mlx, WIN_WIDTH, WIN_HEIGHT, "mlx 42");
 	frame.wireframe = init_wireframe();
+printf("Before projection\n____________________________\n");		// Debug
+print_wireframe(frame.wireframe);	// Debug
 
 	// Set the loop hook and the key hook
 	mlx_loop_hook(frame.mlx.mlx, render_new_frame, &frame);

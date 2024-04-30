@@ -86,3 +86,8 @@ int		quit(t_mlx *mlx);
 // Utility functions
 
 void	clean_up(t_wireframe *wireframe);
+
+
+// Debug functions
+
+void	print_wireframe(t_wireframe *wireframe);
