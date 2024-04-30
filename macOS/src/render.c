@@ -1,18 +1,20 @@
 # include "wireframe.h"
 
-int render_new_frame(t_mlx *mlx)
+int render_new_frame(t_frame *frame)
 {
 	// Clear the image
-	ft_memset(mlx->img.addr, 0, WIN_HEIGHT * mlx->img.line_length + WIN_WIDTH * (mlx->img.bits_per_pixel / 8));
+	ft_memset(frame->mlx.img.addr, 0, WIN_HEIGHT * frame->mlx.img.line_length + WIN_WIDTH * (frame->mlx.img.bits_per_pixel / 8));
 
-	// Draw a plane
-	draw_plane(mlx, 0xFFFFFF);
+	// Draw the wireframe
+	for (int i = 0; i < frame->wireframe->edges_count; i++)
+		draw_line(&frame->mlx, frame->wireframe->edges[i], 0xFFFFFF);
 
 	// Draw the image
-	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img, 0, 0);
+	mlx_put_image_to_window(frame->mlx.mlx, frame->mlx.win, frame->mlx.img.img, 0, 0);
 
 	return (0);
 }
+
 
 void renderPixel(t_img *img, int x, int y, int color)
 {

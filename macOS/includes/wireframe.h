@@ -44,11 +44,21 @@ typedef struct	s_wireframe
 {
 	t_line		*projection;
 	t_line		*edges;
+	t_point		*vertices;
 	int			edges_count;
+	int			vertices_count;
 }				t_wireframe;
 
+typedef struct	s_frame
+{
+	t_mlx		mlx;
+	t_wireframe	*wireframe;
+}				t_frame;
+
 // Initialization functions
-t_wireframe	*init_wireframe(void);
+
+t_wireframe	*init_wireframe(void);	// This is hardcoded for now
+
 
 // Projection functions
 
@@ -64,7 +74,7 @@ void	draw_line(t_mlx *mlx, t_line line, int color);
 
 // Render functions
 
-int	render_new_frame(t_mlx *mlx);
+int		render_new_frame(t_frame *frame);
 void	renderPixel(t_img *img, int x, int y, int color);
 
 
