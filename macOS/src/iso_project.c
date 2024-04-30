@@ -18,7 +18,7 @@ void  projector(t_wireframe *wireframe)
 t_point isometric_projection(t_point p)
 {
 	// Isometric factor (adjust based on your needs)
-	int isometric_factor = 100;
+	int isometric_factor = 1;
 
 	// Isometric projection formulas (assumes isometric angle of 30 degrees)
 	int new_x = (isometric_factor * p.x + isometric_factor * p.z) / 2;
