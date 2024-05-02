@@ -41,6 +41,8 @@ t_wireframe	*init_wireframe(void)
 	wireframe->edges[10] = (t_line){wireframe->vertices[2], wireframe->vertices[5], 0, 0};
 	wireframe->edges[11] = (t_line){wireframe->vertices[3], wireframe->vertices[7], 0, 0};
 
+	// print_vertices(wireframe);	// Debug
+
 	return (wireframe);
 }
 

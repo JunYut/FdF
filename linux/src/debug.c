@@ -27,7 +27,7 @@ void	print_vertices(t_wireframe *wireframe)
 	for (int i = 0; i < wireframe->vertices_count; i++)
 	{
 		ft_printf("Vertex %d\n", i);
-		ft_printf("Coordinates: %d %d %d\n", wireframe->vertices[i].x, wireframe->vertices[i].y, wireframe->vertices[i].z);
+		ft_printf("Coordinates: %d, %d, %d\n", wireframe->vertices[i].x, wireframe->vertices[i].y, wireframe->vertices[i].z);
 		ft_printf("\n");
 	}
 }

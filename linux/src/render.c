@@ -9,6 +9,8 @@ int render_new_frame(t_frame *frame)
 		// Clear the image
 		ft_memset(frame->mlx.img.addr, 0, WIN_HEIGHT * frame->mlx.img.line_length + WIN_WIDTH * (frame->mlx.img.bits_per_pixel / 8));
 
+		if (i == 0)
+			print_wireframe(frame->wireframe);	// Debug
 		// Project the wireframe
 		projector(frame->wireframe);
 		if (i == 0)
