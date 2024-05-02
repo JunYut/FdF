@@ -18,8 +18,8 @@ int render_new_frame(t_frame *frame)
 		offset_projection(frame->wireframe);
 		if (i == 0)
 			print_projection(frame->wireframe);	// Debug
-		if (i == 0)
-			print_center(frame->wireframe);	// Debug
+		// if (i == 0)
+		// 	print_center(frame->wireframe);	// Debug
 
 		// Draw the wireframe
 		draw_wireframe(&frame->mlx, frame->wireframe);

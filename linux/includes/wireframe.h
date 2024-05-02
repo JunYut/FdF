@@ -57,6 +57,11 @@ typedef struct	s_frame
 	t_wireframe	*wireframe;
 }				t_frame;
 
+// Geometric Transformations
+void	scale(t_wireframe *wireframe, float factor);
+void	translate(t_wireframe *wireframe, int x, int y, int z);
+void	rotate(t_wireframe *wireframe, int x, int y, int z);
+
 // Initialization functions
 
 t_wireframe	*init_wireframe(void);	// This is hardcoded for now
