@@ -16,8 +16,7 @@ int render_new_frame(t_frame *frame)
 		// print_projection(frame->wireframe);	// Debug
 
 		// Draw the wireframe
-		for (int i = 0; i < frame->wireframe->edges_count; i++)
-			draw_line(&frame->mlx, frame->wireframe->projection[i], 0xFFFFFF);
+		draw_wireframe(&frame->mlx, frame->wireframe, 0xFFFFFF);
 
 		// Draw the image
 		mlx_put_image_to_window(frame->mlx.mlx, frame->mlx.win, frame->mlx.img.img, 0, 0);
@@ -35,6 +34,12 @@ int render_resize(t_frame *frame)
 
 	mlx_get_screen_size(frame->mlx.mlx, &width, &height);
 
+	mlx_destroy_image(frame->mlx.mlx, frame->mlx.img.img);
+
+	// Create a new image with the new size
+	frame->mlx.img.img = mlx_new_image(frame->mlx.mlx, width, height);
+	frame->mlx.img.addr = mlx_get_data_addr(frame->mlx.img.img, &frame->mlx.img.bits_per_pixel, &frame->mlx.img.line_length, &frame->mlx.img.endian);
+
 	// Clear the image
 	ft_memset(frame->mlx.img.addr, 0, height * frame->mlx.img.line_length + width * (frame->mlx.img.bits_per_pixel / 8));
 
@@ -45,8 +50,7 @@ int render_resize(t_frame *frame)
 	// print_projection(frame->wireframe);	// Debug
 
 	// Draw the wireframe
-	for (int i = 0; i < frame->wireframe->edges_count; i++)
-		draw_line(&frame->mlx, frame->wireframe->projection[i], 0xFFFFFF);
+	draw_wireframe(&frame->mlx, frame->wireframe, 0xFFFFFF);
 
 	// Draw the image
 	mlx_put_image_to_window(frame->mlx.mlx, frame->mlx.win, frame->mlx.img.img, 0, 0);

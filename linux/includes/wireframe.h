@@ -4,6 +4,7 @@
 # include "c_libft.h"
 # include "mlx.h"
 
+// TODO: make this dynamic
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
 
@@ -29,6 +30,7 @@ typedef struct	s_point
 	int			x;
 	int			y;
 	int			z;
+	int			color;
 }				t_point;
 
 typedef struct	s_line
@@ -68,7 +70,7 @@ t_point isometric_projection(t_point p);
 
 // Drawing functions
 
-void	draw_plane(t_mlx *mlx, int color);
+void	draw_wireframe(t_mlx *mlx, t_wireframe *wireframe, int color);
 void	draw_line(t_mlx *mlx, t_line line, int color);
 
 

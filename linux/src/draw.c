@@ -1,15 +1,14 @@
 # include "wireframe.h"
 
-void draw_plane(t_mlx *mlx, int color)
+// TODO: remove the color parameter from this function
+void	draw_wireframe(t_mlx *mlx, t_wireframe *wireframe, int color)
 {
-	draw_line(mlx, (t_line){(t_point){100, 100, 0,}, (t_point){700, 100, 0}, 0, 0}, color);
-	draw_line(mlx, (t_line){(t_point){100, 100, 0,}, (t_point){100, 500, 0}, 0, 0}, color);
-	draw_line(mlx, (t_line){(t_point){700, 100, 0,}, (t_point){700, 500, 0}, 0, 0}, color);
-	draw_line(mlx, (t_line){(t_point){100, 500, 0,}, (t_point){700, 500, 0}, 0, 0}, color);
-
-	draw_line(mlx, (t_line){(t_point){100, 100, 0}, (t_point){700, 500, 0}, 0, 0}, color);
+	for (int i = 0; i < wireframe->edges_count; i++)
+		draw_line(mlx, wireframe->projection[i], color);
 }
 
+// TODO: find a way to draw a line with a gradient color
+// also, remove the color parameter from this function
 void draw_line(t_mlx *mlx, t_line line, int color)
 {
 	int steps;
