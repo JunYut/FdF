@@ -57,6 +57,7 @@ typedef struct	s_frame
 // Initialization functions
 
 t_wireframe	*init_wireframe(void);	// This is hardcoded for now
+void		offset_wireframe(t_wireframe *wireframe);
 
 
 // Projection functions
@@ -91,3 +92,4 @@ void	clean_up(t_wireframe *wireframe);
 
 void	print_wireframe(t_wireframe *wireframe);
 void	print_projection(t_wireframe *wireframe);
+void	print_vertices(t_wireframe *wireframe);

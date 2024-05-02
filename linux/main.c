@@ -5,7 +5,6 @@
 
 int main (void)
 {
-
 	t_frame frame;
 
 	// Initialize the mlx and create a window
@@ -27,4 +26,3 @@ int main (void)
 
 	return (0);
 }
-
