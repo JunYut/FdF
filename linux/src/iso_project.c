@@ -1,5 +1,29 @@
 # include "wireframe.h"
 
+void	offset_projection(t_wireframe *wireframe)
+{
+	int i;
+
+	wireframe->center = (t_point){0, 0, 0};
+	i = -1;
+	while (++i < wireframe->vertices_count)
+	{
+		wireframe->center.x += wireframe->vertices[i].x;
+		wireframe->center.y += wireframe->vertices[i].y;
+	}
+	wireframe->center.x /= wireframe->vertices_count;
+	wireframe->center.y /= wireframe->vertices_count;
+
+	i = -1;
+	while (++i < wireframe->edges_count)
+	{
+		wireframe->projection[i].start.x += WIN_WIDTH / 2 - wireframe->center.x;
+		wireframe->projection[i].start.y += WIN_HEIGHT / 2 - wireframe->center.y;
+		wireframe->projection[i].end.x += WIN_WIDTH / 2 - wireframe->center.x;
+		wireframe->projection[i].end.y += WIN_HEIGHT / 2 - wireframe->center.y;
+	}
+}
+
 void  projector(t_wireframe *wireframe)
 {
 	int i;
@@ -26,18 +50,4 @@ t_point isometric_projection(t_point p)
 
 	t_point projected_point = {new_x, new_y, 0}; // Set z to 0 for 2D representation
 	return (projected_point);
-}
-
-void	offset_projection(t_wireframe *wireframe)
-{
-	int i;
-
-	i = -1;
-	while (++i < wireframe->edges_count)
-	{
-		wireframe->projection[i].start.x += WIN_WIDTH / 2;
-		wireframe->projection[i].start.y += WIN_HEIGHT / 2;
-		wireframe->projection[i].end.x += WIN_WIDTH / 2;
-		wireframe->projection[i].end.y += WIN_HEIGHT / 2;
-	}
 }

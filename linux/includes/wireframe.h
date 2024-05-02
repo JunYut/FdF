@@ -46,6 +46,7 @@ typedef struct	s_wireframe
 	t_line		*projection;
 	t_line		*edges;
 	t_point		*vertices;
+	t_point		center;
 	int			edges_count;
 	int			vertices_count;
 }				t_wireframe;
@@ -59,11 +60,11 @@ typedef struct	s_frame
 // Initialization functions
 
 t_wireframe	*init_wireframe(void);	// This is hardcoded for now
-void		offset_projection(t_wireframe *wireframe);
 
 
 // Projection functions
 
+void	offset_projection(t_wireframe *wireframe);
 void	projector(t_wireframe *wireframe);
 t_point isometric_projection(t_point p);
 
@@ -96,4 +97,5 @@ void	clean_up(t_wireframe *wireframe);
 void	print_wireframe(t_wireframe *wireframe);
 void	print_projection(t_wireframe *wireframe);
 void	print_vertices(t_wireframe *wireframe);
+void	print_center(t_wireframe *wireframe);
 void	debug(void);

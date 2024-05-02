@@ -32,6 +32,11 @@ void	print_vertices(t_wireframe *wireframe)
 	}
 }
 
+void	print_center(t_wireframe *wireframe)
+{
+	ft_printf("Center: %d %d\n", wireframe->center.x, wireframe->center.y);
+}
+
 void	debug(void)
 {
 	static int i;
