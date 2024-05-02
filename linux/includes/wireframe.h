@@ -75,6 +75,7 @@ void	draw_line(t_mlx *mlx, t_line line, int color);
 // Render functions
 
 int		render_new_frame(t_frame *frame);
+int		render_resize(t_frame *frame);
 void	renderPixel(t_img *img, int x, int y, int color);
 
 

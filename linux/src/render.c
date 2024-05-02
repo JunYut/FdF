@@ -11,9 +11,9 @@ int render_new_frame(t_frame *frame)
 
 		// Project the wireframe
 		projector(frame->wireframe);
-		print_projection(frame->wireframe);	// Debug
+		// print_projection(frame->wireframe);	// Debug
 		offset_projection(frame->wireframe);
-		print_projection(frame->wireframe);	// Debug
+		// print_projection(frame->wireframe);	// Debug
 
 		// Draw the wireframe
 		for (int i = 0; i < frame->wireframe->edges_count; i++)
@@ -24,6 +24,32 @@ int render_new_frame(t_frame *frame)
 
 		++i;
 	}
+
+	return (0);
+}
+
+int render_resize(t_frame *frame)
+{
+	int	width;
+	int	height;
+
+	mlx_get_screen_size(frame->mlx.mlx, &width, &height);
+
+	// Clear the image
+	ft_memset(frame->mlx.img.addr, 0, height * frame->mlx.img.line_length + width * (frame->mlx.img.bits_per_pixel / 8));
+
+	// Project the wireframe
+	projector(frame->wireframe);
+	// print_projection(frame->wireframe);	// Debug
+	offset_projection(frame->wireframe);
+	// print_projection(frame->wireframe);	// Debug
+
+	// Draw the wireframe
+	for (int i = 0; i < frame->wireframe->edges_count; i++)
+		draw_line(&frame->mlx, frame->wireframe->projection[i], 0xFFFFFF);
+
+	// Draw the image
+	mlx_put_image_to_window(frame->mlx.mlx, frame->mlx.win, frame->mlx.img.img, 0, 0);
 
 	return (0);
 }
