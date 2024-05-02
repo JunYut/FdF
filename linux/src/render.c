@@ -12,6 +12,8 @@ int render_new_frame(t_frame *frame)
 		// Project the wireframe
 		projector(frame->wireframe);
 		print_projection(frame->wireframe);	// Debug
+		offset_projection(frame->wireframe);
+		print_projection(frame->wireframe);	// Debug
 
 		// Draw the wireframe
 		for (int i = 0; i < frame->wireframe->edges_count; i++)

@@ -13,17 +13,15 @@ t_wireframe	*init_wireframe(void)
 
  	// Back square
     wireframe->vertices[0] = (t_point){0, 0, 0};
-    wireframe->vertices[1] = (t_point){50, 0, 0};
-    wireframe->vertices[2] = (t_point){0, 50, 0};
-    wireframe->vertices[3] = (t_point){50, 50, 0};
+    wireframe->vertices[1] = (t_point){100, 0, 0};
+    wireframe->vertices[2] = (t_point){0, 100, 0};
+    wireframe->vertices[3] = (t_point){100, 100, 0};
 
     // Front square
-    wireframe->vertices[4] = (t_point){0, 0, 50};
-    wireframe->vertices[6] = (t_point){50, 0, 50};
-    wireframe->vertices[5] = (t_point){0, 50, 50};
-    wireframe->vertices[7] = (t_point){50, 50, 50};
-
-	offset_wireframe(wireframe);
+    wireframe->vertices[4] = (t_point){0, 0, 100};
+    wireframe->vertices[6] = (t_point){100, 0, 100};
+    wireframe->vertices[5] = (t_point){0, 100, 100};
+    wireframe->vertices[7] = (t_point){100, 100, 100};
 
 	// Back square edges
 	wireframe->edges[0] = (t_line){wireframe->vertices[0], wireframe->vertices[1], 0, 0};
@@ -43,17 +41,21 @@ t_wireframe	*init_wireframe(void)
 	wireframe->edges[10] = (t_line){wireframe->vertices[2], wireframe->vertices[5], 0, 0};
 	wireframe->edges[11] = (t_line){wireframe->vertices[3], wireframe->vertices[7], 0, 0};
 
+	print_wireframe(wireframe);	// Debug
+
 	return (wireframe);
 }
 
-void		offset_wireframe(t_wireframe *wireframe)
+void	offset_projection(t_wireframe *wireframe)
 {
 	int i;
 
 	i = -1;
-	while (++i < wireframe->vertices_count)
+	while (++i < wireframe->edges_count)
 	{
-		wireframe->vertices[i].x += WIN_WIDTH / 2;
-		wireframe->vertices[i].y += WIN_HEIGHT / 2;
+		wireframe->projection[i].start.x += WIN_WIDTH / 2;
+		wireframe->projection[i].start.y += WIN_HEIGHT / 2;
+		wireframe->projection[i].end.x += WIN_WIDTH / 2;
+		wireframe->projection[i].end.y += WIN_HEIGHT / 2;
 	}
 }
