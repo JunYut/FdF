@@ -70,7 +70,7 @@ t_point isometric_projection(t_point p);
 
 // Drawing functions
 
-void	draw_wireframe(t_mlx *mlx, t_wireframe *wireframe, int color);
+void	draw_wireframe(t_mlx *mlx, t_wireframe *wireframe);
 void	draw_line(t_mlx *mlx, t_line line, int color);
 
 
@@ -96,3 +96,4 @@ void	clean_up(t_wireframe *wireframe);
 void	print_wireframe(t_wireframe *wireframe);
 void	print_projection(t_wireframe *wireframe);
 void	print_vertices(t_wireframe *wireframe);
+void	debug(void);

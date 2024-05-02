@@ -11,12 +11,14 @@ int render_new_frame(t_frame *frame)
 
 		// Project the wireframe
 		projector(frame->wireframe);
-		// print_projection(frame->wireframe);	// Debug
+		print_projection(frame->wireframe);	// Debug
 		offset_projection(frame->wireframe);
-		// print_projection(frame->wireframe);	// Debug
+		print_projection(frame->wireframe);	// Debug
 
+		debug();	// Debug
 		// Draw the wireframe
-		draw_wireframe(&frame->mlx, frame->wireframe, 0xFFFFFF);
+		draw_wireframe(&frame->mlx, frame->wireframe);	// Segfault here
+		debug();	// Debug
 
 		// Draw the image
 		mlx_put_image_to_window(frame->mlx.mlx, frame->mlx.win, frame->mlx.img.img, 0, 0);
@@ -50,7 +52,7 @@ int render_resize(t_frame *frame)
 	// print_projection(frame->wireframe);	// Debug
 
 	// Draw the wireframe
-	draw_wireframe(&frame->mlx, frame->wireframe, 0xFFFFFF);
+	draw_wireframe(&frame->mlx, frame->wireframe);
 
 	// Draw the image
 	mlx_put_image_to_window(frame->mlx.mlx, frame->mlx.win, frame->mlx.img.img, 0, 0);

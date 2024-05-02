@@ -31,3 +31,10 @@ void	print_vertices(t_wireframe *wireframe)
 		ft_printf("\n");
 	}
 }
+
+void	debug(void)
+{
+	static int i;
+
+	ft_printf("Debug %d\n", i++);
+}

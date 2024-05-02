@@ -1,10 +1,12 @@
 # include "wireframe.h"
 
-// TODO: remove the color parameter from this function
-void	draw_wireframe(t_mlx *mlx, t_wireframe *wireframe, int color)
+void	draw_wireframe(t_mlx *mlx, t_wireframe *wireframe)
 {
-	for (int i = 0; i < wireframe->edges_count; i++)
-		draw_line(mlx, wireframe->projection[i], color);
+	int	i;
+
+	i = -1;
+	while (++i < wireframe->edges_count)
+		draw_line(mlx, wireframe->edges[i], 0xFFFFFF);
 }
 
 // TODO: find a way to draw a line with a gradient color
