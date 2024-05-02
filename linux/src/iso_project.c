@@ -27,3 +27,17 @@ t_point isometric_projection(t_point p)
 	t_point projected_point = {new_x, new_y, 0}; // Set z to 0 for 2D representation
 	return (projected_point);
 }
+
+void	offset_projection(t_wireframe *wireframe)
+{
+	int i;
+
+	i = -1;
+	while (++i < wireframe->edges_count)
+	{
+		wireframe->projection[i].start.x += WIN_WIDTH / 2;
+		wireframe->projection[i].start.y += WIN_HEIGHT / 2;
+		wireframe->projection[i].end.x += WIN_WIDTH / 2;
+		wireframe->projection[i].end.y += WIN_HEIGHT / 2;
+	}
+}
