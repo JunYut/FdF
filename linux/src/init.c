@@ -11,6 +11,7 @@ t_wireframe	*init_wireframe(void)
 	wireframe->edges_count = 12;
 
 	init_vertices(wireframe);
+	rotate(wireframe, 0, 0, 0);
 	init_edges(wireframe);
 
 	return (wireframe);
@@ -47,8 +48,8 @@ void	init_vertices(t_wireframe *wireframe)
     wireframe->vertices[3] = (t_point){100, 100, 0};
 
     // Front square
-    wireframe->vertices[4] = (t_point){0, 0, 100};
-    wireframe->vertices[6] = (t_point){100, 0, 100};
-    wireframe->vertices[5] = (t_point){0, 100, 100};
-    wireframe->vertices[7] = (t_point){100, 100, 100};
+    wireframe->vertices[4] = (t_point){0, 0, 200};
+    wireframe->vertices[6] = (t_point){100, 0, 200};
+    wireframe->vertices[5] = (t_point){0, 100, 200};
+    wireframe->vertices[7] = (t_point){100, 100, 200};
 }

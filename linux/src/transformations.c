@@ -30,6 +30,7 @@ void	translate(t_wireframe *wireframe, int x, int y)
 	}
 }
 
+// Use after initializing the wireframe
 void rotate(t_wireframe *wireframe, float x, float y, float z)
 {
 	int i;
