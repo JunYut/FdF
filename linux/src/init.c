@@ -11,7 +11,6 @@ t_wireframe	*init_wireframe(void)
 	wireframe->edges_count = 12;
 
 	init_vertices(wireframe);
-	rotate(wireframe, 0, 0, 0);
 	init_edges(wireframe);
 
 	return (wireframe);

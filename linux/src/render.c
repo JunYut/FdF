@@ -9,6 +9,7 @@ int render_new_frame(t_frame *frame)
 		// Clear the image
 		ft_memset(frame->mlx.img.addr, 0, WIN_HEIGHT * frame->mlx.img.line_length + WIN_WIDTH * (frame->mlx.img.bits_per_pixel / 8));
 
+		rotate(frame->wireframe, 0, 0, 45);
 		projector(frame->wireframe);
 		scale(frame->wireframe, 1);
 		offset_projection(frame->wireframe);
