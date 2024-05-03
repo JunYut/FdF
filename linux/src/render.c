@@ -4,30 +4,19 @@ int render_new_frame(t_frame *frame)
 {
 	static int i;
 
-	if (i != 12)
+	if (++i == 1)
 	{
 		// Clear the image
 		ft_memset(frame->mlx.img.addr, 0, WIN_HEIGHT * frame->mlx.img.line_length + WIN_WIDTH * (frame->mlx.img.bits_per_pixel / 8));
 
-		if (i == 0)
-			print_wireframe(frame->wireframe);	// Debug
-		// Project the wireframe
 		projector(frame->wireframe);
-		if (i == 0)
-			print_projection(frame->wireframe);	// Debug
+		scale(frame->wireframe, 1);
 		offset_projection(frame->wireframe);
-		if (i == 0)
-			print_projection(frame->wireframe);	// Debug
-		// if (i == 0)
-		// 	print_center(frame->wireframe);	// Debug
+		translate(frame->wireframe, -100, -100, 100);
 
-		// Draw the wireframe
 		draw_wireframe(&frame->mlx, frame->wireframe);
 
-		// Draw the image
 		mlx_put_image_to_window(frame->mlx.mlx, frame->mlx.win, frame->mlx.img.img, 0, 0);
-
-		++i;
 	}
 
 	return (0);
@@ -51,9 +40,7 @@ int render_resize(t_frame *frame)
 
 	// Project the wireframe
 	projector(frame->wireframe);
-	// print_projection(frame->wireframe);	// Debug
 	offset_projection(frame->wireframe);
-	// print_projection(frame->wireframe);	// Debug
 
 	// Draw the wireframe
 	draw_wireframe(&frame->mlx, frame->wireframe);
