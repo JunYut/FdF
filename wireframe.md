@@ -41,3 +41,31 @@ In an isometric projection, the three coordinate axes appear equally foreshorten
 In 2D graphics, isometric projection is used to create an illusion of 3D, and is commonly used in video games, technical drawings, and architectural plans.
 
 In terms of 3D graphics programming, an isometric projection can be achieved by using an orthographic projection instead of a perspective projection, and then rotating the camera to the desired angle. The orthographic projection maintains the size of objects regardless of their distance from the camera, which is a key characteristic of isometric views.
+
+Here's a simple formula for an isometric projection with a **30-degree angle** between the three visible axes (front, top, and side):
+
+`new_x = (isometric_factor * x + isometric_factor * z) / 2`
+
+`new_y = (isometric_factor * y - (isometric_factor * x - isometric_factor * z)) / 2`
+
+# 3D Rotation
+![alt text](3D_rotation.png)
+Rotating a 3D object involves applying a rotation matrix to each of the object's vertices. The rotation matrix depends on the axis of rotation. Here's a brief overview:
+
+Rotation around the x-axis:
+
+	1      0       0
+	0  cos(θ) -sin(θ)
+	0  sin(θ)  cos(θ)
+
+Rotation around the y-axis:
+
+	cos(θ)   0  sin(θ)
+		0    1      0
+	-sin(θ)  0  cos(θ)
+
+Rotation around the z-axis:
+
+	cos(θ) -sin(θ)  0
+	sin(θ)  cos(θ)  0
+		0       0   1
