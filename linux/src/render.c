@@ -12,7 +12,7 @@ int render_new_frame(t_frame *frame)
 		projector(frame->wireframe);
 		scale(frame->wireframe, 1);
 		offset_projection(frame->wireframe);
-		translate(frame->wireframe, -100, -100, 100);
+		translate(frame->wireframe, 500, 500);
 
 		draw_wireframe(&frame->mlx, frame->wireframe);
 
@@ -40,7 +40,9 @@ int render_resize(t_frame *frame)
 
 	// Project the wireframe
 	projector(frame->wireframe);
+	scale(frame->wireframe, 1);
 	offset_projection(frame->wireframe);
+	translate(frame->wireframe, 0, 0);
 
 	// Draw the wireframe
 	draw_wireframe(&frame->mlx, frame->wireframe);

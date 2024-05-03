@@ -59,12 +59,14 @@ typedef struct	s_frame
 
 // Geometric Transformations
 void	scale(t_wireframe *wireframe, float factor);
-void	translate(t_wireframe *wireframe, int x, int y, int z);
+void	translate(t_wireframe *wireframe, int x, int y);
 void	rotate(t_wireframe *wireframe, int x, int y, int z);
 
 // Initialization functions
 
-t_wireframe	*init_wireframe(void);	// This is hardcoded for now
+t_wireframe	*init_wireframe(void);
+void		init_edges(t_wireframe *wireframe);
+void		init_vertices(t_wireframe *wireframe); // Hardcoded for a cube
 
 
 // Projection functions
