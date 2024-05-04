@@ -7,7 +7,6 @@ void	draw_wireframe(t_mlx *mlx, t_wireframe *wireframe)
 	i = -1;
 	while (++i < wireframe->edges_count)
 	{
-		debug("Drawing wireframe");
 		draw_line(mlx, wireframe->projection[i], 0xFFFFFF);
 	}
 }
@@ -22,7 +21,6 @@ void draw_line(t_mlx *mlx, t_line line, int color)
 	float x;
 	float y;
 
-	// debug("Drawing line");
 	x = line.start.x;
 	y = line.start.y;
 	line.dx = line.end.x - line.start.x;
@@ -30,7 +28,6 @@ void draw_line(t_mlx *mlx, t_line line, int color)
 	steps = abs(line.dx) > abs(line.dy) ? abs(line.dx) : abs(line.dy);
 	incX = line.dx / (float)steps;
 	incY = line.dy / (float)steps;
-	debug("Drawing line");
 	while (steps)
 	{
 		renderPixel(&mlx->img, x, y, color);
@@ -38,5 +35,4 @@ void draw_line(t_mlx *mlx, t_line line, int color)
 		y += incY;
 		steps--;
 	}
-
 }

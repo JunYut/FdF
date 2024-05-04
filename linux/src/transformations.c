@@ -24,9 +24,9 @@ void	translate(t_wireframe *wireframe, int x, int y)
 	while (++i < wireframe->edges_count)
 	{
 		wireframe->projection[i].start.x += x;
-		wireframe->projection[i].start.y += x;
+		wireframe->projection[i].start.y += y;
 		wireframe->projection[i].end.x += x;
-		wireframe->projection[i].end.y += x;
+		wireframe->projection[i].end.y += y;
 	}
 }
 
