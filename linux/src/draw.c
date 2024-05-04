@@ -6,7 +6,10 @@ void	draw_wireframe(t_mlx *mlx, t_wireframe *wireframe)
 
 	i = -1;
 	while (++i < wireframe->edges_count)
+	{
+		// debug("Drawing wireframe");
 		draw_line(mlx, wireframe->projection[i], 0xFFFFFF);
+	}
 }
 
 // TODO: find a way to draw a line with a gradient color
