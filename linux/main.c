@@ -1,8 +1,6 @@
 # include <stdio.h>
 # include "wireframe.h"
 
-// Draw a plane that has a width of 300, a height of 100 and a depth of 30
-
 int main (void)
 {
 	t_frame frame;
@@ -15,7 +13,7 @@ int main (void)
 
 	// Set the loop hook and the key hook
 	mlx_loop_hook(frame.mlx.mlx, render_new_frame, &frame);
-	mlx_hook(frame.mlx.win, 17, 0, quit, &frame.mlx);
+	mlx_hook(frame.mlx.win, DESTROY_NOTIFY, NO_EVENT_MASK, quit, &frame.mlx);
 	mlx_key_hook(frame.mlx.win, key_hook, &frame);
 
 	// Create an image
