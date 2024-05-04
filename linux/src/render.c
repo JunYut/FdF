@@ -2,6 +2,8 @@
 
 int render_new_frame(t_frame *frame)
 {
+	static int	i;
+
 	if (frame->redraw_flag == 1)
 	{
 		// Clear the image
@@ -14,7 +16,8 @@ int render_new_frame(t_frame *frame)
 		debug(NULL);
 		scale(frame->wireframe, frame->wireframe->scale);
 		debug(NULL);
-		offset_projection(frame->wireframe);
+		if (i >= 0)
+			offset_projection(frame->wireframe);
 		debug(NULL);
 		translate(frame->wireframe, frame->wireframe->translate.x, frame->wireframe->translate.y);
 		debug(NULL);
@@ -25,6 +28,7 @@ int render_new_frame(t_frame *frame)
 		mlx_put_image_to_window(frame->mlx.mlx, frame->mlx.win, frame->mlx.img.img, 0, 0);
 
 		frame->redraw_flag = 0;
+		++i;
 	}
 
 	return (0);
@@ -66,6 +70,7 @@ void renderPixel(t_img *img, int x, int y, int color)
 {
 	char *dst;
 
+	// debug("Rendering pixel");
 	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
 }

@@ -2,8 +2,7 @@
 
 void	offset_projection(t_wireframe *wireframe)
 {
-	t_point center;
-	int 	i;
+	int i;
 
 	wireframe->center = (t_point){0, 0, 0};
 	i = -1;
