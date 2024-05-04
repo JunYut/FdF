@@ -10,17 +10,17 @@
 
 enum e_keycode
 {
-	KEY_ESC = 9,
-	KEY_W = 25,
-	KEY_A = 38,
-	KEY_S = 39,
-	KEY_D = 40,
-	KEY_Q = 24,
-	KEY_E = 26,
-	KEY_UP = 111,
-	KEY_DOWN = 116,
-	KEY_LEFT = 113,
-	KEY_RIGHT = 114
+	KEY_ESC = 65307,
+	KEY_W = 119,
+	KEY_A = 97,
+	KEY_S = 115,
+	KEY_D = 100,
+	KEY_MINUS = 45,
+	KEY_PLUS = 61,
+	KEY_UP = 65362,
+	KEY_DOWN = 65364,
+	KEY_LEFT = 65361,
+	KEY_RIGHT = 65363
 };
 
 typedef struct	s_img
@@ -58,21 +58,26 @@ typedef struct	s_line
 
 typedef struct	s_wireframe
 {
-	t_line		*projection;
-	t_line		*edges;
-	t_point		*vertices;
-	t_point		center;
-	int			edges_count;
-	int			vertices_count;
+	t_line	*projection;
+	t_line	*edges;
+	t_point	*vertices;
+	t_point	center;
+	float	scale;
+	t_point	translate;
+	t_point	rotate;
+	int		edges_count;
+	int		vertices_count;
 }				t_wireframe;
 
 typedef struct	s_frame
 {
 	t_mlx		mlx;
 	t_wireframe	*wireframe;
+	int			redraw_flag;
 }				t_frame;
 
 // Geometric Transformations
+
 void		scale(t_wireframe *wireframe, float factor);
 void		translate(t_wireframe *wireframe, int x, int y);
 void		rotate(t_wireframe *wireframe, float x, float y, float z);
