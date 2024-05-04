@@ -7,3 +7,10 @@ int quit(t_mlx *mlx)
 	exit(0);
 	return (0);
 }
+
+int	key_hook(int keycode, t_frame *frame)
+{
+	if (keycode == KEY_ESC)
+		quit(&frame->mlx);
+	return (0);
+}
