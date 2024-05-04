@@ -2,22 +2,25 @@
 
 int render_new_frame(t_frame *frame)
 {
-
 	if (frame->redraw_flag == 1)
 	{
 		// Clear the image
 		ft_memset(frame->mlx.img.addr, 0, WIN_HEIGHT * frame->mlx.img.line_length + WIN_WIDTH * (frame->mlx.img.bits_per_pixel / 8));
 
-		// debug();
+		debug(NULL);
 		rotate(frame->wireframe, frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);
-		// debug();
+		debug(NULL);
 		projector(frame->wireframe);
-		// debug();
+		debug(NULL);
 		scale(frame->wireframe, frame->wireframe->scale);
+		debug(NULL);
 		offset_projection(frame->wireframe);
+		debug(NULL);
 		translate(frame->wireframe, frame->wireframe->translate.x, frame->wireframe->translate.y);
+		debug(NULL);
 
 		draw_wireframe(&frame->mlx, frame->wireframe);
+		debug("Drawn wireframe");
 
 		mlx_put_image_to_window(frame->mlx.mlx, frame->mlx.win, frame->mlx.img.img, 0, 0);
 

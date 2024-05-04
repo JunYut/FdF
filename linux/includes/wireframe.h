@@ -126,4 +126,4 @@ void		print_wireframe(t_wireframe *wireframe);
 void		print_projection(t_wireframe *wireframe);
 void		print_vertices(t_wireframe *wireframe);
 void		print_center(t_wireframe *wireframe);
-void		debug(void);
+void		debug(char *msg);

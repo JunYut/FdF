@@ -37,9 +37,12 @@ void	print_center(t_wireframe *wireframe)
 	ft_printf("Center: %d %d\n", wireframe->center.x, wireframe->center.y);
 }
 
-void	debug(void)
+void	debug(char *str)
 {
 	static int i;
 
-	ft_printf("Debug %d\n", i++);
+	if (str == NULL)
+		ft_printf("Debug %d\n", i++);
+	else
+		ft_printf("Debug %d: %s\n", i++, str);
 }
