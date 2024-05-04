@@ -8,8 +8,11 @@ int render_new_frame(t_frame *frame)
 		// Clear the image
 		ft_memset(frame->mlx.img.addr, 0, WIN_HEIGHT * frame->mlx.img.line_length + WIN_WIDTH * (frame->mlx.img.bits_per_pixel / 8));
 
+		// debug();
 		rotate(frame->wireframe, frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);
+		// debug();
 		projector(frame->wireframe);
+		// debug();
 		scale(frame->wireframe, frame->wireframe->scale);
 		offset_projection(frame->wireframe);
 		translate(frame->wireframe, frame->wireframe->translate.x, frame->wireframe->translate.y);

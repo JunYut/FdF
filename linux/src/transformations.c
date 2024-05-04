@@ -43,6 +43,7 @@ void rotate(t_wireframe *wireframe, float x, float y, float z)
 
 	for (int i = 0; i < wireframe->edges_count; i++)
 	{
+		// debug();
 		tmp = wireframe->edges[i].start.y;
 		wireframe->edges[i].start.y = tmp * cos(x) - wireframe->edges[i].start.z * sin(x);
 		wireframe->edges[i].start.z = tmp * sin(x) + wireframe->edges[i].start.z * cos(x);

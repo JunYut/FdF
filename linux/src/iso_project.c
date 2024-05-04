@@ -34,6 +34,7 @@ void  projector(t_wireframe *wireframe)
 	i = -1;
 	while (++i < wireframe->edges_count)
 	{
+		// debug();
 		wireframe->projection[i].start = isometric_projection(wireframe->edges[i].start);
 		wireframe->projection[i].end = isometric_projection(wireframe->edges[i].end);
 	}
