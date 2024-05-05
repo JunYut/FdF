@@ -7,6 +7,7 @@ t_wireframe	*init_wireframe(void)
 	wireframe = (t_wireframe *)ft_calloc(1, sizeof(t_wireframe));
 	wireframe->vertices = (t_point *)ft_calloc(8, sizeof(t_point));
 	wireframe->edges = (t_line *)ft_calloc(12, sizeof(t_line));
+	wireframe->rotated = (t_line *)ft_calloc(12, sizeof(t_line));
 	wireframe->scale = 1;
 	wireframe->translate = (t_point){0, 0, 0};
 	wireframe->rotate = (t_point){0, 0, 0};

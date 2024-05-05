@@ -15,28 +15,66 @@ int	key_hook(int keycode, t_frame *frame)
 		quit(&frame->mlx);
 	frame->redraw_flag = 1;
 	if (keycode == KEY_UP)
-		frame->wireframe->translate.y -= 10;
-	if (keycode == KEY_DOWN)
+	{
 		frame->wireframe->translate.y += 10;
+		printf("Translate: %d %d\n", frame->wireframe->translate.x, frame->wireframe->translate.y);	// Debug
+	}
+	if (keycode == KEY_DOWN)
+	{
+		frame->wireframe->translate.y -= 10;
+		printf("Translate: %d %d\n", frame->wireframe->translate.x, frame->wireframe->translate.y);	// Debug
+	}
 	if (keycode == KEY_LEFT)
+	{
 		frame->wireframe->translate.x -= 10;
+		printf("Translate: %d %d\n", frame->wireframe->translate.x, frame->wireframe->translate.y);	// Debug
+	}
 	if (keycode == KEY_RIGHT)
+	{
 		frame->wireframe->translate.x += 10;
+		printf("Translate: %d %d\n", frame->wireframe->translate.x, frame->wireframe->translate.y);	// Debug
+	}
 	if (keycode == KEY_W)
+	{
 		frame->wireframe->rotate.x += 10;
+		printf("Rotate: %d %d %d\n", frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);	// Debug
+	}
 	if (keycode == KEY_S)
+	{
 		frame->wireframe->rotate.x -= 10;
+		printf("Rotate: %d %d %d\n", frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);	// Debug
+	}
 	if (keycode == KEY_A)
+	{
+		frame->wireframe->rotate.y -= 10;
+		printf("Rotate: %d %d %d\n", frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);	// Debug
+	}
 		frame->wireframe->rotate.y -= 10;
 	if (keycode == KEY_D)
+	{
 		frame->wireframe->rotate.y += 10;
+		printf("Rotate: %d %d %d\n", frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);	// Debug
+	}
 	if (keycode == KEY_Q)
+	{
 		frame->wireframe->rotate.z -= 10;
+		printf("Rotate: %d %d %d\n", frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);	// Debug
+	}
 	if (keycode == KEY_E)
+	{
 		frame->wireframe->rotate.z += 10;
+		printf("Rotate: %d %d %d\n", frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);	// Debug
+	}
 	if (keycode == KEY_PLUS)
+	{
 		frame->wireframe->scale += 0.1;
+		printf("Scale: %f\n", frame->wireframe->scale);	// Debug
+	}
 	if (keycode == KEY_MINUS)
-		frame->wireframe->scale -= 0.1;
+	{
+		if (frame->wireframe->scale > 0.1)
+			frame->wireframe->scale -= 0.1;
+		printf("Scale: %f\n", frame->wireframe->scale);	// Debug
+	}
 	return (0);
 }

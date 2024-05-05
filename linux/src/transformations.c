@@ -3,6 +3,7 @@
 // Use after projecting the wireframe, before offsetting the projection
 void	scale(t_wireframe *wireframe, float factor)
 {
+	debug("Scaling wireframe...");
 	int	i;
 
 	i = -1;
@@ -18,6 +19,7 @@ void	scale(t_wireframe *wireframe, float factor)
 // Use after offsetting the projection
 void	translate(t_wireframe *wireframe, int x, int y)
 {
+	debug("Translating wireframe...");
 	int	i;
 
 	i = -1;
@@ -33,6 +35,7 @@ void	translate(t_wireframe *wireframe, int x, int y)
 // Use before projecting the wireframe
 void rotate(t_wireframe *wireframe, float x, float y, float z)
 {
+	debug("Rotating wireframe...");
 	int i;
 	float tmp;
 
@@ -43,29 +46,28 @@ void rotate(t_wireframe *wireframe, float x, float y, float z)
 
 	for (int i = 0; i < wireframe->edges_count; i++)
 	{
-		// debug();
 		tmp = wireframe->edges[i].start.y;
-		wireframe->edges[i].start.y = tmp * cos(x) - wireframe->edges[i].start.z * sin(x);
-		wireframe->edges[i].start.z = tmp * sin(x) + wireframe->edges[i].start.z * cos(x);
+		wireframe->rotated[i].start.y = tmp * cos(x) - wireframe->edges[i].start.z * sin(x);
+		wireframe->rotated[i].start.z = tmp * sin(x) + wireframe->edges[i].start.z * cos(x);
 
 		tmp = wireframe->edges[i].start.x;
-		wireframe->edges[i].start.x = tmp * cos(y) + wireframe->edges[i].start.z * sin(y);
-		wireframe->edges[i].start.z = -tmp * sin(y) + wireframe->edges[i].start.z * cos(y);
+		wireframe->rotated[i].start.x = tmp * cos(y) + wireframe->edges[i].start.z * sin(y);
+		wireframe->rotated[i].start.z = -tmp * sin(y) + wireframe->edges[i].start.z * cos(y);
 
 		tmp = wireframe->edges[i].start.x;
-		wireframe->edges[i].start.x = tmp * cos(z) - wireframe->edges[i].start.y * sin(z);
-		wireframe->edges[i].start.y = tmp * sin(z) + wireframe->edges[i].start.y * cos(z);
+		wireframe->rotated[i].start.x = tmp * cos(z) - wireframe->edges[i].start.y * sin(z);
+		wireframe->rotated[i].start.y = tmp * sin(z) + wireframe->edges[i].start.y * cos(z);
 
 		tmp = wireframe->edges[i].end.y;
-		wireframe->edges[i].end.y = tmp * cos(x) - wireframe->edges[i].end.z * sin(x);
-		wireframe->edges[i].end.z = tmp * sin(x) + wireframe->edges[i].end.z * cos(x);
+		wireframe->rotated[i].end.y = tmp * cos(x) - wireframe->edges[i].end.z * sin(x);
+		wireframe->rotated[i].end.z = tmp * sin(x) + wireframe->edges[i].end.z * cos(x);
 
 		tmp = wireframe->edges[i].end.x;
-		wireframe->edges[i].end.x = tmp * cos(y) + wireframe->edges[i].end.z * sin(y);
-		wireframe->edges[i].end.z = -tmp * sin(y) + wireframe->edges[i].end.z * cos(y);
+		wireframe->rotated[i].end.x = tmp * cos(y) + wireframe->edges[i].end.z * sin(y);
+		wireframe->rotated[i].end.z = -tmp * sin(y) + wireframe->edges[i].end.z * cos(y);
 
 		tmp = wireframe->edges[i].end.x;
-		wireframe->edges[i].end.x = tmp * cos(z) - wireframe->edges[i].end.y * sin(z);
-		wireframe->edges[i].end.y = tmp * sin(z) + wireframe->edges[i].end.y * cos(z);
+		wireframe->rotated[i].end.x = tmp * cos(z) - wireframe->edges[i].end.y * sin(z);
+		wireframe->rotated[i].end.y = tmp * sin(z) + wireframe->edges[i].end.y * cos(z);
 	}
 }

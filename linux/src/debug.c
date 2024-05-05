@@ -2,6 +2,7 @@
 
 void	print_wireframe(t_wireframe *wireframe)
 {
+	debug("Printing wireframe...");
 	for (int i = 0; i < wireframe->edges_count; i++)
 	{
 		ft_printf("Edge %d\n", i);
@@ -13,6 +14,7 @@ void	print_wireframe(t_wireframe *wireframe)
 
 void	print_projection(t_wireframe *wireframe)
 {
+	debug("Printing projection...");
 	for (int i = 0; i < wireframe->edges_count; i++)
 	{
 		ft_printf("Projection %d\n", i);
@@ -24,12 +26,21 @@ void	print_projection(t_wireframe *wireframe)
 
 void	print_vertices(t_wireframe *wireframe)
 {
+	debug("Printing vertices...");
 	for (int i = 0; i < wireframe->vertices_count; i++)
 	{
 		ft_printf("Vertex %d\n", i);
 		ft_printf("Coordinates: %d, %d, %d\n", wireframe->vertices[i].x, wireframe->vertices[i].y, wireframe->vertices[i].z);
 		ft_printf("\n");
 	}
+}
+
+void	print_transform(t_wireframe	*s_wireframe)
+{
+	debug("Printing transformation...");
+	printf("Scale: %f\n", s_wireframe->scale);
+	ft_printf("Translate: %d %d\n", s_wireframe->translate.x, s_wireframe->translate.y);
+	ft_printf("Rotate: %d %d %d\n", s_wireframe->rotate.x, s_wireframe->rotate.y, s_wireframe->rotate.z);
 }
 
 void	print_center(t_wireframe *wireframe)

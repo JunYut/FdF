@@ -2,6 +2,7 @@
 
 void	offset_projection(t_wireframe *wireframe)
 {
+	debug("Offsetting wireframe...");
 	int i;
 
 	wireframe->center = (t_point){0, 0, 0};
@@ -26,6 +27,7 @@ void	offset_projection(t_wireframe *wireframe)
 
 void  projector(t_wireframe *wireframe)
 {
+	debug("Projecting wireframe...");
 	int i;
 
 	wireframe->projection = (t_line *)ft_calloc(wireframe->edges_count, sizeof(t_line));
@@ -34,10 +36,9 @@ void  projector(t_wireframe *wireframe)
 	while (++i < wireframe->edges_count)
 	{
 		// debug();
-		wireframe->projection[i].start = isometric_projection(wireframe->edges[i].start);
-		wireframe->projection[i].end = isometric_projection(wireframe->edges[i].end);
+		wireframe->projection[i].start = isometric_projection(wireframe->rotated[i].start);
+		wireframe->projection[i].end = isometric_projection(wireframe->rotated[i].end);
 	}
-
 }
 
 t_point isometric_projection(t_point p)
