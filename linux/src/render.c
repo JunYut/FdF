@@ -14,7 +14,7 @@ int render_new_frame(t_frame *frame)
 		offset_projection(frame->wireframe);
 		translate(frame->wireframe, frame->wireframe->translate.x, frame->wireframe->translate.y);
 		print_transform(frame->wireframe);	// Debug
-		// print_projection(frame->wireframe);	// Debug
+		print_projection(frame->wireframe);	// Debug
 
 		draw_wireframe(&frame->mlx, frame->wireframe);
 

@@ -36,33 +36,42 @@ int	key_hook(int keycode, t_frame *frame)
 	}
 	if (keycode == KEY_W)
 	{
-		frame->wireframe->rotate.x += 10;
-		printf("Rotate: %d %d %d\n", frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);	// Debug
+		if (frame->wireframe->rotate.x >= -360 && frame->wireframe->rotate.x < 360)
+		{
+			frame->wireframe->rotate.x += 10;
+			printf("Rotate: %d %d %d\n", frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);	// Debug
+		}
 	}
 	if (keycode == KEY_S)
 	{
-		frame->wireframe->rotate.x -= 10;
-		printf("Rotate: %d %d %d\n", frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);	// Debug
+		if (frame->wireframe->rotate.x > -360 && frame->wireframe->rotate.x <= 360)
+		{
+			frame->wireframe->rotate.x -= 10;
+			printf("Rotate: %d %d %d\n", frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);	// Debug
+		}
 	}
 	if (keycode == KEY_A)
 	{
-		frame->wireframe->rotate.y -= 10;
+		if (frame->wireframe->rotate.y > -360 && frame->wireframe->rotate.y <= 360)
+			frame->wireframe->rotate.y -= 10;
 		printf("Rotate: %d %d %d\n", frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);	// Debug
 	}
-		frame->wireframe->rotate.y -= 10;
 	if (keycode == KEY_D)
 	{
-		frame->wireframe->rotate.y += 10;
+		if (frame->wireframe->rotate.y >= -360 && frame->wireframe->rotate.y < 360)
+			frame->wireframe->rotate.y += 10;
 		printf("Rotate: %d %d %d\n", frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);	// Debug
 	}
 	if (keycode == KEY_Q)
 	{
-		frame->wireframe->rotate.z -= 10;
+		if (frame->wireframe->rotate.z > -360 && frame->wireframe->rotate.z <= 360)
+			frame->wireframe->rotate.z -= 10;
 		printf("Rotate: %d %d %d\n", frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);	// Debug
 	}
 	if (keycode == KEY_E)
 	{
-		frame->wireframe->rotate.z += 10;
+		if (frame->wireframe->rotate.z >= -360 && frame->wireframe->rotate.z < 360)
+			frame->wireframe->rotate.z += 10;
 		printf("Rotate: %d %d %d\n", frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);	// Debug
 	}
 	if (keycode == KEY_PLUS)

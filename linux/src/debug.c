@@ -40,7 +40,7 @@ void	print_transform(t_wireframe	*s_wireframe)
 	debug("Printing transformation...");
 	printf("Scale: %f\n", s_wireframe->scale);
 	ft_printf("Translate: %d %d\n", s_wireframe->translate.x, s_wireframe->translate.y);
-	ft_printf("Rotate: %d %d %d\n", s_wireframe->rotate.x, s_wireframe->rotate.y, s_wireframe->rotate.z);
+	ft_printf("Rotate: %d %d %d\n\n", s_wireframe->rotate.x, s_wireframe->rotate.y, s_wireframe->rotate.z);
 }
 
 void	print_center(t_wireframe *wireframe)
