@@ -26,60 +26,59 @@ enum e_keycode
 	KEY_RIGHT = 124
 };
 
-
-typedef struct	s_img
+typedef struct s_img
 {
-	void		*img;
-	char		*addr;
-	int			bits_per_pixel;
-	int			line_length;
-	int			endian;
-	int			offset;
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	int		offset;
 }				t_img;
 
-typedef struct	s_mlx
+typedef struct s_mlx
 {
-	void		*mlx;
-	void		*win;
-	t_img		img;
+	void	*mlx;
+	void	*win;
+	t_img	img;
 }				t_mlx;
 
-typedef struct	s_point
+typedef struct s_point
 {
-	int			x;
-	int			y;
-	int			z;
-	int			color;
+	int	x;
+	int	y;
+	int	z;
+	int	color;
 }				t_point;
 
-typedef struct	s_line
+typedef struct s_line
 {
-	t_point		start;
-	t_point		end;
-	int			dx;
-	int			dy;
+	t_point	start;
+	t_point	end;
+	int		dx;
+	int		dy;
 }				t_line;
 
-typedef struct	s_wireframe
+typedef struct s_wireframe
 {
 	t_line	*projection;
 	t_line	*rotated;
 	t_line	*edges;
 	t_point	*vertices;
-	t_point	center;
 	float	scale;
 	t_point	translate;
 	t_point	rotate;
+	t_point	center;
+	t_point	extremes[4];
 	int		edges_count;
 	int		vertices_count;
 }				t_wireframe;
 
-typedef struct	s_frame
+typedef struct s_frame
 {
 	t_mlx		mlx;
 	t_wireframe	*wireframe;
 	int			redraw_flag;
-	int			rotate_flag;
 }				t_frame;
 
 // Geometric Transformations
@@ -93,37 +92,32 @@ void		rotate(t_wireframe *wireframe, float x, float y, float z);
 t_wireframe	*init_wireframe(void);
 void		init_edges(t_wireframe *wireframe);
 void		init_vertices(t_wireframe *wireframe); // Hardcoded for a cube
-
+void		update_extremes(t_wireframe *wireframe);
 
 // Projection functions
 
 void		offset_projection(t_wireframe *wireframe);
 void		projector(t_wireframe *wireframe);
-t_point 	isometric_projection(t_point p);
-
+t_point		isometric_projection(t_point p);
 
 // Drawing functions
 
 void		draw_wireframe(t_mlx *mlx, t_wireframe *wireframe);
 void		draw_line(t_mlx *mlx, t_line line, int color);
 
-
 // Render functions
 
 int			render_new_frame(t_frame *frame);
 void		renderPixel(t_img *img, int x, int y, int color);
-
 
 // Event functions
 
 int			quit(t_mlx *mlx);
 int			key_hook(int keycode, t_frame *frame);
 
-
-// Utility functions
+// Memory functions
 
 void		clean_up(t_wireframe *wireframe);
-
 
 // Debug functions
 

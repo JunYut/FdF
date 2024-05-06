@@ -14,6 +14,7 @@ int main (void)
 	// Set the loop hook and the key hook
 	mlx_loop_hook(frame.mlx.mlx, render_new_frame, &frame);
 	mlx_hook(frame.mlx.win, 17, 0, quit, &frame.mlx);
+	mlx_hook(frame.mlx.win, 2, 1L<<0, key_hook, &frame);
 	mlx_key_hook(frame.mlx.win, key_hook, &frame);
 
 	// Create an image
