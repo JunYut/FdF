@@ -9,13 +9,19 @@ int render_new_frame(t_frame *frame)
 		ft_memset(frame->mlx.img.addr, 0, WIN_HEIGHT * frame->mlx.img.line_length + WIN_WIDTH * (frame->mlx.img.bits_per_pixel / 8));
 
 		rotate(frame->wireframe, frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);
+		debug("Done rotating...");
 		projector(frame->wireframe);
+		debug("Done projecting...");
 		scale(frame->wireframe, frame->wireframe->scale);
+		debug("Done scaling...");
 		offset_projection(frame->wireframe);
+		debug("Done offsetting...");
 		translate(frame->wireframe, frame->wireframe->translate.x, frame->wireframe->translate.y);
+		debug("Done translating...");
 		print_transform(frame->wireframe);	// Debug
 
 		draw_wireframe(&frame->mlx, frame->wireframe);
+		debug("Done drawing...");
 
 		mlx_put_image_to_window(frame->mlx.mlx, frame->mlx.win, frame->mlx.img.img, 0, 0);
 

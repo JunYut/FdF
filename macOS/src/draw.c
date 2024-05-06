@@ -2,7 +2,7 @@
 
 void	draw_wireframe(t_mlx *mlx, t_wireframe *wireframe)
 {
-	// debug("Drawing wireframe...");
+	debug("Drawing wireframe...");
 	int	i;
 
 	i = -1;
