@@ -25,7 +25,7 @@ void	offset_projection(t_wireframe *wireframe)
 	}
 }
 
-void  projector(t_wireframe *wireframe)
+void  c_projector(t_wireframe *wireframe)
 {
 	// debug("Projecting wireframe...");
 	int i;

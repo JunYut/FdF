@@ -164,7 +164,7 @@ void		init_vertices(t_wireframe *wireframe); // Hardcoded for a cube
 // Projection functions
 
 void		offset_projection(t_wireframe *wireframe);
-void		projector(t_wireframe *wireframe);
+void		c_projector(t_wireframe *wireframe);
 t_point 	isometric_projection(t_point p);
 
 

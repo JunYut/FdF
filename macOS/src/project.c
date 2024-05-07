@@ -25,7 +25,7 @@ void	offset_projection(t_wireframe *wireframe)
 	}
 }
 
-void  projector(t_wireframe *wireframe)
+void  c_projector(t_wireframe *wireframe)
 {
 	debug("Projecting wireframe...");
 	int i;
@@ -35,7 +35,6 @@ void  projector(t_wireframe *wireframe)
 	i = -1;
 	while (++i < wireframe->edges_count)
 	{
-		debug(NULL);
 		wireframe->projection[i].start = isometric_projection(wireframe->rotated[i].start);
 		wireframe->projection[i].end = isometric_projection(wireframe->rotated[i].end);
 	}
@@ -43,7 +42,7 @@ void  projector(t_wireframe *wireframe)
 
 t_point isometric_projection(t_point p)
 {
-	debug("Projecting point...");
+	// debug("Projecting point...");
 	// Isometric factor (adjust based on your needs)
 	int isometric_factor = 1;
 

@@ -9,7 +9,7 @@ int render_new_frame(t_frame *frame)
 		ft_memset(frame->mlx.img.addr, 0, WIN_HEIGHT * frame->mlx.img.line_length + WIN_WIDTH * (frame->mlx.img.bits_per_pixel / 8));
 
 		rotate(frame->wireframe, frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);
-		projector(frame->wireframe);
+		c_projector(frame->wireframe);
 		scale(frame->wireframe, frame->wireframe->scale);
 		offset_projection(frame->wireframe);
 		translate(frame->wireframe, frame->wireframe->translate.x, frame->wireframe->translate.y);
@@ -42,7 +42,7 @@ int render_resize(t_frame *frame)
 	ft_memset(frame->mlx.img.addr, 0, height * frame->mlx.img.line_length + width * (frame->mlx.img.bits_per_pixel / 8));
 
 	// Project the wireframe
-	projector(frame->wireframe);
+	c_projector(frame->wireframe);
 	scale(frame->wireframe, 1);
 	offset_projection(frame->wireframe);
 	translate(frame->wireframe, 0, 0);

@@ -6,11 +6,12 @@ int render_new_frame(t_frame *frame)
 	{
 		debug("Redrawing...");
 		// Clear the image
-		ft_memset(frame->mlx.img.addr, 0, WIN_HEIGHT * frame->mlx.img.line_length + WIN_WIDTH * (frame->mlx.img.bits_per_pixel / 8));
+		mlx_clear_window(frame->mlx.mlx, frame->mlx.win);
+		ft_bzero(frame->mlx.img.addr, WIN_HEIGHT * frame->mlx.img.line_length + WIN_WIDTH * (frame->mlx.img.bits_per_pixel / 8));
 
 		rotate(frame->wireframe, frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);
 		debug("Done rotating...");
-		projector(frame->wireframe);
+		c_projector(frame->wireframe);
 		debug("Done projecting...");
 		scale(frame->wireframe, frame->wireframe->scale);
 		debug("Done scaling...");
@@ -21,7 +22,7 @@ int render_new_frame(t_frame *frame)
 		print_transform(frame->wireframe);	// Debug
 
 		draw_wireframe(&frame->mlx, frame->wireframe);
-		debug("Done drawing...");
+		debug("Done drawing...\n");
 
 		mlx_put_image_to_window(frame->mlx.mlx, frame->mlx.win, frame->mlx.img.img, 0, 0);
 
