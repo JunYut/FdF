@@ -47,10 +47,10 @@ void	print_extremes(t_wireframe *wireframe)
 {
 	debug("Printing extremes...");
 	ft_printf("Extremes:\n");
-	ft_printf("Top: %d\n", wireframe->extremes[0].y);
-	ft_printf("Bottom: %d\n", wireframe->extremes[1].y);
-	ft_printf("Left: %d\n", wireframe->extremes[2].x);
-	ft_printf("Right: %d\n\n", wireframe->extremes[3].x);
+	ft_printf("Top: %d\n", wireframe->extremes[0]);
+	ft_printf("Bottom: %d\n", wireframe->extremes[1]);
+	ft_printf("Left: %d\n", wireframe->extremes[2]);
+	ft_printf("Right: %d\n\n", wireframe->extremes[3]);
 }
 
 void	print_center(t_wireframe *wireframe)

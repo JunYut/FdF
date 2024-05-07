@@ -10,6 +10,7 @@ int render_new_frame(t_frame *frame)
 		printf("frame->mlx.img.addr: %p\n", (void *)frame->mlx.img.addr);
 		printf("Memory size: %d\n", WIN_HEIGHT * frame->mlx.img.line_length + WIN_WIDTH * (frame->mlx.img.bits_per_pixel / 8));
 		ft_bzero(frame->mlx.img.addr, WIN_HEIGHT * frame->mlx.img.line_length + WIN_WIDTH * (frame->mlx.img.bits_per_pixel / 8));
+		printf("frame->mlx.img.addr: %p\n", (void *)frame->mlx.img.addr);
 
 		rotate(frame->wireframe, frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);
 		debug("Done rotating...");
