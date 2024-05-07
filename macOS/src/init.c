@@ -59,7 +59,7 @@ void	init_vertices(t_wireframe *wireframe)
 
 void	update_extremes(t_wireframe *wireframe)
 {
-	debug("Updating wireframe extremes...");
+	// debug("Updating wireframe extremes...");
 	int	i;
 
 	wireframe->extremes[0] = wireframe->projection[0].start.y;
@@ -90,5 +90,5 @@ void	update_extremes(t_wireframe *wireframe)
 		if (wireframe->projection[i].end.x > wireframe->extremes[3])
 			wireframe->extremes[3] = wireframe->projection[i].end.x;
 	}
-	print_extremes(wireframe);
+	// print_extremes(wireframe);
 }

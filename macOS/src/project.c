@@ -2,7 +2,7 @@
 
 void	offset_projection(t_wireframe *wireframe)
 {
-	debug("Offsetting wireframe...");
+	// debug("Offsetting wireframe...");
 	int i;
 
 	wireframe->center = (t_point){0, 0, 0, 0};
@@ -28,7 +28,7 @@ void	offset_projection(t_wireframe *wireframe)
 // Cant name it projector cuz floating point exception
 void  c_projector(t_wireframe *wireframe)
 {
-	debug("Projecting wireframe...");
+	// debug("Projecting wireframe...");
 	int i;
 
 	wireframe->projection = (t_line *)ft_calloc(wireframe->edges_count, sizeof(t_line));
