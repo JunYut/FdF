@@ -3,7 +3,7 @@
 // Use after projecting the wireframe, before offsetting the projection
 void	scale(t_wireframe *wireframe, float factor)
 {
-	debug("Scaling wireframe...");
+	// debug("Scaling wireframe...");
 	int	i;
 
 	i = -1;
@@ -19,7 +19,7 @@ void	scale(t_wireframe *wireframe, float factor)
 // Use after offsetting the projection
 void	translate(t_wireframe *wireframe, int x, int y)
 {
-	debug("Translating wireframe...");
+	// debug("Translating wireframe...");
 	int	i;
 
 	i = -1;
@@ -35,7 +35,7 @@ void	translate(t_wireframe *wireframe, int x, int y)
 // Use before projecting the wireframe
 void rotate(t_wireframe *wireframe, float x, float y, float z)
 {
-	debug("Rotating wireframe...");
+	// debug("Rotating wireframe...");
 	int i;
 
 	// Convert degrees to radians

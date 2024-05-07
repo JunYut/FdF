@@ -8,7 +8,7 @@ void	draw_wireframe(t_mlx *mlx, t_wireframe *wireframe)
 	i = -1;
 	while (++i < wireframe->edges_count)
 	{
-		// // debug(NULL);
+		// debug(NULL);
 		draw_line(mlx, wireframe->projection[i], 0xFFFFFF);
 	}
 }

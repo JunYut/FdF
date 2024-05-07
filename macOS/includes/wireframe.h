@@ -69,7 +69,7 @@ typedef struct s_wireframe
 	t_point	translate;
 	t_point	rotate;
 	t_point	center;
-	t_point	extremes[4];
+	int		extremes[4];
 	int		edges_count;
 	int		vertices_count;
 }				t_wireframe;
@@ -97,7 +97,7 @@ void		update_extremes(t_wireframe *wireframe);
 // Projection functions
 
 void		offset_projection(t_wireframe *wireframe);
-void		c_projector(t_wireframe *wireframe);	// Cant name it projector cuz floating point exception
+void		c_projector(t_wireframe *wireframe);
 t_point		isometric_projection(t_point p);
 
 // Drawing functions
@@ -125,5 +125,6 @@ void		print_wireframe(t_wireframe *wireframe);
 void		print_projection(t_wireframe *wireframe);
 void		print_vertices(t_wireframe *wireframe);
 void		print_transform(t_wireframe *wireframe);
+void		print_extremes(t_wireframe *wireframe);
 void		print_center(t_wireframe *wireframe);
 void		debug(char *msg);

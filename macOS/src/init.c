@@ -62,32 +62,33 @@ void	update_extremes(t_wireframe *wireframe)
 	debug("Updating wireframe extremes...");
 	int	i;
 
-	wireframe->extremes[0] = wireframe->projection[0].start;
-	wireframe->extremes[1] = wireframe->projection[0].start;
-	wireframe->extremes[2] = wireframe->projection[0].start;
-	wireframe->extremes[3] = wireframe->projection[0].start;
+	wireframe->extremes[0] = wireframe->projection[0].start.y;
+	wireframe->extremes[1] = wireframe->extremes[0];
+	wireframe->extremes[2] = wireframe->projection[0].start.x;
+	wireframe->extremes[3] = wireframe->extremes[2];
 	i = -1;
 	while (++i < wireframe->edges_count)
 	{
 		// y-min
-		if (wireframe->projection[i].start.y < wireframe->extremes[0].y)
-			wireframe->extremes[0] = wireframe->projection[i].start;
-		if (wireframe->projection[i].end.y < wireframe->extremes[0].y)
-			wireframe->extremes[0] = wireframe->projection[i].end;
+		if (wireframe->projection[i].start.y < wireframe->extremes[0])
+			wireframe->extremes[0] = wireframe->projection[i].start.y;
+		if (wireframe->projection[i].end.y < wireframe->extremes[0])
+			wireframe->extremes[0] = wireframe->projection[i].end.y;
 		// y-max
-		if (wireframe->projection[i].start.y > wireframe->extremes[1].y)
-			wireframe->extremes[1] = wireframe->projection[i].start;
-		if (wireframe->projection[i].end.y > wireframe->extremes[1].y)
-			wireframe->extremes[1] = wireframe->projection[i].end;
+		if (wireframe->projection[i].start.y > wireframe->extremes[1])
+			wireframe->extremes[1] = wireframe->projection[i].start.y;
+		if (wireframe->projection[i].end.y > wireframe->extremes[1])
+			wireframe->extremes[1] = wireframe->projection[i].end.y;
 		// x-min
-		if (wireframe->projection[i].start.x < wireframe->extremes[2].x)
-			wireframe->extremes[2] = wireframe->projection[i].start;
-		if (wireframe->projection[i].end.x < wireframe->extremes[2].x)
-			wireframe->extremes[2] = wireframe->projection[i].end;
+		if (wireframe->projection[i].start.x < wireframe->extremes[2])
+			wireframe->extremes[2] = wireframe->projection[i].start.x;
+		if (wireframe->projection[i].end.x < wireframe->extremes[2])
+			wireframe->extremes[2] = wireframe->projection[i].end.x;
 		// x-max
-		if (wireframe->projection[i].start.x > wireframe->extremes[3].x)
-			wireframe->extremes[3] = wireframe->projection[i].start;
-		if (wireframe->projection[i].end.x > wireframe->extremes[3].x)
-			wireframe->extremes[3] = wireframe->projection[i].end;
+		if (wireframe->projection[i].start.x > wireframe->extremes[3])
+			wireframe->extremes[3] = wireframe->projection[i].start.x;
+		if (wireframe->projection[i].end.x > wireframe->extremes[3])
+			wireframe->extremes[3] = wireframe->projection[i].end.x;
 	}
+	print_extremes(wireframe);
 }
