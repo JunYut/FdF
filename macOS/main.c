@@ -18,7 +18,7 @@ int main (void)
 	printf("Image addr: %p\n", (void *)frame.mlx.img.img);	// Debug
 	frame.mlx.img.addr = mlx_get_data_addr(frame.mlx.img.img, &frame.mlx.img.bits_per_pixel, &frame.mlx.img.line_length, &frame.mlx.img.endian);
 	printf("Addr: %p\n", (void *)frame.mlx.img.addr);	// Debug
-	frame.mlx.img.offset = (WIN_HEIGHT * frame.mlx.img.line_length + WIN_WIDTH * (frame.mlx.img.bits_per_pixel / 8));
+	frame.mlx.img.offset = (WIN_HEIGHT * WIN_WIDTH * (frame.mlx.img.bits_per_pixel / 8));
 	printf("Offset: %d\n", frame.mlx.img.offset);	// Debug
 
 	// Set the loop hook and the key hook
