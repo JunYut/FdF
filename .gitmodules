@@ -7,3 +7,6 @@
 [submodule "libft-macos"]
 	path = macOS/libft
 	url = https://github.com/JunYut/libft.git
+[submodule "minilibx-macos"]
+	path = macOS/minilibx-linux
+	url = git@github.com:42Paris/minilibx-linux.git
