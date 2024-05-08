@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:19:49 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/17 15:00:25 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/08 12:34:40 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	valid_map(t_list *map)
 {
 	t_list	*current;
-	t_line	*tmp;
+	t_str	*tmp;
 	int		columns;
 	int		comma;
 	int		i;
 
 	current = map;
-	tmp = (t_line *)(map->content);
+	tmp = (t_str *)(map->content);
 	columns = tmp->columns;
 	while (current)
 	{
@@ -54,9 +54,8 @@ void	valid_map(t_list *map)
 		{
 			if (tmp->split_space[i][0] == ',')
 				comma++;
-			if (!ft_isdigit(tmp->split_space[i][0])
-			&& tmp->split_space[i][0] != '-'
-			|| comma > 1)
+			if ((!ft_isdigit(tmp->split_space[i][0])
+			&& tmp->split_space[i][0] != '-') || comma > 1)
 			{
 				ft_putstr_fd("Error: invalid characters\n", 2);
 				ft_lstclear(&map, free_line);
@@ -66,7 +65,7 @@ void	valid_map(t_list *map)
 
 		current = current->next;
 		if (current)
-			tmp = (t_line *)(current->content);
+			tmp = (t_str *)(current->content);
 	}
 }
 

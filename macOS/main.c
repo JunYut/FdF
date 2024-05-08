@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:12:52 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/08 11:02:54 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/08 12:39:01 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 
 int	main(int argc, char *argv[])
 {
+	(void)argc;
+	(void)argv;
+	t_frame frame;
 	t_list	*map;
 	int		fd;
 
@@ -28,7 +31,7 @@ int	main(int argc, char *argv[])
 	t_list	*current = map;
 	while (current)
 	{
-		t_line	*line = (t_line *)(current->content);
+		t_str	*line = (t_str *)(current->content);
 		ft_printf("words[%d]: %d\n", i++, line->columns);
 		for (int i = 0; i < line->columns; i++)
 		{
@@ -38,8 +41,6 @@ int	main(int argc, char *argv[])
 		ft_putstr_fd("\n\n", 1);
 		current = current->next;
 	}
-
-	t_frame frame;
 
 	// Initialize the mlx and create a window
 	frame.mlx.mlx = mlx_init();

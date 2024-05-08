@@ -102,16 +102,11 @@ void		renderPixel(t_img *img, int x, int y, int color);
 int			quit(t_mlx *mlx);
 int			key_hook(int keycode, t_frame *frame);
 
-// Memory functions
-
-void		clean_up(t_wireframe *wireframe);
-
 // Debug functions
 
 void		print_wireframe(t_wireframe *wireframe);
 void		print_projection(t_wireframe *wireframe);
 void		print_vertices(t_wireframe *wireframe);
 void		print_transform(t_wireframe *wireframe);
-void		print_extremes(t_wireframe *wireframe);
 void		print_center(t_wireframe *wireframe);
 void		debug(char *msg);

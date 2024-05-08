@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:20:08 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/17 13:48:08 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/08 12:31:11 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ t_list	*parse_map(int fd)
 	return (map);
 }
 
-t_line	*parse_line(char *line)
+t_str	*parse_line(char *line)
 {
-	t_line		*row;
+	t_str		*row;
 
 	if (!line)
 		return (NULL);
-	row = (t_line *)c_malloc(sizeof(t_line));
+	row = (t_str *)c_malloc(sizeof(t_str));
 	row->str = ft_strdup(line);
 	row->split_nl = ft_split(row->str, '\n');
 	row->split_space = ft_split(row->split_nl[0], ' ');

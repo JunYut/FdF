@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:19:41 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/04/17 14:25:45 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/08 12:27:14 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,9 @@
 
 # include "c_libft.h"
 # include "mlx.h"
-# include "utils.h"
-# include "validation.h"
-# include "parser.h"
+# include "map.h"
+# include "wireframe.h"
 # include "memory.h"
 
-typedef struct s_line	t_line;
-typedef struct s_map	t_map;
-typedef struct s_point	t_point;
-
-int		valid_arg(int argc, char *file);
-void	valid_map(t_list *map);
-t_list	*parse_map(int fd);
-void	clean_up();
 
 #endif
