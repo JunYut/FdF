@@ -2,6 +2,8 @@
 
 int render_new_frame(t_frame *frame)
 {
+	static int	i;
+
 	if (frame->redraw_flag == 1)
 	{
 		// debug("Redrawing...");
@@ -20,12 +22,8 @@ int render_new_frame(t_frame *frame)
 		// debug("Done scaling...");
 		offset_projection(frame->wireframe);
 		// debug("Done offsetting...");
-		update_extremes(frame->wireframe);
-		// debug("Done updating extremes...");
 		translate(frame->wireframe, frame->wireframe->translate.x, frame->wireframe->translate.y);
 		// debug("Done translating...");
-		update_extremes(frame->wireframe);
-		// debug("Done updating extremes...");
 
 		// print_transform(frame->wireframe);	// Debug
 
@@ -36,6 +34,7 @@ int render_new_frame(t_frame *frame)
 		// debug("Done putting image to window...\n");
 
 		frame->redraw_flag = 0;
+		++i;
 	}
 	return (0);
 }
