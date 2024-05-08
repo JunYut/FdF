@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 09:07:38 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/08 13:49:52 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/08 14:34:43 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_str
 	char	**split_nl;
 	char	**split_space;
 	char	***split_comma;
+	int		rows;
 	int		columns;
 }	t_str;
 

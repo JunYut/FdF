@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:20:08 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/08 13:59:19 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/08 14:34:48 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ t_list	*parse_map(int fd)
 
 t_str	*parse_line(char *line)
 {
-	t_str	*row;
-	int		i;
+	t_str		*row;
+	static int	rows;
+	int			i;
 
 	if (!line)
 		return (NULL);
@@ -43,6 +44,8 @@ t_str	*parse_line(char *line)
 	row->str = ft_strdup(line);
 	row->split_nl = ft_split(row->str, '\n');
 	row->split_space = ft_split(row->split_nl[0], ' ');
+	++rows;
+	row->rows = rows;
 	row->columns = 0;
 	while (row->split_space[row->columns])
 		row->columns++;
