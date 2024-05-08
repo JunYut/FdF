@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:20:08 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/08 12:31:11 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/08 13:59:19 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ t_list	*parse_map(int fd)
 
 t_str	*parse_line(char *line)
 {
-	t_str		*row;
+	t_str	*row;
+	int		i;
 
 	if (!line)
 		return (NULL);
@@ -45,5 +46,11 @@ t_str	*parse_line(char *line)
 	row->columns = 0;
 	while (row->split_space[row->columns])
 		row->columns++;
+	row->split_comma = (char ***)c_malloc(sizeof(char **) * row->columns);
+	i = -1;
+	while (++i < row->columns)
+		row->split_comma[i] = ft_split(row->split_space[i], ',');
+	free_split(row->split_nl);
+	free_split(row->split_space);
 	return (row);
 }

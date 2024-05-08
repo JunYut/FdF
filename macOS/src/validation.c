@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:19:49 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/08 12:34:40 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/08 13:46:22 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	valid_map(t_list *map)
 	t_list	*current;
 	t_str	*tmp;
 	int		columns;
-	int		comma;
-	int		i;
 
 	current = map;
 	tmp = (t_str *)(map->content);
@@ -32,37 +30,6 @@ void	valid_map(t_list *map)
 			ft_lstclear(&map, free_line);
 			exit(1);
 		}
-
-		// Check if all characters are alnum, '-' or ','
-		i = -1;
-		while (tmp->split_nl[0][++i])
-		{
-			if (!ft_isalnum(tmp->split_nl[0][i])
-			&& tmp->split_nl[0][i] != '-'
-			&& tmp->split_nl[0][i] != ',')
-			{
-				ft_putstr_fd("Error: invalid characters\n", 2);
-				ft_lstclear(&map, free_line);
-				exit(1);
-			}
-		}
-
-		// Check if the first character is a digit or '-' & if there are more than 1 comma
-		comma = 0;
-		i = -1;
-		while (tmp->split_space[++i])
-		{
-			if (tmp->split_space[i][0] == ',')
-				comma++;
-			if ((!ft_isdigit(tmp->split_space[i][0])
-			&& tmp->split_space[i][0] != '-') || comma > 1)
-			{
-				ft_putstr_fd("Error: invalid characters\n", 2);
-				ft_lstclear(&map, free_line);
-				exit(1);
-			}
-		}
-
 		current = current->next;
 		if (current)
 			tmp = (t_str *)(current->content);

@@ -10,7 +10,7 @@ int quit(t_mlx *mlx)
 
 int	key_hook(int keycode, t_frame *frame)
 {
-	ft_printf("Keycode: %d\n", keycode);
+	// ft_printf("Keycode: %d\n", keycode);
 	if (keycode == KEY_ESC)
 		quit(&frame->mlx);
 	frame->redraw_flag = 1;

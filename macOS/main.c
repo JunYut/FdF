@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:12:52 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/08 12:39:01 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/08 14:20:19 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,19 @@ int	main(int argc, char *argv[])
 	valid_map(map);
 
 	// Debug
-	int i = 1;
 	t_list	*current = map;
+	t_str	*tmp = (t_str *)(map->content);
 	while (current)
 	{
-		t_str	*line = (t_str *)(current->content);
-		ft_printf("words[%d]: %d\n", i++, line->columns);
-		for (int i = 0; i < line->columns; i++)
+		int i = -1;
+		while (++i < tmp->columns)
 		{
-			ft_printf("[%s]", line->split_space[i]);
-			ft_putstr_fd(" ", 1);
+			printf("point[%d]: ", i);
+			printf("%s, %s\n", tmp->split_comma[i][0], tmp->split_comma[i][1]);
 		}
-		ft_putstr_fd("\n\n", 1);
 		current = current->next;
+		if (current)
+			tmp = (t_str *)(current->content);
 	}
 
 	// Initialize the mlx and create a window
