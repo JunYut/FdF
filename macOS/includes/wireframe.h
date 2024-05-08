@@ -58,7 +58,6 @@ typedef struct s_wireframe
 	t_point	translate;
 	t_point	rotate;
 	t_point	center;
-	int		extremes[4];
 	int		edges_count;
 	int		vertices_count;
 }				t_wireframe;
@@ -81,7 +80,6 @@ void		rotate(t_wireframe *wireframe, float x, float y, float z);
 t_wireframe	*init_wireframe(void);
 void		init_edges(t_wireframe *wireframe);
 void		init_vertices(t_wireframe *wireframe); // Hardcoded for a cube
-void		update_extremes(t_wireframe *wireframe);
 
 // Projection functions
 
