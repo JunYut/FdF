@@ -2,12 +2,12 @@
 
 void draw_plane(t_mlx *mlx, int color)
 {
-	draw_line(mlx, (t_line){(t_point){100, 100, 0,}, (t_point){700, 100, 0}, 0, 0}, color);
-	draw_line(mlx, (t_line){(t_point){100, 100, 0,}, (t_point){100, 500, 0}, 0, 0}, color);
-	draw_line(mlx, (t_line){(t_point){700, 100, 0,}, (t_point){700, 500, 0}, 0, 0}, color);
-	draw_line(mlx, (t_line){(t_point){100, 500, 0,}, (t_point){700, 500, 0}, 0, 0}, color);
+	draw_line(mlx, (t_line){(t_point){100, 100, 0, 0}, (t_point){700, 100, 0, 0}, 0, 0}, color);
+	draw_line(mlx, (t_line){(t_point){100, 100, 0, 0}, (t_point){100, 500, 0, 0}, 0, 0}, color);
+	draw_line(mlx, (t_line){(t_point){700, 100, 0, 0}, (t_point){700, 500, 0, 0}, 0, 0}, color);
+	draw_line(mlx, (t_line){(t_point){100, 500, 0, 0}, (t_point){700, 500, 0, 0}, 0, 0}, color);
 
-	draw_line(mlx, (t_line){(t_point){100, 100, 0}, (t_point){700, 500, 0}, 0, 0}, color);
+	draw_line(mlx, (t_line){(t_point){100, 100, 0, 0}, (t_point){700, 500, 0, 0}, 0, 0}, color);
 }
 
 void draw_line(t_mlx *mlx, t_line line, int color)

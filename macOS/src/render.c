@@ -7,10 +7,10 @@ int render_new_frame(t_frame *frame)
 		// debug("Redrawing...");
 		// Clear the image
 		mlx_clear_window(frame->mlx.mlx, frame->mlx.win);
-		printf("Start addr: %p\n", (void *)frame->mlx.img.addr);	// Debug
-		printf("Memory size: %d\n", frame->mlx.img.offset);	// Debug
-		printf("End addr: %p\n\n", (void *)(frame->mlx.img.addr + frame->mlx.img.offset));	// Debug
-		ft_bzero(frame->mlx.img.addr, frame->mlx.img.offset);	// Debug
+		// printf("Start addr: %p\n", (void *)frame->mlx.img.addr);	// Debug
+		// printf("Memory size: %d\n", frame->mlx.img.offset);	// Debug
+		// printf("End addr: %p\n\n", (void *)(frame->mlx.img.addr + frame->mlx.img.offset));	// Debug
+		ft_bzero(frame->mlx.img.addr, frame->mlx.img.offset);
 
 		rotate(frame->wireframe, frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);
 		// debug("Done rotating...");
