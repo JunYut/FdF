@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:20:08 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/08 14:34:48 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/09 16:28:19 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_list	*parse_map(int fd)
 	if (!line)
 		return (NULL);
 	map = ft_lstnew(parse_line(line));
+	((t_map *)(map->content))->rows = 1;
 	while (line)
 	{
 		free(line);
@@ -28,24 +29,22 @@ t_list	*parse_map(int fd)
 		if (!line)
 			break ;
 		ft_lstadd_back(&map, ft_lstnew(parse_line(line)));
+		++((t_map *)(map->content))->rows;
 	}
 	return (map);
 }
 
-t_str	*parse_line(char *line)
+t_map	*parse_line(char *line)
 {
-	t_str		*row;
-	static int	rows;
+	t_map		*row;
 	int			i;
 
 	if (!line)
 		return (NULL);
-	row = (t_str *)c_malloc(sizeof(t_str));
+	row = (t_map *)c_malloc(sizeof(t_map));
 	row->str = ft_strdup(line);
 	row->split_nl = ft_split(row->str, '\n');
 	row->split_space = ft_split(row->split_nl[0], ' ');
-	++rows;
-	row->rows = rows;
 	row->columns = 0;
 	while (row->split_space[row->columns])
 		row->columns++;

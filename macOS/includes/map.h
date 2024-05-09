@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 09:07:38 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/08 14:34:43 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/09 16:22:40 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,19 @@
 
 typedef struct s_map
 {
-	int		***map;
-	int		width;
-	int		height;
-	int		z_min;
-	int		z_max;
-}	t_map;
-
-typedef struct s_str
-{
-	char	*str;
-	char	**split_nl;
-	char	**split_space;
 	char	***split_comma;
+	char	**split_space;
+	char	**split_nl;
+	char	*str;
 	int		rows;
 	int		columns;
-}	t_str;
+}	t_map;
 
 void	valid_map(t_list *map);
 int		valid_arg(int argc, char *file);
 int		valid_file(char *file);
 t_list	*parse_map(int fd);
-t_str	*parse_line(char *line);
+t_map	*parse_line(char *line);
 
 
 #endif

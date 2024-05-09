@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   memory.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:45:26 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/08 12:32:21 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/09 16:18:31 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 // Used with ft_lstclear
 void	free_line(void *line_void)
 {
-	t_str	*line;
+	t_map	*line;
 
-	line = (t_str *)line_void;
+	line = (t_map *)line_void;
 	if (line->str)
 		c_free(line->str);
 	if (line->split_nl)

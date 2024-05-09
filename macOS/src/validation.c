@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:19:49 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/08 14:36:21 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/09 16:18:31 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void	valid_map(t_list *map)
 {
 	t_list	*current;
-	t_str	*tmp;
+	t_map	*tmp;
 	int		columns;
 
 	current = map;
-	tmp = (t_str *)(map->content);
+	tmp = (t_map *)(map->content);
 	columns = tmp->columns;
 	while (current)
 	{
@@ -32,7 +32,7 @@ void	valid_map(t_list *map)
 		}
 		current = current->next;
 		if (current)
-			tmp = (t_str *)(current->content);
+			tmp = (t_map *)(current->content);
 	}
 }
 

@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:12:52 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/08 14:42:25 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/09 16:31:02 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <stdio.h>
 #include "FdF.h"
-# include "wireframe.h"
 
 int	main(int argc, char *argv[])
 {
@@ -28,7 +26,7 @@ int	main(int argc, char *argv[])
 
 	// Debug
 	t_list	*current = map;
-	t_str	*tmp = (t_str *)(map->content);
+	t_map	*tmp = (t_map *)(map->content);
 	int		i = -1;
 	int		j = -1;
 
@@ -40,12 +38,12 @@ int	main(int argc, char *argv[])
 		i = -1;
 		while (++i < tmp->columns)
 		{
-			printf("p[%d][%d]: ", j, i);
-			printf("%s, %s\n", tmp->split_comma[i][0], tmp->split_comma[i][1]);
+			// printf("p[%d][%d]: ", j, i);
+			// printf("%s, %s\n", tmp->split_comma[i][0], tmp->split_comma[i][1]);
 		}
 		current = current->next;
 		if (current)
-			tmp = (t_str *)(current->content);
+			tmp = (t_map *)(current->content);
 	}
 
 	// Initialize the mlx and create a window
