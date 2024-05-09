@@ -7,9 +7,7 @@
 	# include "linux_keys.h"
 # endif
 
-# include <math.h>
-# include "c_libft.h"
-# include "mlx.h"
+# include "FdF.h"
 
 // TODO: make this dynamic
 # define WIN_WIDTH 800
@@ -77,9 +75,9 @@ void		rotate(t_wireframe *wireframe, float x, float y, float z);
 
 // Initialization functions
 
-t_wireframe	*init_wireframe(void);
+t_wireframe	*init_wireframe(t_list *map);
 void		init_edges(t_wireframe *wireframe);
-void		init_vertices(t_wireframe *wireframe); // Hardcoded for a cube
+void		init_vertices(t_point *vertices, t_list *map);
 
 // Projection functions
 

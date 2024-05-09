@@ -20,4 +20,8 @@
 ## **3. Map validation**
 ### 3.1 Check the if the `columns` of each line is the same
 
-## **4. **
+## **4. Initialize wireframe**
+### 4.1 Allocate memory for `wireframe`
+### 4.2 Initialize `vertices_count`
+### 4.3 Initialize `edges_count`\
+`(row - 1 * columns) + (column - 1 * rows)`
