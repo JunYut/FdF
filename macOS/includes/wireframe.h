@@ -104,7 +104,7 @@ int			key_hook(int keycode, t_frame *frame);
 
 void		print_wireframe(t_wireframe *wireframe);
 void		print_projection(t_wireframe *wireframe);
-void		print_vertices(t_wireframe *wireframe);
+void		print_vertices(t_point *vertices, int vertices_count);
 void		print_transform(t_wireframe *wireframe);
 void		print_center(t_wireframe *wireframe);
 void		debug(char *msg);

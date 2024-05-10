@@ -20,7 +20,7 @@ t_wireframe	*init_wireframe(t_list *map)
 	printf("Edges count: %d\n", wireframe->edges_count);	// Debug
 
 	init_vertices(wireframe->vertices, map);
-	// print_vertices(wireframe);	// Debug
+	print_vertices(wireframe->vertices, wireframe->vertices_count);	// Debug
 	// init_edges(wireframe);
 
 	return (wireframe);
@@ -64,7 +64,7 @@ void	init_vertices(t_point *vertices, t_list *map)
 		j = -1;
 		while (++j < m->columns)
 		{
-			printf("Color: %s\n", m->split_comma[j][1]);	// Debug
+			// printf("Color: %s\n", m->split_comma[j][1]);	// Debug
 			vertices[++i] = (t_point){j, i, ft_atoi(m->split_comma[j][0]), 0};
 			if (m->split_comma[j][1])
 				vertices[i].color = ft_atoi_base(m->split_comma[j][1], 16);

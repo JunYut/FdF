@@ -24,13 +24,13 @@ void	print_projection(t_wireframe *wireframe)
 	}
 }
 
-void	print_vertices(t_wireframe *wireframe)
+void	print_vertices(t_point *vertices, int vertices_count)
 {
 	debug("Printing vertices...");
-	for (int i = 0; i < wireframe->vertices_count; i++)
+	for (int i = 0; i < vertices_count; i++)
 	{
 		ft_printf("Vertex %d\n", i);
-		ft_printf("Coordinates: %d, %d, %d\n", wireframe->vertices[i].x, wireframe->vertices[i].y, wireframe->vertices[i].z);
+		ft_printf("Coordinates: %d, %d, %d, %d\n", vertices[i].x, vertices[i].y, vertices[i].z, vertices[i].color);
 		ft_printf("\n");
 	}
 }
