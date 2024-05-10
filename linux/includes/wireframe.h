@@ -194,7 +194,7 @@ void		clean_up(t_wireframe *wireframe);
 
 // Debug functions
 
-void		print_wireframe(t_wireframe *wireframe);
+void		print_edges(t_wireframe *wireframe);
 void		print_projection(t_wireframe *wireframe);
 void		print_vertices(t_wireframe *wireframe);
 void		print_transform(t_wireframe *wireframe);

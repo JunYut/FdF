@@ -1,6 +1,6 @@
 # include "wireframe.h"
 
-void	print_wireframe(t_wireframe *wireframe)
+void	print_edges(t_wireframe *wireframe)
 {
 	debug("Printing wireframe...");
 	for (int i = 0; i < wireframe->edges_count; i++)
