@@ -34,7 +34,7 @@ void	init_edges(t_wireframe *w, int rows, int columns)
 	int	i;
 	int	j;
 
-	// Initialize columns first
+	// Initialize rows
 	e_index = -1;
 	i = -1;
 	while (++i < rows)
@@ -48,28 +48,6 @@ void	init_edges(t_wireframe *w, int rows, int columns)
 			// printf("v_index: %d\n", v_index);	// Debug
 			w->edges[++e_index].start = w->vertices[v_index];
 			w->edges[e_index].end = w->vertices[v_index + 1];
-			w->edges[e_index].start.color = 0;
-			w->edges[e_index].end.color = 0;
-			// printf("start[%d]: %d %d\n", e_index, w->edges[e_index].start.x,
-			// w->edges[e_index].start.y);	// Debug
-			// printf("end[%d]: %d %d\n", e_index, w->edges[e_index].end.x,
-			// w->edges[e_index].end.y);
-		}
-	}
-	printf("e_index: %d\n", e_index + 1);
-	// Initialize rows
-	i = -1;
-	while (++i < columns)
-	{
-		j = -1;
-		while(++j < rows - 1)
-		{
-			v_index = j * columns + i;
-			if ((v_index + 1) % columns == 0)
-				++v_index;
-			// printf("v_index: %d\n", v_index);	// Debug
-			w->edges[++e_index].start = w->vertices[v_index];
-			w->edges[e_index].end = w->vertices[v_index + 1];
 			// w->edges[e_index].start.color = 0;
 			// w->edges[e_index].end.color = 0;
 			// printf("start[%d]: %d %d\n", e_index, w->edges[e_index].start.x,
@@ -78,6 +56,29 @@ void	init_edges(t_wireframe *w, int rows, int columns)
 			// w->edges[e_index].end.y);
 		}
 	}
+	printf("e_index: %d\n\n", e_index + 1);
+	// Initialize columns
+	i = -1;
+	while (++i < columns)
+	{
+		j = -1;
+		while(++j < rows - 1)
+		{
+			v_index = j * columns + i;
+			// if ((v_index + 1) % columns == 0)
+			// 	++v_index;
+			// printf("v_index: %d\n", v_index);	// Debug
+			w->edges[++e_index].start = w->vertices[v_index];
+			w->edges[e_index].end = w->vertices[v_index + columns];
+			// w->edges[e_index].start.color = 0;
+			// w->edges[e_index].end.color = 0;
+			printf("start[%d]: %d %d\n", e_index, w->edges[e_index].start.x,
+			w->edges[e_index].start.y);	// Debug
+			printf("end[%d]: %d %d\n\n", e_index, w->edges[e_index].end.x,
+			w->edges[e_index].end.y);
+		}
+	}
+	printf("\n");
 }
 
 // Initializes a simple cube
