@@ -19,7 +19,7 @@ int render_new_frame(t_frame *frame)
 
 		rotate(w, w->rotate.x, w->rotate.y, w->rotate.z);
 		// debug("Done rotating...");
-		c_projector(w);
+		c_projector(w, m);
 		// debug("Done projecting...");
 		scale(w, w->scale);
 		// debug("Done scaling...");

@@ -26,9 +26,10 @@ void	offset_projection(t_wireframe *w)
 }
 
 // Cant name it projector cuz floating point exception
-void  c_projector(t_wireframe *w)
+void  c_projector(t_wireframe *w, t_mlx *tmp)
 {
 	// debug("Projecting w...");
+	(void)tmp;
 	int i;
 
 	w->projection = (t_line *)ft_calloc(w->edges_count, sizeof(t_line));
@@ -40,6 +41,7 @@ void  c_projector(t_wireframe *w)
 		w->projection[i].end = isometric_projection(w->rotated[i].end);
 		w->projection[i].start.color = w->edges[i].start.color;
 		w->projection[i].end.color = w->edges[i].end.color;
+		// draw_line(tmp, w->edges[i]);
 	}
 }
 

@@ -83,7 +83,7 @@ void		init_vertices(t_point *vertices, t_list *map);
 // Projection functions
 
 void		offset_projection(t_wireframe *w);
-void		c_projector(t_wireframe *w);
+void		c_projector(t_wireframe *w, t_mlx *tmp);
 t_point		isometric_projection(t_point p);
 
 // Drawing functions
