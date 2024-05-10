@@ -46,6 +46,8 @@ void	init_edges(t_wireframe *w, int rows, int columns)
 			// printf("v_index: %d\n", v_index);	// Debug
 			w->edges[++e_index].start = w->vertices[v_index];
 			w->edges[e_index].end = w->vertices[v_index + 1];
+			w->edges[e_index].start.color = 0;
+			w->edges[e_index].end.color = 0;
 		}
 	}
 	// Initialize columns
@@ -59,6 +61,8 @@ void	init_edges(t_wireframe *w, int rows, int columns)
 			// printf("v_index: %d\n", v_index);	// Debug
 			w->edges[++e_index].start = w->vertices[v_index];
 			w->edges[e_index].end = w->vertices[v_index + 1];
+			// w->edges[e_index].start.color = 0;
+			// w->edges[e_index].end.color = 0;
 		}
 	}
 }
