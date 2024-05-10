@@ -21,16 +21,16 @@ int render_new_frame(t_frame *frame)
 		// debug("Done rotating...");
 		c_projector(w, m);
 		// debug("Done projecting...");
-		scale(w, w->scale);
-		// debug("Done scaling...");
-		offset_projection(w);
-		// debug("Done offsetting...");
-		translate(w, w->translate.x, w->translate.y);
-		// debug("Done translating...");
+		// scale(w, w->scale);
+		// // debug("Done scaling...");
+		// offset_projection(w);
+		// // debug("Done offsetting...");
+		// translate(w, w->translate.x, w->translate.y);
+		// // debug("Done translating...");
 
-		// print_transform(w);	// Debug
+		// // print_transform(w);	// Debug
 
-		draw_wireframe(m, w);
+		// draw_wireframe(m, w);
 		// debug("Done drawing...\n");
 
 		mlx_put_image_to_window(m->mlx, m->win, m->img.img, 0, 0);

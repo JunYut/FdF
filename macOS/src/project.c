@@ -37,11 +37,12 @@ void  c_projector(t_wireframe *w, t_mlx *tmp)
 	i = -1;
 	while (++i < w->edges_count)
 	{
-		w->projection[i].start = isometric_projection(w->rotated[i].start);
-		w->projection[i].end = isometric_projection(w->rotated[i].end);
-		w->projection[i].start.color = w->edges[i].start.color;
-		w->projection[i].end.color = w->edges[i].end.color;
-		// draw_line(tmp, w->edges[i]);
+		// w->projection[i].start = isometric_projection(w->rotated[i].start);
+		// w->projection[i].end = isometric_projection(w->rotated[i].end);
+		// w->projection[i].start.color = w->edges[i].start.color;
+		// w->projection[i].end.color = w->edges[i].end.color;
+		if (i > 197)
+			draw_line(tmp, w->edges[i]);
 	}
 }
 
