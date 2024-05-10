@@ -6,8 +6,8 @@ void	print_projection(t_line *projection, int edges_count)
 	for (int i = 0; i < edges_count; i++)
 	{
 		ft_printf("Projection %d\n", i);
-		ft_printf("Start: %d %d\n", projection[i].start.x, projection[i].start.y);
-		ft_printf("End: %d %d\n", projection[i].end.x, projection[i].end.y);
+		ft_printf("Start: %d, %d, %d\n", projection[i].start.x, projection[i].start.y, projection[i].start.color);
+		ft_printf("End: %d, %d, %d\n", projection[i].end.x, projection[i].end.y, projection[i].end.color);
 		ft_printf("\n");
 	}
 }
@@ -18,8 +18,8 @@ void	print_edges(t_line *edges, int edges_count)
 	for (int i = 0; i < edges_count; i++)
 	{
 		ft_printf("Edge %d\n", i);
-		ft_printf("Start: %d %d\n", edges[i].start.x, edges[i].start.y);
-		ft_printf("End: %d %d\n", edges[i].end.x, edges[i].end.y);
+		ft_printf("Start: %d, %d, %d\n", edges[i].start.x, edges[i].start.y, edges[i].start.color);
+		ft_printf("End: %d, %d, %d\n", edges[i].end.x, edges[i].end.y, edges->end.color);
 		ft_printf("\n");
 	}
 }

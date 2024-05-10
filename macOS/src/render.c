@@ -2,33 +2,38 @@
 
 int render_new_frame(t_frame *frame)
 {
+	t_wireframe *w;
+	t_mlx		*m;
+
+	w = frame->wireframe;
+	m = &frame->mlx;
 	if (frame->redraw_flag == 1)
 	{
 		// debug("Redrawing...");
 		// Clear the image
-		mlx_clear_window(frame->mlx.mlx, frame->mlx.win);
-		// printf("Start addr: %p\n", (void *)frame->mlx.img.addr);	// Debug
-		// printf("Memory size: %d\n", frame->mlx.img.offset);	// Debug
-		// printf("End addr: %p\n\n", (void *)(frame->mlx.img.addr + frame->mlx.img.offset));	// Debug
-		ft_bzero(frame->mlx.img.addr, frame->mlx.img.offset);
+		mlx_clear_window(m->mlx, m->win);
+		// printf("Start addr: %p\n", (void *)m->img.addr);	// Debug
+		// printf("Memory size: %d\n", m->img.offset);	// Debug
+		// printf("End addr: %p\n\n", (void *)(m->img.addr + m->img.offset));	// Debug
+		ft_bzero(m->img.addr, m->img.offset);
 
-		rotate(frame->wireframe, frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);
+		rotate(w, w->rotate.x, w->rotate.y, w->rotate.z);
 		// debug("Done rotating...");
-		c_projector(frame->wireframe);
+		c_projector(w);
 		// debug("Done projecting...");
-		scale(frame->wireframe, frame->wireframe->scale);
+		scale(w, w->scale);
 		// debug("Done scaling...");
-		offset_projection(frame->wireframe);
+		offset_projection(w);
 		// debug("Done offsetting...");
-		translate(frame->wireframe, frame->wireframe->translate.x, frame->wireframe->translate.y);
+		translate(w, w->translate.x, w->translate.y);
 		// debug("Done translating...");
 
-		// print_transform(frame->wireframe);	// Debug
+		// print_transform(w);	// Debug
 
-		draw_wireframe(&frame->mlx, frame->wireframe);
+		draw_wireframe(m, w);
 		// debug("Done drawing...\n");
 
-		mlx_put_image_to_window(frame->mlx.mlx, frame->mlx.win, frame->mlx.img.img, 0, 0);
+		mlx_put_image_to_window(m->mlx, m->win, m->img.img, 0, 0);
 		// debug("Done putting image to window...\n");
 
 		frame->redraw_flag = 0;
@@ -38,12 +43,14 @@ int render_new_frame(t_frame *frame)
 
 void renderPixel(t_img *img, int x, int y, int color)
 {
-	char *dst;
+	char	*dst;
+	int		byte_offset;
 
 	// debug(NULL);
+	byte_offset = (y * img->line_length + x * (img->bits_per_pixel / 8));
 	if (x >= 0 && x < WIN_WIDTH && y >= 0 && y < WIN_HEIGHT)
 	{
-		dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
+		dst = img->addr + byte_offset;
 		*(unsigned int*)dst = color;
 	}
 }

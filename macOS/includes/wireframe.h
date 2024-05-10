@@ -12,6 +12,7 @@
 // TODO: make this dynamic
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
+# define WHITE 0xFFFFFF
 
 typedef struct s_img
 {
@@ -76,19 +77,19 @@ void		rotate(t_wireframe *wireframe, float x, float y, float z);
 // Initialization functions
 
 t_wireframe	*init_wireframe(t_list *map);
-void		init_edges(t_wireframe *wireframe);
+void		init_edges(t_wireframe *w, int rows, int columns);
 void		init_vertices(t_point *vertices, t_list *map);
 
 // Projection functions
 
-void		offset_projection(t_wireframe *wireframe);
-void		c_projector(t_wireframe *wireframe);
+void		offset_projection(t_wireframe *w);
+void		c_projector(t_wireframe *w);
 t_point		isometric_projection(t_point p);
 
 // Drawing functions
 
 void		draw_wireframe(t_mlx *mlx, t_wireframe *wireframe);
-void		draw_line(t_mlx *mlx, t_line line, int color);
+void		draw_line(t_mlx *mlx, t_line line);
 
 // Render functions
 

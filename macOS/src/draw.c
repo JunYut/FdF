@@ -9,19 +9,20 @@ void	draw_wireframe(t_mlx *mlx, t_wireframe *wireframe)
 	while (++i < wireframe->edges_count)
 	{
 		// debug(NULL);
-		draw_line(mlx, wireframe->projection[i], 0xFFFFFF);
+		draw_line(mlx, wireframe->projection[i]);
 	}
 }
 
 // TODO: find a way to draw a line with a gradient color
 // also, remove the color parameter from this function
-void draw_line(t_mlx *mlx, t_line line, int color)
+void draw_line(t_mlx *mlx, t_line line)
 {
 	int steps;
 	float incX;
 	float incY;
 	float x;
 	float y;
+	int		i;
 
 	x = line.start.x;
 	y = line.start.y;
@@ -30,12 +31,14 @@ void draw_line(t_mlx *mlx, t_line line, int color)
 	steps = abs(line.dx) > abs(line.dy) ? abs(line.dx) : abs(line.dy);
 	incX = line.dx / (float)steps;
 	incY = line.dy / (float)steps;
-	while (steps)
+	i = -1;
+	while (++i < steps)
 	{
-		// // debug(NULL);
-		renderPixel(&mlx->img, x, y, color);
+		if (i <= steps / 2)
+			renderPixel(&mlx->img, x, y, line.start.color);
+		else
+			renderPixel(&mlx->img, x, y, line.end.color);
 		x += incX;
 		y += incY;
-		steps--;
 	}
 }
