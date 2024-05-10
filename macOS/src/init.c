@@ -9,7 +9,7 @@ t_wireframe	*init_wireframe(t_list *map)
 	m = (t_map *)map->content;
 	w->vertices_count = m->columns * m->rows;
 	w->edges_count = (m->rows - 1) * m->columns + (m->columns - 1) * m->rows;
-	w->scale = 1;
+	w->scale = 10;
 	w->translate = (t_point){0, 0, 0, 0};
 	w->rotate = (t_point){0, 0, 0, 0};
 	w->vertices = (t_point *)ft_calloc(w->vertices_count, sizeof(t_point));
@@ -20,7 +20,7 @@ t_wireframe	*init_wireframe(t_list *map)
 	// printf("Edges count: %d\n", w->edges_count);	// Debug
 
 	init_vertices(w->vertices, map);
-	print_vertices(w->vertices, w->vertices_count);	// Debug
+	// print_vertices(w->vertices, w->vertices_count);	// Debug
 	init_edges(w, m->rows, m->columns);
 	// print_edges(w->edges, w->edges_count);	// Debug
 
