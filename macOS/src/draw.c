@@ -10,6 +10,9 @@ void	draw_wireframe(t_mlx *mlx, t_wireframe *wireframe)
 	{
 		// debug(NULL);
 		draw_line(mlx, wireframe->projection[i]);
+		// printf("%d ", wireframe->projection[i].start.x);
+		// if (i % 3 == 0 && i != 0)
+		// 	printf("\n");
 	}
 }
 
@@ -30,6 +33,8 @@ void draw_line(t_mlx *mlx, t_line line)
 	steps = abs(line.dx) > abs(line.dy) ? abs(line.dx) : abs(line.dy);
 	incX = line.dx / (float)steps;
 	incY = line.dy / (float)steps;
+	// printf("start color: %d\n", line.start.color);	// Debug
+	// printf("end color: %d\n", line.end.color);	// Debug
 	// printf("start x: %d, y: %d\n", line.start.x, line.start.y);	// Debug
 	// printf("end x: %d, y: %d\n", line.end.x, line.end.y); // Debug
 	// printf("dx: %d, dy: %d\n", line.dx, line.dy); // Debug

@@ -43,6 +43,9 @@ void  c_projector(t_wireframe *w, t_mlx *tmp)
 		w->projection[i].end.color = w->edges[i].end.color;
 		// if (i > 6)
 		// 	draw_line(tmp, w->edges[i]);
+		// printf("%d ", w->edges[i].start.z);
+		// if (i % 3 == 0 && i != 0)
+		// 	printf("%d\n", w->edges[i].end.z);
 	}
 }
 

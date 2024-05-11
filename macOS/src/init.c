@@ -54,9 +54,12 @@ void	init_edges(t_wireframe *w, int rows, int columns)
 			// w->edges[e_index].start.y);	// Debug
 			// printf("end[%d]: %d %d\n", e_index, w->edges[e_index].end.x,
 			// w->edges[e_index].end.y);
+			// printf("%d ", w->edges[e_index].start.z);
+			// if (j == columns - 2)
+				// printf("%d\n", w->edges[e_index].end.z);
 		}
 	}
-	// printf("e_index: %d\n\n", e_index + 1);	// Debug
+	// printf("\n");	// Debug
 	// Initialize columns
 	i = -1;
 	while (++i < columns)
@@ -76,6 +79,9 @@ void	init_edges(t_wireframe *w, int rows, int columns)
 			// w->edges[e_index].start.y);	// Debug
 			// printf("end[%d]: %d %d\n\n", e_index, w->edges[e_index].end.x,
 			// w->edges[e_index].end.y);
+			// printf("%d ", w->edges[e_index].start.z);
+			// if (j == rows - 2)
+				// printf("%d\n", w->edges[e_index].end.z);
 		}
 	}
 	// printf("\n");	// Debug
@@ -103,8 +109,10 @@ void	init_vertices(t_point *vertices, t_list *map)
 			// printf("Color: %s\n", m->split_comma[j][1]);	// Debug
 			vertices[++index] = (t_point){j*10, i*10, ft_atoi(m->split_comma[j][0]) * 10, WHITE};
 			if (m->split_comma[j][1])
-				vertices[i].color = ft_atoi_base(m->split_comma[j][1], 16);
+				vertices[index].color = ft_atoi_base(m->split_comma[j][1], 16);
+			// printf("%d ", vertices[index].color);
 		}
+		// printf("\n");
 		current = current->next;
 	}
 }
