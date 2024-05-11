@@ -11,7 +11,7 @@ t_wireframe	*init_wireframe(t_list *map)
 	w->edges_count = (m->rows - 1) * m->columns + (m->columns - 1) * m->rows;
 	w->scale = 1;
 	w->translate = (t_point){0, 0, 0, 0};
-	w->rotate = (t_point){0, 0, 0, 0};
+	w->rotate = (t_point){90, 0, 0, 0};
 	w->vertices = (t_point *)ft_calloc(w->vertices_count, sizeof(t_point));
 	w->edges = (t_line *)ft_calloc(w->edges_count, sizeof(t_line));
 	w->rotated = (t_line *)ft_calloc(w->edges_count, sizeof(t_line));
@@ -56,7 +56,7 @@ void	init_edges(t_wireframe *w, int rows, int columns)
 			// w->edges[e_index].end.y);
 		}
 	}
-	printf("e_index: %d\n\n", e_index + 1);
+	// printf("e_index: %d\n\n", e_index + 1);	// Debug
 	// Initialize columns
 	i = -1;
 	while (++i < columns)
@@ -72,16 +72,16 @@ void	init_edges(t_wireframe *w, int rows, int columns)
 			w->edges[e_index].end = w->vertices[v_index + columns];
 			// w->edges[e_index].start.color = 0;
 			// w->edges[e_index].end.color = 0;
-			printf("start[%d]: %d %d\n", e_index, w->edges[e_index].start.x,
-			w->edges[e_index].start.y);	// Debug
-			printf("end[%d]: %d %d\n\n", e_index, w->edges[e_index].end.x,
-			w->edges[e_index].end.y);
+			// printf("start[%d]: %d %d\n", e_index, w->edges[e_index].start.x,
+			// w->edges[e_index].start.y);	// Debug
+			// printf("end[%d]: %d %d\n\n", e_index, w->edges[e_index].end.x,
+			// w->edges[e_index].end.y);
 		}
 	}
-	printf("\n");
+	// printf("\n");	// Debug
 }
 
-// Initializes a simple cube
+// Color not initialized properly
 void	init_vertices(t_point *vertices, t_list *map)
 {
 	t_list	*current;
@@ -101,7 +101,7 @@ void	init_vertices(t_point *vertices, t_list *map)
 		while (++j < m->columns)
 		{
 			// printf("Color: %s\n", m->split_comma[j][1]);	// Debug
-			vertices[++index] = (t_point){j*10, i*10, ft_atoi(m->split_comma[j][0]), WHITE};
+			vertices[++index] = (t_point){j*10, i*10, ft_atoi(m->split_comma[j][0]) * 10, WHITE};
 			if (m->split_comma[j][1])
 				vertices[i].color = ft_atoi_base(m->split_comma[j][1], 16);
 		}

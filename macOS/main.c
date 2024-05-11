@@ -6,7 +6,7 @@
 /*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:12:52 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/10 17:03:49 by we               ###   ########.fr       */
+/*   Updated: 2024/05/11 11:33:54 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 int	main(int argc, char *argv[])
 {
-	(void)argc;
-	(void)argv;
 	t_frame frame;
 	t_list	*map;
 	int		fd;
 
+	ft_printf("Parsing map...\n");
 	fd = valid_arg(argc, argv[1]);
 	map = parse_map(fd);
 	valid_map(map);
 
 	// Initialize the mlx and create a window
+	ft_printf("Initializing system...\n");
 	frame.mlx.mlx = mlx_init();
 	frame.mlx.win = mlx_new_window(frame.mlx.mlx, WIN_WIDTH, WIN_HEIGHT, "mlx 42");
 	frame.wireframe = init_wireframe(map);
@@ -41,6 +41,7 @@ int	main(int argc, char *argv[])
 	// printf("Offset: %d\n", frame.mlx.img.offset);	// Debug
 
 	// Set the loop hook and the key hook
+	ft_printf("Rendering...\n");
 	mlx_loop_hook(frame.mlx.mlx, render_new_frame, &frame);
 	mlx_hook(frame.mlx.win, 17, 0, quit, &frame.mlx);
 	mlx_hook(frame.mlx.win, 2, 1L<<0, key_hook, &frame);

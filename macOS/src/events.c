@@ -16,19 +16,19 @@ int	key_hook(int keycode, t_frame *frame)
 	frame->redraw_flag = 1;
 	if (keycode == KEY_UP)
 	{
-		frame->wireframe->translate.y -= 10;
+		frame->wireframe->translate.y += 10;
 	}
 	if (keycode == KEY_DOWN)
 	{
-		frame->wireframe->translate.y += 10;
+		frame->wireframe->translate.y -= 10;
 	}
 	if (keycode == KEY_LEFT)
 	{
-		frame->wireframe->translate.x -= 10;
+		frame->wireframe->translate.x += 10;
 	}
 	if (keycode == KEY_RIGHT)
 	{
-		frame->wireframe->translate.x += 10;
+		frame->wireframe->translate.x -= 10;
 	}
 	if (keycode == KEY_W)
 	{
