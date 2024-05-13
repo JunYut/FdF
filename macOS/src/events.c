@@ -1,8 +1,10 @@
-# include "wireframe.h"
+# include "FdF.h"
 
-int quit(t_mlx *mlx)
+int quit(t_list *map, t_wireframe *w, t_mlx *mlx)
 {
 	ft_printf("Exiting...\n");
+	ft_lstclear(&map, free_map);
+	free_wireframe(w);
 	mlx_destroy_window(mlx->mlx, mlx->win);
 	exit(0);
 	return (0);
@@ -12,7 +14,7 @@ int	key_hook(int keycode, t_frame *frame)
 {
 	// ft_printf("Keycode: %d\n", keycode);
 	if (keycode == KEY_ESC)
-		quit(&frame->mlx);
+		quit(frame->map, frame->wireframe, &frame->mlx);
 	frame->redraw_flag = 1;
 	if (keycode == KEY_UP)
 	{

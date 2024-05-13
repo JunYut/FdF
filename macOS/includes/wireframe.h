@@ -63,6 +63,7 @@ typedef struct s_wireframe
 
 typedef struct s_frame
 {
+	t_list		*map;
 	t_mlx		mlx;
 	t_wireframe	*wireframe;
 	int			redraw_flag;
@@ -104,7 +105,7 @@ void		renderPixel(t_img *img, int x, int y, int color);
 
 // Event functions
 
-int			quit(t_mlx *mlx);
+int			quit(t_list *map, t_wireframe *w, t_mlx *mlx);
 int			key_hook(int keycode, t_frame *frame);
 
 // Debug functions

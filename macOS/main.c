@@ -6,7 +6,7 @@
 /*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:12:52 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/11 11:33:54 by we               ###   ########.fr       */
+/*   Updated: 2024/05/13 18:28:50 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,18 @@
 int	main(int argc, char *argv[])
 {
 	t_frame frame;
-	t_list	*map;
 	int		fd;
 
 	ft_printf("Parsing map...\n");
 	fd = valid_arg(argc, argv[1]);
-	map = parse_map(fd);
-	valid_map(map);
+	frame.map = parse_map(fd);
+	valid_map(frame.map);
 
 	// Initialize the mlx and create a window
 	ft_printf("Initializing system...\n");
 	frame.mlx.mlx = mlx_init();
 	frame.mlx.win = mlx_new_window(frame.mlx.mlx, WIN_WIDTH, WIN_HEIGHT, "mlx 42");
-	frame.wireframe = init_wireframe(map);
+	frame.wireframe = init_wireframe(frame.map);
 	frame.redraw_flag = 1;
 
 	// Create an image
