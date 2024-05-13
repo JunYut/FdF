@@ -22,6 +22,7 @@ t_wireframe	*init_wireframe(t_list *map)
 	init_vertices(w->vertices, map);
 	// print_vertices(w->vertices, w->vertices_count);	// Debug
 	init_center(w, w->vertices);
+	// print_center(w->center);	// Debug
 	init_edges(w, m->rows, m->columns);
 	// print_edges(w->edges, w->edges_count);	// Debug
 
@@ -86,6 +87,21 @@ void	init_edges(t_wireframe *w, int rows, int columns)
 		}
 	}
 	// printf("\n");	// Debug
+}
+
+void	update_center(t_wireframe *w, t_line *edges, int edges_count)
+{
+	int	i;
+
+	w->center = (t_point){0, 0, 0, 0};
+	i = -1;
+	while (++i < edges_count)
+	{
+		w->center.x += edges[i].start.x;
+		w->center.y += edges[i].start.y;
+	}
+	w->center.x /= edges_count;
+	w->center.y /= edges_count;
 }
 
 void	init_center(t_wireframe *wireframe, t_point *vertices)

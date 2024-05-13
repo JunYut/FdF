@@ -11,7 +11,7 @@ int render_new_frame(t_frame *frame)
 		rotate(frame->wireframe, frame->wireframe->rotate.x, frame->wireframe->rotate.y, frame->wireframe->rotate.z);
 		c_projector(frame->wireframe);
 		scale(frame->wireframe, frame->wireframe->scale);
-		offset_projection(frame->wireframe);
+		offset_center(frame->wireframe);
 		translate(frame->wireframe, frame->wireframe->translate.x, frame->wireframe->translate.y);
 		print_transform(frame->wireframe);	// Debug
 		print_projection(frame->wireframe);	// Debug
@@ -44,7 +44,7 @@ int render_resize(t_frame *frame)
 	// Project the wireframe
 	c_projector(frame->wireframe);
 	scale(frame->wireframe, 1);
-	offset_projection(frame->wireframe);
+	offset_center(frame->wireframe);
 	translate(frame->wireframe, 0, 0);
 
 	// Draw the wireframe

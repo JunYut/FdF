@@ -42,9 +42,9 @@ void	print_transform(t_wireframe	*s_wireframe)
 	ft_printf("Rotate: %d %d %d\n\n", s_wireframe->rotate.x, s_wireframe->rotate.y, s_wireframe->rotate.z);
 }
 
-void	print_center(t_point *center)
+void	print_center(t_point center)
 {
-	ft_printf("Center: %d %d\n", center->x, center->y);
+	ft_printf("Center: %d, %d, %d\n", center.x, center.y, center.z);
 }
 
 void	debug(char *str)

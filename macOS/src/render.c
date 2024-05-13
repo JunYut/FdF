@@ -17,13 +17,14 @@ int render_new_frame(t_frame *frame)
 		// printf("End addr: %p\n\n", (void *)(m->img.addr + m->img.offset));	// Debug
 		ft_bzero(m->img.addr, m->img.offset);
 
+		offset_origin(w);
 		rotate(w, w->rotate.x, w->rotate.y, w->rotate.z);
 		// debug("Done rotating...");
 		c_projector(w, m);
 		// debug("Done projecting...");
 		scale(w, w->scale);
 		// debug("Done scaling...");
-		offset_projection(w);
+		offset_center(w);
 		// debug("Done offsetting...");
 		translate(w, w->translate.x, w->translate.y);
 		// debug("Done translating...");

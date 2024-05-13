@@ -1,20 +1,5 @@
 # include "wireframe.h"
 
-void	offset_projection(t_wireframe *w)
-{
-	// debug("Offsetting w...");
-	int i;
-
-	i = -1;
-	while (++i < w->edges_count)
-	{
-		w->projection[i].start.x += WIN_WIDTH / 2 - w->center.x;
-		w->projection[i].start.y += WIN_HEIGHT / 2 - w->center.y;
-		w->projection[i].end.x += WIN_WIDTH / 2 - w->center.x;
-		w->projection[i].end.y += WIN_HEIGHT / 2 - w->center.y;
-	}
-}
-
 // Cant name it projector cuz floating point exception
 void  c_projector(t_wireframe *w, t_mlx *tmp)
 {

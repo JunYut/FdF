@@ -68,24 +68,29 @@ typedef struct s_frame
 	int			redraw_flag;
 }				t_frame;
 
+// Initialization functions
+
+t_wireframe	*init_wireframe(t_list *map);
+void		init_edges(t_wireframe *w, int rows, int columns);
+void		update_center(t_wireframe *w, t_line *edges, int edges_count);
+void		init_center(t_wireframe *w, t_point *vertices);
+void		init_vertices(t_point *vertices, t_list *map);
+
+// Offset functions
+
+void		offset_center(t_wireframe *w);
+void		offset_origin(t_wireframe *w);
+
+// Projection functions
+
+void		c_projector(t_wireframe *w, t_mlx *tmp);
+t_point		isometric_projection(t_point p);
+
 // Geometric Transformations
 
 void		scale(t_wireframe *wireframe, float factor);
 void		translate(t_wireframe *wireframe, int x, int y);
 void		rotate(t_wireframe *wireframe, float x, float y, float z);
-
-// Initialization functions
-
-t_wireframe	*init_wireframe(t_list *map);
-void		init_edges(t_wireframe *w, int rows, int columns);
-void		init_center(t_wireframe *w, t_point *vertices);
-void		init_vertices(t_point *vertices, t_list *map);
-
-// Projection functions
-
-void		offset_projection(t_wireframe *w);
-void		c_projector(t_wireframe *w, t_mlx *tmp);
-t_point		isometric_projection(t_point p);
 
 // Drawing functions
 
@@ -108,5 +113,5 @@ void		print_projection(t_line *projection, int edges_count);
 void		print_edges(t_line *edges, int edges_count);
 void		print_vertices(t_point *vertices, int vertices_count);
 void		print_transform(t_wireframe *wireframe);
-void		print_center(t_point *center);
+void		print_center(t_point center);
 void		debug(char *msg);

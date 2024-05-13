@@ -1,6 +1,6 @@
 # include "wireframe.h"
 
-void	offset_projection(t_wireframe *wireframe)
+void	offset_center(t_wireframe *wireframe)
 {
 	// debug("Offsetting wireframe...");
 	int i;
