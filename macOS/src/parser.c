@@ -6,7 +6,7 @@
 /*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:20:08 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/09 16:28:19 by we               ###   ########.fr       */
+/*   Updated: 2024/05/13 13:02:43 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,5 @@ t_map	*parse_line(char *line)
 	i = -1;
 	while (++i < row->columns)
 		row->split_comma[i] = ft_split(row->split_space[i], ',');
-	free_split(row->split_nl);
-	free_split(row->split_space);
 	return (row);
 }

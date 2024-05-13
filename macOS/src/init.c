@@ -11,7 +11,7 @@ t_wireframe	*init_wireframe(t_list *map)
 	w->edges_count = (m->rows - 1) * m->columns + (m->columns - 1) * m->rows;
 	w->scale = 1;
 	w->translate = (t_point){0, 0, 0, 0};
-	w->rotate = (t_point){90, 0, 0, 0};
+	w->rotate = (t_point){100, 0, 20, 0};
 	w->vertices = (t_point *)ft_calloc(w->vertices_count, sizeof(t_point));
 	w->edges = (t_line *)ft_calloc(w->edges_count, sizeof(t_line));
 	w->rotated = (t_line *)ft_calloc(w->edges_count, sizeof(t_line));
@@ -21,6 +21,7 @@ t_wireframe	*init_wireframe(t_list *map)
 
 	init_vertices(w->vertices, map);
 	// print_vertices(w->vertices, w->vertices_count);	// Debug
+	init_center(w, w->vertices);
 	init_edges(w, m->rows, m->columns);
 	// print_edges(w->edges, w->edges_count);	// Debug
 
@@ -87,7 +88,21 @@ void	init_edges(t_wireframe *w, int rows, int columns)
 	// printf("\n");	// Debug
 }
 
-// Color not initialized properly
+void	init_center(t_wireframe *wireframe, t_point *vertices)
+{
+	int	i;
+
+	wireframe->center = (t_point){0, 0, 0, 0};
+	i = -1;
+	while (++i < wireframe->vertices_count)
+	{
+		wireframe->center.x += vertices[i].x;
+		wireframe->center.y += vertices[i].y;
+	}
+	wireframe->center.x /= wireframe->vertices_count;
+	wireframe->center.y /= wireframe->vertices_count;
+}
+
 void	init_vertices(t_point *vertices, t_list *map)
 {
 	t_list	*current;

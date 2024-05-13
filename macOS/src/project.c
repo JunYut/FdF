@@ -5,16 +5,6 @@ void	offset_projection(t_wireframe *w)
 	// debug("Offsetting w...");
 	int i;
 
-	w->center = (t_point){0, 0, 0, 0};
-	i = -1;
-	while (++i < w->vertices_count)
-	{
-		w->center.x += w->vertices[i].x;
-		w->center.y += w->vertices[i].y;
-	}
-	w->center.x /= w->vertices_count;
-	w->center.y /= w->vertices_count;
-
 	i = -1;
 	while (++i < w->edges_count)
 	{

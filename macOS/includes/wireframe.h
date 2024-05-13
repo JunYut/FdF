@@ -78,6 +78,7 @@ void		rotate(t_wireframe *wireframe, float x, float y, float z);
 
 t_wireframe	*init_wireframe(t_list *map);
 void		init_edges(t_wireframe *w, int rows, int columns);
+void		init_center(t_wireframe *w, t_point *vertices);
 void		init_vertices(t_point *vertices, t_list *map);
 
 // Projection functions

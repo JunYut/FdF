@@ -16,7 +16,6 @@ void	draw_wireframe(t_mlx *mlx, t_wireframe *wireframe)
 	}
 }
 
-// This isn't drawing vertical edges properly
 void draw_line(t_mlx *mlx, t_line line)
 {
 	int steps;
