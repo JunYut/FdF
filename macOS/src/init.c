@@ -5,16 +5,16 @@ t_wireframe	*init_wireframe(t_list *map)
 	t_wireframe *w;
 	t_map		*m;
 
-	w = (t_wireframe *)ft_calloc(1, sizeof(t_wireframe));
+	w = (t_wireframe *)c_malloc(1 * sizeof(t_wireframe));
 	m = (t_map *)map->content;
 	w->vertices_count = m->columns * m->rows;
 	w->edges_count = (m->rows - 1) * m->columns + (m->columns - 1) * m->rows;
 	w->scale = 1;
 	w->translate = (t_point){0, 0, 0, 0};
 	w->rotate = (t_point){100, 0, 20, 0};
-	w->vertices = (t_point *)ft_calloc(w->vertices_count, sizeof(t_point));
-	w->edges = (t_line *)ft_calloc(w->edges_count, sizeof(t_line));
-	w->rotated = (t_line *)ft_calloc(w->edges_count, sizeof(t_line));
+	w->vertices = (t_point *)c_malloc(w->vertices_count * sizeof(t_point));
+	w->edges = (t_line *)c_malloc(w->edges_count * sizeof(t_line));
+	w->rotated = (t_line *)c_malloc(w->edges_count * sizeof(t_line));
 
 	// printf("Vertices count: %d\n", w->vertices_count);	// Debug
 	// printf("Edges count: %d\n", w->edges_count);	// Debug

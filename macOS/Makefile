@@ -23,7 +23,7 @@ MLX = libmlx.a
 LIBFT = libft.a
 
 # Executable
-EXEC = main
+EXEC = FdF
 
 # Rules and Recipes
 all: $(EXEC)
@@ -38,7 +38,7 @@ MLX_LINK = -lX11 -lXext
 endif
 
 $(EXEC): $(FDF) $(MLX) $(LIBFT) main.c
-	$(CC) main.c -I$(INCL_DIR) -I$(LIBFT_DIR) -I$(MLX_DIR) -L. -L$(MLX_DIR) -L$(LIBFT_DIR) -lfdf -lmlx -lft -lm $(MLX_LINK) -o $(EXEC)
+	$(CC) $(CFLAGS) main.c -I$(INCL_DIR) -I$(LIBFT_DIR) -I$(MLX_DIR) -L. -L$(MLX_DIR) -L$(LIBFT_DIR) -lfdf -lmlx -lft -lm $(MLX_LINK) -o $(EXEC)
 
 $(FDF): $(OBJ)
 	ar rc $(FDF) $(OBJ)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   memory.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:45:26 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/13 18:20:08 by we               ###   ########.fr       */
+/*   Updated: 2024/05/14 11:26:29 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ void	free_map(void *map_void)
 	free_split(map->split_nl);
 	free_split(map->split_space);
 	i = -1;
-	while (++i < map->columns * map->rows)
+	while (++i < map->columns)
 		free_split(map->split_comma[i]);
 	c_free(map);
+	(void)i;
 }
 
 void	free_split(char **split)
@@ -58,8 +59,13 @@ void	c_free(void *ptr)
 
 void	*c_malloc(size_t size)
 {
+	static int	count;
+	static int	total;
 	void	*ptr;
 
+	++count;
+	total += size;
+	// ft_printf("Malloc count: %d, size: %d, total: %d\n", count, size, total);
 	ptr = (void *)malloc(size);
 	if (!ptr)
 		return (NULL);
