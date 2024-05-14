@@ -105,7 +105,7 @@ void		renderPixel(t_img *img, int x, int y, int color);
 
 // Event functions
 
-int			quit(t_img *img, t_list *map, t_mlx *mlx, t_wireframe *w);
+int			quit(t_frame *f);
 int			key_hook(int keycode, t_frame *frame);
 
 // Debug functions

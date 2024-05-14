@@ -11,7 +11,7 @@ t_wireframe	*init_wireframe(t_list *map)
 	w->edges_count = (m->rows - 1) * m->columns + (m->columns - 1) * m->rows;
 	w->scale = 1;
 	w->translate = (t_point){0, 0, 0, 0};
-	w->rotate = (t_point){30, 30, -30, 0};
+	w->rotate = (t_point){45, 40, -30, 0};
 	w->vertices = (t_point *)c_malloc(w->vertices_count * sizeof(t_point));
 	w->edges = (t_line *)c_malloc(w->edges_count * sizeof(t_line));
 	w->rotated = (t_line *)c_malloc(w->edges_count * sizeof(t_line));

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:12:52 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/14 11:06:25 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/14 17:35:20 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int argc, char *argv[])
 	// Set the loop hook and the key hook
 	ft_printf("Rendering...\n");
 	mlx_loop_hook(frame.mlx.mlx, render_new_frame, &frame);
-	mlx_hook(frame.mlx.win, 17, 0, quit, &frame.mlx);
+	mlx_hook(frame.mlx.win, 17, 0, quit, &frame);
 	mlx_hook(frame.mlx.win, 2, 1L<<0, key_hook, &frame);
 	mlx_key_hook(frame.mlx.win, key_hook, &frame);
 
