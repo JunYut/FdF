@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   memory.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:45:26 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/14 11:26:29 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/14 23:28:41 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	free_map(void *map_void)
 	i = -1;
 	while (++i < map->columns)
 		free_split(map->split_comma[i]);
+	c_free(map->split_comma);
 	c_free(map);
 	(void)i;
 }
