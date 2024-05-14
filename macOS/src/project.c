@@ -7,8 +7,6 @@ void  c_projector(t_wireframe *w, t_mlx *tmp)
 	(void)tmp;
 	int i;
 
-	w->projection = (t_line *)ft_calloc(w->edges_count, sizeof(t_line));
-
 	i = -1;
 	while (++i < w->edges_count)
 	{

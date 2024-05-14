@@ -15,6 +15,7 @@ t_wireframe	*init_wireframe(t_list *map)
 	w->vertices = (t_point *)c_malloc(w->vertices_count * sizeof(t_point));
 	w->edges = (t_line *)c_malloc(w->edges_count * sizeof(t_line));
 	w->rotated = (t_line *)c_malloc(w->edges_count * sizeof(t_line));
+	w->projection = (t_line *)c_malloc(w->edges_count * sizeof(t_line));
 
 	// printf("Vertices count: %d\n", w->vertices_count);	// Debug
 	// printf("Edges count: %d\n", w->edges_count);	// Debug
