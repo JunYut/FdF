@@ -1,9 +1,20 @@
-# include "wireframe.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   transformation.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/15 11:22:57 by tjun-yu           #+#    #+#             */
+/*   Updated: 2024/05/15 11:24:19 by tjun-yu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "wireframe.h"
 
 // Use after projecting the wireframe, before offsetting the projection
 void	scale(t_wireframe *wireframe, float factor)
 {
-	// debug("Scaling wireframe...");
 	int	i;
 
 	i = -1;
@@ -19,7 +30,6 @@ void	scale(t_wireframe *wireframe, float factor)
 // Use after offsetting the projection
 void	translate(t_wireframe *wireframe, int x, int y)
 {
-	// debug("Translating wireframe...");
 	int	i;
 
 	i = -1;
@@ -33,10 +43,9 @@ void	translate(t_wireframe *wireframe, int x, int y)
 }
 
 // Use before projecting the wireframe
-void rotate(t_wireframe *wireframe, float x, float y, float z)
+void	rotate(t_wireframe *w, float x, float y, float z)
 {
-	// debug("Rotating wireframe...");
-	int i;
+	int	i;
 
 	// Convert degrees to radians
 	x = x * M_PI / 180;
@@ -44,15 +53,15 @@ void rotate(t_wireframe *wireframe, float x, float y, float z)
 	z = z * M_PI / 180;
 
 	i = -1;
-	while (++i < wireframe->edges_count)
+	while (++i < w->edges_count)
 	{
-		float start_x = wireframe->edges[i].start.x;
-		float start_y = wireframe->edges[i].start.y;
-		float start_z = wireframe->edges[i].start.z;
+		float start_x = w->edges[i].start.x;
+		float start_y = w->edges[i].start.y;
+		float start_z = w->edges[i].start.z;
 
-		float end_x = wireframe->edges[i].end.x;
-		float end_y = wireframe->edges[i].end.y;
-		float end_z = wireframe->edges[i].end.z;
+		float end_x = w->edges[i].end.x;
+		float end_y = w->edges[i].end.y;
+		float end_z = w->edges[i].end.z;
 
 		// Rotate around x-axis
 		float start_y_x = start_y * cos(x) - start_z * sin(x);
@@ -67,11 +76,11 @@ void rotate(t_wireframe *wireframe, float x, float y, float z)
 		float end_z_y = -end_x * sin(y) + end_z_x * cos(y);
 
 		// Rotate around z-axis
-		wireframe->rotated[i].start.x = start_x_y * cos(z) - start_y_x * sin(z);
-		wireframe->rotated[i].start.y = start_x_y * sin(z) + start_y_x * cos(z);
-		wireframe->rotated[i].start.z = start_z_y;
-		wireframe->rotated[i].end.x = end_x_y * cos(z) - end_y_x * sin(z);
-		wireframe->rotated[i].end.y = end_x_y * sin(z) + end_y_x * cos(z);
-		wireframe->rotated[i].end.z = end_z_y;
+		w->rotated[i].start.x = start_x_y * cos(z) - start_y_x * sin(z);
+		w->rotated[i].start.y = start_x_y * sin(z) + start_y_x * cos(z);
+		w->rotated[i].start.z = start_z_y;
+		w->rotated[i].end.x = end_x_y * cos(z) - end_y_x * sin(z);
+		w->rotated[i].end.y = end_x_y * sin(z) + end_y_x * cos(z);
+		w->rotated[i].end.z = end_z_y;
 	}
 }

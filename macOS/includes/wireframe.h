@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 09:50:48 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/15 09:54:42 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/15 11:23:37 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_wireframe	*init_wireframe(t_list *map);
 void		init_edges(t_wireframe *w, int rows, int columns);
 void		update_center(t_wireframe *w, t_line *edges, int edges_count);
 void		init_center(t_wireframe *w, t_point *vertices);
-void		init_vertices(t_point *vertices, t_list *map);
+void		init_vertices(t_point *v, t_list *map);
 
 // Offset functions
 
@@ -76,7 +76,7 @@ t_point		isometric_projection(t_point p);
 
 void		scale(t_wireframe *wireframe, float factor);
 void		translate(t_wireframe *wireframe, int x, int y);
-void		rotate(t_wireframe *wireframe, float x, float y, float z);
+void		rotate(t_wireframe *w, float x, float y, float z);
 
 // Debug functions
 

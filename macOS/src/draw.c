@@ -1,44 +1,43 @@
-# include "graphics.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/15 10:11:33 by tjun-yu           #+#    #+#             */
+/*   Updated: 2024/05/15 10:29:10 by tjun-yu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "graphics.h"
 
 void	draw_wireframe(t_mlx *mlx, t_wireframe *wireframe)
 {
-	// debug("Drawing wireframe...");
 	int	i;
 
 	i = -1;
 	while (++i < wireframe->edges_count)
 	{
-		// debug(NULL);
 		draw_line(mlx, wireframe->projection[i]);
-		// printf("%d ", wireframe->projection[i].start.x);
-		// if (i % 3 == 0 && i != 0)
-		// 	printf("\n");
 	}
 }
 
-void draw_line(t_mlx *mlx, t_line line)
+void	draw_line(t_mlx *mlx, t_line line)
 {
-	int steps;
-	float incX;
-	float incY;
-	float x;
-	float y;
+	int		steps;
+	float	x;
+	float	y;
 	int		i;
 
 	x = line.start.x;
 	y = line.start.y;
 	line.dx = line.end.x - line.start.x;
 	line.dy = line.end.y - line.start.y;
-	steps = abs(line.dx) > abs(line.dy) ? abs(line.dx) : abs(line.dy);
-	incX = line.dx / (float)steps;
-	incY = line.dy / (float)steps;
-	// printf("start color: %d\n", line.start.color);	// Debug
-	// printf("end color: %d\n", line.end.color);	// Debug
-	// printf("start x: %d, y: %d\n", line.start.x, line.start.y);	// Debug
-	// printf("end x: %d, y: %d\n", line.end.x, line.end.y); // Debug
-	// printf("dx: %d, dy: %d\n", line.dx, line.dy); // Debug
-	// printf("incX: %.2f, incY: %.2f\n", incX, incY); // Debug
-	// printf("point: %.2f, %.2f\n\n", x, y);	// Debug
+	if (abs(line.dx) > abs(line.dy))
+		steps = abs(line.dx);
+	else
+		steps = abs(line.dy);
 	i = -1;
 	while (++i < steps)
 	{
@@ -46,7 +45,7 @@ void draw_line(t_mlx *mlx, t_line line)
 			render_pixel(&mlx->img, x, y, line.start.color);
 		else
 			render_pixel(&mlx->img, x, y, line.end.color);
-		x += incX;
-		y += incY;
+		x += line.dx / (float)steps;
+		y += line.dy / (float)steps;
 	}
 }

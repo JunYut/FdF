@@ -1,6 +1,22 @@
-# include "FdF.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   events.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/15 10:38:26 by tjun-yu           #+#    #+#             */
+/*   Updated: 2024/05/15 10:39:19 by tjun-yu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int quit(t_frame *f)
+#include "FdF.h"
+
+static void	key_translate(int keycode, t_point *translate);
+static void	key_rotate(int keycode, t_point *rotate);
+static void	key_scale(int keycode, t_wireframe *wireframe);
+
+int	quit(t_frame *f)
 {
 	ft_printf("Exiting...\n");
 	ft_lstclear(&f->map, free_map);
@@ -12,58 +28,77 @@ int quit(t_frame *f)
 
 int	key_hook(int keycode, t_frame *frame)
 {
-	// ft_printf("Keycode: %d\n", keycode);
 	if (keycode == KEY_ESC)
 		quit(frame);
 	frame->redraw_flag = 1;
+	if (keycode == KEY_UP || keycode == KEY_DOWN || keycode == KEY_LEFT
+		|| keycode == KEY_RIGHT)
+		key_translate(keycode, &frame->wireframe->translate);
+	if (keycode == KEY_W || keycode == KEY_S || keycode == KEY_A
+		|| keycode == KEY_D || keycode == KEY_Q || keycode == KEY_E)
+		key_rotate(keycode, &frame->wireframe->rotate);
+	if (keycode == KEY_PLUS || keycode == KEY_MINUS)
+		key_scale(keycode, frame->wireframe);
+	return (0);
+}
+
+static void	key_translate(int keycode, t_point *translate)
+{
 	if (keycode == KEY_UP)
 	{
-		frame->wireframe->translate.y += 10;
+		translate->y += 10;
 	}
 	if (keycode == KEY_DOWN)
 	{
-		frame->wireframe->translate.y -= 10;
+		translate->y -= 10;
 	}
 	if (keycode == KEY_LEFT)
 	{
-		frame->wireframe->translate.x += 10;
+		translate->x += 10;
 	}
 	if (keycode == KEY_RIGHT)
 	{
-		frame->wireframe->translate.x -= 10;
+		translate->x -= 10;
 	}
+}
+
+static void	key_rotate(int keycode, t_point *rotate)
+{
 	if (keycode == KEY_W)
 	{
-		frame->wireframe->rotate.x += 10;
+		rotate->x += 10;
 	}
 	if (keycode == KEY_S)
 	{
-		frame->wireframe->rotate.x -= 10;
+		rotate->x -= 10;
 	}
 	if (keycode == KEY_A)
 	{
-		frame->wireframe->rotate.y -= 10;
+		rotate->y -= 10;
 	}
 	if (keycode == KEY_D)
 	{
-		frame->wireframe->rotate.y += 10;
+		rotate->y += 10;
 	}
 	if (keycode == KEY_Q)
 	{
-		frame->wireframe->rotate.z -= 10;
+		rotate->z -= 10;
 	}
 	if (keycode == KEY_E)
 	{
-		frame->wireframe->rotate.z += 10;
+		rotate->z += 10;
 	}
+}
+
+static void	key_scale(int keycode, t_wireframe *wireframe)
+{
 	if (keycode == KEY_PLUS)
 	{
-		frame->wireframe->scale += 0.1;
+		wireframe->scale += 0.1;
 	}
 	if (keycode == KEY_MINUS)
 	{
-		if (frame->wireframe->scale > 0.1)
-			frame->wireframe->scale -= 0.1;
+		if (wireframe->scale > 0.1)
+			wireframe->scale -= 0.1;
 	}
-	return (0);
 }

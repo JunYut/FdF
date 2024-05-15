@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   memory.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:45:26 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/14 23:28:41 by we               ###   ########.fr       */
+/*   Updated: 2024/05/15 11:14:52 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,10 @@ void	*c_malloc(size_t size)
 {
 	static int	count;
 	static int	total;
-	void	*ptr;
+	void		*ptr;
 
 	++count;
 	total += size;
-	// ft_printf("Malloc count: %d, size: %d, total: %d\n", count, size, total);
 	ptr = (void *)malloc(size);
 	if (!ptr)
 		return (NULL);

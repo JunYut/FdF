@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   offset.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/15 11:16:05 by tjun-yu           #+#    #+#             */
+/*   Updated: 2024/05/15 11:16:20 by tjun-yu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "wireframe.h"
 
 // Use after scaling
 void	offset_center(t_wireframe *w)
 {
-	// debug("Offsetting w...");
-	int i;
+	int	i;
 
 	update_center(w, w->projection, w->edges_count);
 	i = -1;
@@ -20,8 +31,7 @@ void	offset_center(t_wireframe *w)
 // Use before rotating
 void	offset_origin(t_wireframe *w)
 {
-	// debug("Offsetting center...");
-	int i;
+	int	i;
 
 	update_center(w, w->edges, w->edges_count);
 	i = -1;
@@ -32,6 +42,4 @@ void	offset_origin(t_wireframe *w)
 		w->edges[i].end.x -= w->center.x;
 		w->edges[i].end.y -= w->center.y;
 	}
-	// print_edges(w->edges, w->edges_count);	// Debug
-	// print_center(w->center);	// Debug
 }

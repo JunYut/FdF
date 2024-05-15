@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:19:49 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/13 18:12:04 by we               ###   ########.fr       */
+/*   Updated: 2024/05/15 11:24:48 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	valid_map(t_list *map)
 	columns = tmp->columns;
 	while (current)
 	{
-		// Check if the number of columns is the same
 		if (tmp->columns != columns)
 		{
 			ft_putstr_fd("Error: invalid columns\n", 2);
