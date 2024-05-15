@@ -1,6 +1,6 @@
 [submodule "libft"]
-	path = FdF/libft
-	url = https://github.com/JunYut/libft.git
+	path = "FdF/libft"
+	url = "https://github.com/JunYut/libft.git"
 [submodule "minilibx"]
-	path = FdF/minilibx-linux
-	url = git@github.com:42Paris/minilibx-linux.git
+	path = "FdF/minilibx-linux"
+	url = "git@github.com:42Paris/minilibx-linux.git"
