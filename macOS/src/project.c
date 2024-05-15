@@ -1,10 +1,9 @@
 # include "wireframe.h"
 
 // Cant name it projector cuz floating point exception
-void  c_projector(t_wireframe *w, t_mlx *tmp)
+void  c_projector(t_wireframe *w)
 {
 	// debug("Projecting w...");
-	(void)tmp;
 	int i;
 
 	i = -1;

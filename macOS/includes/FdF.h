@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:19:41 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/08 12:27:14 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/15 09:47:55 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 # include "c_libft.h"
 # include "mlx.h"
+# include "graphics.h"
 # include "map.h"
 # include "wireframe.h"
 # include "memory.h"

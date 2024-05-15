@@ -9,28 +9,6 @@
 
 # include "FdF.h"
 
-// TODO: make this dynamic
-# define WIN_WIDTH 800
-# define WIN_HEIGHT 600
-# define WHITE 0xFFFFFF
-
-typedef struct s_img
-{
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	int		offset;
-}				t_img;
-
-typedef struct s_mlx
-{
-	void	*mlx;
-	void	*win;
-	t_img	img;
-}				t_mlx;
-
 typedef struct s_point
 {
 	int	x;
@@ -61,13 +39,7 @@ typedef struct s_wireframe
 	int		vertices_count;
 }				t_wireframe;
 
-typedef struct s_frame
-{
-	t_list		*map;
-	t_mlx		mlx;
-	t_wireframe	*wireframe;
-	int			redraw_flag;
-}				t_frame;
+typedef struct s_frame	t_frame;
 
 // Initialization functions
 
@@ -84,7 +56,7 @@ void		offset_origin(t_wireframe *w);
 
 // Projection functions
 
-void		c_projector(t_wireframe *w, t_mlx *tmp);
+void		c_projector(t_wireframe *w);
 t_point		isometric_projection(t_point p);
 
 // Geometric Transformations
@@ -92,21 +64,6 @@ t_point		isometric_projection(t_point p);
 void		scale(t_wireframe *wireframe, float factor);
 void		translate(t_wireframe *wireframe, int x, int y);
 void		rotate(t_wireframe *wireframe, float x, float y, float z);
-
-// Drawing functions
-
-void		draw_wireframe(t_mlx *mlx, t_wireframe *wireframe);
-void		draw_line(t_mlx *mlx, t_line line);
-
-// Render functions
-
-int			render_new_frame(t_frame *frame);
-void		renderPixel(t_img *img, int x, int y, int color);
-
-// Event functions
-
-int			quit(t_frame *f);
-int			key_hook(int keycode, t_frame *frame);
 
 // Debug functions
 

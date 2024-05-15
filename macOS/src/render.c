@@ -1,4 +1,4 @@
-# include "wireframe.h"
+# include "graphics.h"
 
 int render_new_frame(t_frame *frame)
 {
@@ -20,7 +20,7 @@ int render_new_frame(t_frame *frame)
 		offset_origin(w);
 		rotate(w, w->rotate.x, w->rotate.y, w->rotate.z);
 		// debug("Done rotating...");
-		c_projector(w, m);
+		c_projector(w);
 		// debug("Done projecting...");
 		scale(w, w->scale);
 		// debug("Done scaling...");
@@ -42,7 +42,7 @@ int render_new_frame(t_frame *frame)
 	return (0);
 }
 
-void renderPixel(t_img *img, int x, int y, int color)
+void render_pixel(t_img *img, int x, int y, int color)
 {
 	char	*dst;
 	int		byte_offset;

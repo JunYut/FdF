@@ -1,4 +1,4 @@
-# include "wireframe.h"
+# include "graphics.h"
 
 void	draw_wireframe(t_mlx *mlx, t_wireframe *wireframe)
 {
@@ -43,9 +43,9 @@ void draw_line(t_mlx *mlx, t_line line)
 	while (++i < steps)
 	{
 		if (i <= steps / 2)
-			renderPixel(&mlx->img, x, y, line.start.color);
+			render_pixel(&mlx->img, x, y, line.start.color);
 		else
-			renderPixel(&mlx->img, x, y, line.end.color);
+			render_pixel(&mlx->img, x, y, line.end.color);
 		x += incX;
 		y += incY;
 	}
