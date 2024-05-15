@@ -50,22 +50,75 @@ Here's a simple formula for an isometric projection with a **30-degree angle** b
 
 # 3D Rotation
 ![alt text](3D_rotation.png)
-Rotating a 3D object involves applying a rotation matrix to each of the object's vertices. The rotation matrix depends on the axis of rotation. Here's a brief overview:
 
-Rotation around the x-axis:
+Rotating a 3D object involves applying a rotation matrix to each of the object's vertices. The rotation matrix depends on the axis of rotation. Here are some methods to do so:
 
-	1      0       0
-	0  cos(θ) -sin(θ)
-	0  sin(θ)  cos(θ)
+## **1. Euler Angles:**
 
-Rotation around the y-axis:
+Euler angles represent a rotation by specifying three successive rotations around the **fixed axes** (X, Y, and Z) in a specific order (e.g., Z-X-Z). Each angle describes the amount of rotation around its corresponding axis.
 
-	cos(θ)   0  sin(θ)
-		0    1      0
-	-sin(θ)  0  cos(θ)
+* **Advantages:**
+    * Intuitive for beginners, as it relates to rotations around familiar axes.
+    * Relatively easy to understand conceptually.
+* **Disadvantages:**
+    * Can suffer from gimbal lock, where certain combinations of angles result in no rotation or loss of a degree of freedom.
+    * Not the most efficient method for calculations.
 
-Rotation around the z-axis:
+## **2. Rotation Matrices:**
 
-	cos(θ) -sin(θ)  0
-	sin(θ)  cos(θ)  0
-		0       0   1
+Rotation matrices are 4x4 matrices that encode the complete rotation information. The specific values within the matrix depend on the rotation angle and axis.
+
+* **Advantages:**
+    * Efficient for calculations and computations.
+    * Can be easily combined to perform complex rotations involving multiple axes.
+* **Disadvantages:**
+    * Can be less intuitive for beginners to understand compared to Euler angles.
+    * Converting between rotation matrices and other representations (like Euler angles) can involve complex calculations.
+
+## **3. Quaternions:**
+
+Quaternions are a mathematical construct using four numbers to represent a rotation. They offer some advantages over other methods.
+
+* **Advantages:**
+    * No gimbal lock like Euler angles.
+    * Efficient for calculations and interpolation between rotations.
+    * More compact representation compared to 3x3 rotation matrices.
+* **Disadvantages:**
+    * Less intuitive concept for beginners compared to Euler angles or axis-angle.
+    * Quaternion multiplication can be more complex than matrix multiplication.
+
+## **4. Axis-Angle Representation:**
+
+This method specifies a rotation by defining a unit vector representing the axis of rotation and an angle of rotation around that axis.
+
+* **Advantages:**
+    * Relatively simple and intuitive concept.
+    * No gimbal lock like Euler angles.
+* **Disadvantages:**
+    * Can be less efficient for some calculations compared to quaternions or rotation matrices.
+    * Converting between axis-angle and other representations might involve trigonometric calculations.
+
+## **5. Spherical Linear Interpolation (SLERP):**
+
+SLERP is a technique used to interpolate smoothly between two rotations represented by quaternions. This is useful for creating animations where objects need to rotate gradually over time.
+
+* **Advantages:**
+    * Provides smooth and natural-looking interpolation between rotations.
+    * Avoids the problems of linear interpolation with quaternions.
+* **Disadvantages:**
+    * Requires quaternion representation for the rotations.
+    * Slightly more complex calculation compared to linear interpolation. 
+
+**Choosing the Method:**
+
+The best method for your specific application depends on various factors:
+
+* **Level of intuitiveness:** If you're a beginner, Euler angles might be easier to grasp initially.
+* **Computational efficiency:** Rotation matrices and quaternions are generally preferred for performance-critical tasks.
+* **Gimbal lock:** If you need to avoid gimbal lock, quaternions or axis-angle are better choices.
+* **Interpolation:** SLERP is specifically useful for smooth rotation animations using quaternions.
+
+**Additional Resources:**
+
+* Rotation Representations in 3D: [https://en.wikipedia.org/wiki/Rotation_formalisms_in_three_dimensions](https://en.wikipedia.org/wiki/Rotation_formalisms_in_three_dimensions)
+* 3D Geometric Transformations: [https://www.geeksforgeeks.org/videos/3-d-transformation-translation-in-computer-graphics/](https://www.geeksforgeeks.org/videos/3-d-transformation-translation-in-computer-graphics/)
