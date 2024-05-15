@@ -6,11 +6,13 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:42:16 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/15 10:50:03 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/15 13:18:53 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wireframe.h"
+
+static void	init_columns(t_wireframe *w, int rows, int columns, int e_index);
 
 t_wireframe	*init_wireframe(t_list *map)
 {
@@ -53,32 +55,7 @@ void	init_edges(t_wireframe *w, int rows, int columns)
 			w->edges[e_index].end = w->vertices[v_index + 1];
 		}
 	}
-	i = -1;
-	while (++i < columns)
-	{
-		j = -1;
-		while (++j < rows - 1)
-		{
-			v_index = j * columns + i;
-			w->edges[++e_index].start = w->vertices[v_index];
-			w->edges[e_index].end = w->vertices[v_index + columns];
-		}
-	}
-}
-
-void	update_center(t_wireframe *w, t_line *edges, int edges_count)
-{
-	int	i;
-
-	w->center = (t_point){0, 0, 0, 0};
-	i = -1;
-	while (++i < edges_count)
-	{
-		w->center.x += edges[i].start.x;
-		w->center.y += edges[i].start.y;
-	}
-	w->center.x /= edges_count;
-	w->center.y /= edges_count;
+	init_columns(w, rows, columns, e_index);
 }
 
 void	init_center(t_wireframe *wireframe, t_point *vertices)
@@ -120,5 +97,24 @@ void	init_vertices(t_point *v, t_list *map)
 				v[index].color = ft_atoi_base(m->split_comma[j][1], 16);
 		}
 		current = current->next;
+	}
+}
+
+static void	init_columns(t_wireframe *w, int rows, int columns, int e_index)
+{
+	int	v_index;
+	int	i;
+	int	j;
+
+	i = -1;
+	while (++i < columns)
+	{
+		j = -1;
+		while (++j < rows - 1)
+		{
+			v_index = j * columns + i;
+			w->edges[++e_index].start = w->vertices[v_index];
+			w->edges[e_index].end = w->vertices[v_index + columns];
+		}
 	}
 }
