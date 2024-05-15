@@ -6,7 +6,7 @@
 /*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:38:26 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/15 10:39:19 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/15 13:24:35 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,27 +66,27 @@ static void	key_rotate(int keycode, t_point *rotate)
 {
 	if (keycode == KEY_W)
 	{
-		rotate->x += 10;
+		rotate->x += 5;
 	}
 	if (keycode == KEY_S)
 	{
-		rotate->x -= 10;
+		rotate->x -= 5;
 	}
 	if (keycode == KEY_A)
 	{
-		rotate->y -= 10;
+		rotate->y -= 5;
 	}
 	if (keycode == KEY_D)
 	{
-		rotate->y += 10;
+		rotate->y += 5;
 	}
 	if (keycode == KEY_Q)
 	{
-		rotate->z -= 10;
+		rotate->z -= 5;
 	}
 	if (keycode == KEY_E)
 	{
-		rotate->z += 10;
+		rotate->z += 5;
 	}
 }
 
