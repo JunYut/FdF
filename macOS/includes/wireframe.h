@@ -1,10 +1,23 @@
-# pragma once
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   wireframe.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/15 09:50:48 by tjun-yu           #+#    #+#             */
+/*   Updated: 2024/05/15 09:54:42 by tjun-yu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef WIREFRAME_H
+# define WIREFRAME_H
 
 # ifdef __APPLE__
-	# include <OpenGL/gl.h>
-	# include "macOS_keys.h"
+#  include <OpenGL/gl.h>
+#  include "macOS_keys.h"
 # elif __linux__
-	# include "linux_keys.h"
+#  include "linux_keys.h"
 # endif
 
 # include "FdF.h"
@@ -73,3 +86,5 @@ void		print_vertices(t_point *vertices, int vertices_count);
 void		print_transform(t_wireframe *wireframe);
 void		print_center(t_point center);
 void		debug(char *msg);
+
+#endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 09:07:38 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/13 18:09:55 by we               ###   ########.fr       */
+/*   Updated: 2024/05/15 09:52:50 by tjun-yu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,5 @@ int		valid_arg(int argc, char *file);
 int		valid_file(char *file);
 t_list	*parse_map(int fd);
 t_map	*parse_line(char *line);
-
 
 #endif
