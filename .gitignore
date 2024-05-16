@@ -1,0 +1,6 @@
+*.o
+*.a
+*.out
+FdF.dSYM
+.vscode/
+linux/
