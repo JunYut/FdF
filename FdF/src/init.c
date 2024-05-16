@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:42:16 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/15 13:18:53 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/16 15:16:46 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	init_vertices(t_point *v, t_list *map)
 	t_list	*current;
 	t_map	*m;
 	int		index;
- 	int		i;
+	int		i;
 	int		j;
 
 	current = map;

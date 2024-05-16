@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphics.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 09:34:49 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/15 09:48:45 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/16 15:40:39 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ typedef struct s_frame
 // Drawing functions
 
 void	draw_wireframe(t_mlx *mlx, t_wireframe *wireframe);
-void	draw_line(t_mlx *mlx, t_line line);
+void	draw_line(t_mlx *mlx, t_line l);
+float	lerp(int start, int end, float t);
 
 // Rendering functions
 
