@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wireframe.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 09:50:48 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/15 11:23:37 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/16 17:03:54 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,14 @@ typedef struct s_wireframe
 	int		vertices_count;
 }				t_wireframe;
 
-typedef struct s_frame	t_frame;
-
 // Initialization functions
 
 t_wireframe	*init_wireframe(t_list *map);
 void		init_edges(t_wireframe *w, int rows, int columns);
 void		update_center(t_wireframe *w, t_line *edges, int edges_count);
 void		init_center(t_wireframe *w, t_point *vertices);
-void		init_vertices(t_point *v, t_list *map);
+void		init_vertices(t_point *v, t_list *map, int count);
+int			upscale(int vertices_count);
 
 // Offset functions
 

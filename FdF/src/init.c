@@ -6,7 +6,7 @@
 /*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:42:16 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/16 15:16:46 by we               ###   ########.fr       */
+/*   Updated: 2024/05/16 17:04:05 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ t_wireframe	*init_wireframe(t_list *map)
 	m = (t_map *)map->content;
 	w->vertices_count = m->columns * m->rows;
 	w->edges_count = (m->rows - 1) * m->columns + (m->columns - 1) * m->rows;
-	w->scale = 0.1;
+	w->scale = 0.5;
 	w->translate = (t_point){0, 0, 0, 0};
 	w->rotate = (t_point){45, 40, -30, 0};
 	w->vertices = (t_point *)c_malloc(w->vertices_count * sizeof(t_point));
 	w->edges = (t_line *)c_malloc(w->edges_count * sizeof(t_line));
 	w->rotated = (t_line *)c_malloc(w->edges_count * sizeof(t_line));
 	w->projection = (t_line *)c_malloc(w->edges_count * sizeof(t_line));
-	init_vertices(w->vertices, map);
+	init_vertices(w->vertices, map, w->vertices_count);
 	init_center(w, w->vertices);
 	init_edges(w, m->rows, m->columns);
 	return (w);
@@ -73,7 +73,7 @@ void	init_center(t_wireframe *wireframe, t_point *vertices)
 	wireframe->center.y /= wireframe->vertices_count;
 }
 
-void	init_vertices(t_point *v, t_list *map)
+void	init_vertices(t_point *v, t_list *map, int count)
 {
 	t_list	*current;
 	t_map	*m;
@@ -91,8 +91,8 @@ void	init_vertices(t_point *v, t_list *map)
 		j = -1;
 		while (++j < m->columns)
 		{
-			v[++index] = (t_point){j * 10, i * 10,
-				ft_atoi(m->split_comma[j][0]) * 10, WHITE};
+			v[++index] = (t_point){j * upscale(count), i * upscale(count),
+				ft_atoi(m->split_comma[j][0]) * upscale(count), WHITE};
 			if (m->split_comma[j][1])
 				v[index].color = ft_atoi_base(m->split_comma[j][1], 16);
 		}
