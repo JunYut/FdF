@@ -6,7 +6,7 @@
 /*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 09:50:48 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/16 17:03:54 by we               ###   ########.fr       */
+/*   Updated: 2024/05/16 17:16:22 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ typedef struct s_line
 
 typedef struct s_wireframe
 {
-	t_line	*projection;
 	t_line	*rotated;
 	t_line	*edges;
 	t_point	*vertices;

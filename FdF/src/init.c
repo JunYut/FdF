@@ -6,7 +6,7 @@
 /*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:42:16 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/16 17:04:05 by we               ###   ########.fr       */
+/*   Updated: 2024/05/16 17:15:44 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ t_wireframe	*init_wireframe(t_list *map)
 	w->vertices = (t_point *)c_malloc(w->vertices_count * sizeof(t_point));
 	w->edges = (t_line *)c_malloc(w->edges_count * sizeof(t_line));
 	w->rotated = (t_line *)c_malloc(w->edges_count * sizeof(t_line));
-	w->projection = (t_line *)c_malloc(w->edges_count * sizeof(t_line));
 	init_vertices(w->vertices, map, w->vertices_count);
 	init_center(w, w->vertices);
 	init_edges(w, m->rows, m->columns);

@@ -6,7 +6,7 @@
 /*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:11:33 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/16 15:40:27 by we               ###   ########.fr       */
+/*   Updated: 2024/05/16 17:11:20 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	draw_wireframe(t_mlx *mlx, t_wireframe *wireframe)
 	i = -1;
 	while (++i < wireframe->edges_count)
 	{
-		draw_line(mlx, wireframe->projection[i]);
+		draw_line(mlx, wireframe->rotated[i]);
 	}
 }
 

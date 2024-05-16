@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   offset.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 11:16:05 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/15 11:16:20 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/16 17:11:41 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ void	offset_center(t_wireframe *w)
 {
 	int	i;
 
-	update_center(w, w->projection, w->edges_count);
+	update_center(w, w->rotated, w->edges_count);
 	i = -1;
 	while (++i < w->edges_count)
 	{
-		w->projection[i].start.x += WIN_WIDTH / 2 - w->center.x;
-		w->projection[i].start.y += WIN_HEIGHT / 2 - w->center.y;
-		w->projection[i].end.x += WIN_WIDTH / 2 - w->center.x;
-		w->projection[i].end.y += WIN_HEIGHT / 2 - w->center.y;
+		w->rotated[i].start.x += WIN_WIDTH / 2 - w->center.x;
+		w->rotated[i].start.y += WIN_HEIGHT / 2 - w->center.y;
+		w->rotated[i].end.x += WIN_WIDTH / 2 - w->center.x;
+		w->rotated[i].end.y += WIN_HEIGHT / 2 - w->center.y;
 	}
 }
 

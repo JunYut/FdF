@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   memory.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:45:26 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/15 11:14:52 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/16 17:16:56 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	free_wireframe(t_wireframe *wireframe)
 {
-	c_free(wireframe->projection);
 	c_free(wireframe->rotated);
 	c_free(wireframe->edges);
 	c_free(wireframe->vertices);

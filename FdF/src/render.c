@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:00:41 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/15 10:01:30 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/16 17:14:48 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	render_new_frame(t_frame *frame)
 		ft_bzero(m->img.addr, m->img.offset);
 		offset_origin(w);
 		rotate(w, w->rotate.x, w->rotate.y, w->rotate.z);
-		c_projector(w);
 		scale(w, w->scale);
 		offset_center(w);
 		translate(w, w->translate.x, w->translate.y);

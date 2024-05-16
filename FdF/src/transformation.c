@@ -6,7 +6,7 @@
 /*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 11:22:57 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/16 12:43:49 by we               ###   ########.fr       */
+/*   Updated: 2024/05/16 17:13:58 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static void	init_euler(t_euler *e, t_line *edges, float x, float y);
 
-// Use after projecting the wireframe, before offsetting the projection
+// Use after projecting the wireframe, before offsetting the rotated
 void	scale(t_wireframe *wireframe, float factor)
 {
 	int	i;
@@ -23,14 +23,14 @@ void	scale(t_wireframe *wireframe, float factor)
 	i = -1;
 	while (++i < wireframe->edges_count)
 	{
-		wireframe->projection[i].start.x *= factor;
-		wireframe->projection[i].start.y *= factor;
-		wireframe->projection[i].end.x *= factor;
-		wireframe->projection[i].end.y *= factor;
+		wireframe->rotated[i].start.x *= factor;
+		wireframe->rotated[i].start.y *= factor;
+		wireframe->rotated[i].end.x *= factor;
+		wireframe->rotated[i].end.y *= factor;
 	}
 }
 
-// Use after offsetting the projection
+// Use after offsetting the rotated
 void	translate(t_wireframe *wireframe, int x, int y)
 {
 	int	i;
@@ -38,10 +38,10 @@ void	translate(t_wireframe *wireframe, int x, int y)
 	i = -1;
 	while (++i < wireframe->edges_count)
 	{
-		wireframe->projection[i].start.x += x;
-		wireframe->projection[i].start.y += y;
-		wireframe->projection[i].end.x += x;
-		wireframe->projection[i].end.y += y;
+		wireframe->rotated[i].start.x += x;
+		wireframe->rotated[i].start.y += y;
+		wireframe->rotated[i].end.x += x;
+		wireframe->rotated[i].end.y += y;
 	}
 }
 
@@ -61,9 +61,11 @@ void	rotate(t_wireframe *w, float x, float y, float z)
 		w->rotated[i].start.x = e.xy[0] * cos(z) - e.yx[0] * sin(z);
 		w->rotated[i].start.y = e.xy[0] * sin(z) + e.yx[0] * cos(z);
 		w->rotated[i].start.z = e.zy[0];
+		w->rotated[i].start.color = w->edges[i].start.color;
 		w->rotated[i].end.x = e.xy[1] * cos(z) - e.yx[1] * sin(z);
 		w->rotated[i].end.y = e.xy[1] * sin(z) + e.yx[1] * cos(z);
 		w->rotated[i].end.z = e.zy[1];
+		w->rotated[i].end.color = w->edges[i].end.color;
 	}
 }
 
