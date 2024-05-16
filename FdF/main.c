@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjun-yu <tjun-yu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: we <we@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 09:12:52 by tjun-yu           #+#    #+#             */
-/*   Updated: 2024/05/15 11:13:02 by tjun-yu          ###   ########.fr       */
+/*   Updated: 2024/05/16 12:04:30 by we               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	init_mlx(t_frame *f)
 			&img->line_length, &img->endian);
 	img->offset = (WIN_HEIGHT * WIN_WIDTH * (img->bits_per_pixel / 8));
 	mlx_hook(f->mlx.win, 17, 0, quit, f);
-	mlx_hook(f->mlx.win, 2, 0, key_hook, f);
+	mlx_hook(f->mlx.win, 2, 1L << 0, key_hook, f);
 	mlx_key_hook(f->mlx.win, key_hook, f);
 	f->redraw_flag = 1;
 }
