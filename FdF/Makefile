@@ -23,7 +23,7 @@ MLX = libmlx.a
 LIBFT = libft.a
 
 # Executable
-EXEC = FdF
+EXEC = fdf
 
 # Rules and Recipes
 all: $(EXEC)
